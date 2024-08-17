@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 class_name Player;
 
+@export var settings: Settings
 @export_category("Scaling")
 @export var min_scale: float = 0.1
 @export var scaling_time: float = 0.2
@@ -9,8 +10,6 @@ class_name Player;
 @export var jump_velocity: float = 4.5
 @export var move_speed: float = 3.0
 @export var run_speed: float = 6.0
-@export var mouse_sensivity: float = 0.005
-@export var gamepad_sensivity: float = 2
 @export var max_up_rotation_angle: float = 30
 @export var max_down_rotation_angle: float = 70
 
@@ -18,6 +17,7 @@ class_name Player;
 @onready var scale_root: Node3D = $ScaleRoot
 @onready var collider: CollisionShape3D = $Collider
 @onready var big_scale_cast: ShapeCast3D = $BigScaleCast
+@onready var jump_audio: AudioStreamPlayer = $JumpAudio
 
 enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING }
 var state := ScaleState.MAX
@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_handle(event.relative * mouse_sensivity)
+		rotate_handle(event.relative * settings.mouse_sensitivity)
 	elif event is InputEventMouseButton && Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("change_scale"):
@@ -47,10 +47,11 @@ func _physics_process(delta: float):
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	elif Input.is_action_just_pressed("jump"):
+		jump_audio.play()
 		velocity.y = jump_velocity
 
 	var camera_axis = Input.get_vector("rotate_left", "rotate_right", "rotate_up", "rotate_down")
-	rotate_handle(Vector2(camera_axis.x*abs(camera_axis.x), camera_axis.y*abs(camera_axis.y))*delta*gamepad_sensivity)
+	rotate_handle(Vector2(camera_axis.x*abs(camera_axis.x), camera_axis.y*abs(camera_axis.y))*delta*settings.joystick_sensitivity)
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var input_speed : float = min(input_dir.length(), 1.0)

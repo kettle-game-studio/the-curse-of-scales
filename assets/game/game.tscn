@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=7 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
+[ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
+[ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
+[ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
+stream_count = 1
+stream_0 = ExtResource("5_qgk2g")
 
 [node name="Game" type="Node"]
+script = ExtResource("1_dld7d")
 
-[node name="Sandbox" parent="." instance=ExtResource("1_dgxda")]
+[node name="Level" type="Node3D" parent="."]
+process_mode = 1
 
-[node name="Player" parent="." instance=ExtResource("2_7ojib")]
+[node name="Player" parent="Level" instance=ExtResource("2_7ojib")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12963, 0, 0.348647)
+
+[node name="Sandbox" parent="Level" instance=ExtResource("1_dgxda")]
+
+[node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
+process_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_roke2")
+autoplay = true
+bus = &"Music"

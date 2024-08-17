@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfmao6x2oota4"]
+
+[ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="1_2toee"]
+[ext_resource type="Texture2D" uid="uid://bk17gh7ks7tjp" path="res://assets/menu/main/background_placeholder.jpg" id="1_kaov0"]
+[ext_resource type="PackedScene" uid="uid://c7xicaqgc3r4h" path="res://assets/menu/settings_slider.tscn" id="3_ayba1"]
+[ext_resource type="Script" path="res://assets/menu/main/main_menu.gd" id="3_s2uwn"]
+[ext_resource type="Script" path="res://assets/menu/menu_section.gd" id="4_bctu8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t17vm"]
+texture = ExtResource("1_kaov0")
+modulate_color = Color(0.545098, 0.545098, 0.545098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nludy"]
+font_size = 32
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.788235)
+shadow_offset = Vector2(5, 5)
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("1_2toee")
+theme_override_styles/panel = SubResource("StyleBoxTexture_t17vm")
+script = ExtResource("3_s2uwn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 128
+
+[node name="Main" type="VBoxContainer" parent="MarginContainer" node_paths=PackedStringArray("focus_on_open")]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+script = ExtResource("4_bctu8")
+focus_on_open = NodePath("MarginContainer/VBoxContainer/Play")
+
+[node name="Title" type="Label" parent="MarginContainer/Main"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+text = "The Curse of Scales"
+label_settings = SubResource("LabelSettings_nludy")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Main"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Main/MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Settings" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MarginContainer/Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" type="VBoxContainer" parent="MarginContainer" node_paths=PackedStringArray("focus_on_open")]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_2toee")
+script = ExtResource("4_bctu8")
+section_name = "Settings"
+focus_on_open = NodePath("MarginContainer/VBoxContainer/Mouse/HSlider")
+
+[node name="Title" type="Label" parent="MarginContainer/Settings"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+text = "Settings"
+label_settings = SubResource("LabelSettings_nludy")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Settings"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Settings/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+
+[node name="Mouse" type="HBoxContainer" parent="MarginContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+
+[node name="Label" type="Label" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Mouse"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_2toee")
+text = "Mouse sensitivity"
+
+[node name="HSlider" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Mouse" instance=ExtResource("3_ayba1")]
+layout_mode = 2
+field_name = &"mouse_sensitivity"
+
+[node name="Gamepad" type="HBoxContainer" parent="MarginContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+
+[node name="Label" type="Label" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Gamepad"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_2toee")
+text = "Joystick sensitivity"
+
+[node name="HSlider" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Gamepad" instance=ExtResource("3_ayba1")]
+layout_mode = 2
+max_value = 10.0
+field_name = &"joystick_sensitivity"
+
+[node name="Music" type="HBoxContainer" parent="MarginContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+
+[node name="Label" type="Label" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_2toee")
+text = "Music volume"
+
+[node name="HSlider" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Music" instance=ExtResource("3_ayba1")]
+layout_mode = 2
+field_name = &"music_volume"
+
+[node name="Sound Effects" type="HBoxContainer" parent="MarginContainer/Settings/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_2toee")
+
+[node name="Label" type="Label" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Sound Effects"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_2toee")
+text = "Sound effects volume"
+
+[node name="HSlider" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Sound Effects" instance=ExtResource("3_ayba1")]
+layout_mode = 2
+field_name = &"sounds_volume"
+
+[node name="Button" type="Button" parent="MarginContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_2toee")
+text = "          Back          "
+
+[connection signal="pressed" from="MarginContainer/Main/MarginContainer/VBoxContainer/Play" to="." method="resume"]
+[connection signal="pressed" from="MarginContainer/Main/MarginContainer/VBoxContainer/Settings" to="." method="open" binds= ["Settings"]]
+[connection signal="pressed" from="MarginContainer/Main/MarginContainer/VBoxContainer/Quit" to="." method="quit_game"]
+[connection signal="pressed" from="MarginContainer/Settings/Button" to="." method="back_menu"]

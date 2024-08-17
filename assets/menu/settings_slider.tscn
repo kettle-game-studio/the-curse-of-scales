@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7xicaqgc3r4h"]
+
+[ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="1_sxq55"]
+[ext_resource type="Script" path="res://assets/menu/settings_slider.gd" id="2_4nvj5"]
+[ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="3_irou3"]
+
+[node name="HSlider" type="HSlider"]
+size_flags_horizontal = 3
+theme = ExtResource("1_sxq55")
+max_value = 1.0
+step = 0.01
+tick_count = 5
+script = ExtResource("2_4nvj5")
+settings = ExtResource("3_irou3")
