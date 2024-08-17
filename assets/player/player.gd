@@ -136,7 +136,7 @@ func interact():
 		return
 	if collider is Draggable:
 		if item:
-			item.global_position = collider.global_position
+			item.global_transform = collider.global_transform
 			item.drop()
 		item = collider
 		item.drag()

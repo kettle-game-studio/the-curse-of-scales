@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=9 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
 [ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="2_xtnvb"]
@@ -11,6 +11,11 @@
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_u5otx"]
 streams_count = 1
 stream_0/stream = ExtResource("3_sio0l")
+
+[sub_resource type="LabelSettings" id="LabelSettings_48r6s"]
+font_size = 32
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.831373)
 
 [node name="Player" type="CharacterBody3D"]
 collision_mask = 3
@@ -68,6 +73,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 text = "Press F to pay respect"
+label_settings = SubResource("LabelSettings_48r6s")
 
 [node name="HUD" type="MarginContainer" parent="."]
 anchors_preset = 15

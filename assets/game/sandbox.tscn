@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bm4w87imvtb7q"]
+[gd_scene load_steps=19 format=3 uid="uid://bm4w87imvtb7q"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_rolf8"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="2_doe0r"]
@@ -18,11 +18,18 @@ size = Vector2(50, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_g412b"]
 size = Vector3(0.333, 0.333, 0.4)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1vst"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uyndo"]
 albedo_color = Color(0.992157, 0.619608, 0.196078, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_k5n7u"]
-material = SubResource("StandardMaterial3D_m1vst")
+material = SubResource("StandardMaterial3D_uyndo")
+size = Vector3(0.333, 0.333, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aqfn0"]
+albedo_color = Color(0.227451, 0.619608, 0.807843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ksfcc"]
+material = SubResource("StandardMaterial3D_aqfn0")
 size = Vector3(0.333, 0.333, 0.4)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7y0ac"]
@@ -54,7 +61,7 @@ mesh = SubResource("PlaneMesh_cd3aw")
 transform = Transform3D(0.886454, -0.217201, -0.408684, 0.462817, 0.416015, 0.782772, 0, -0.883038, 0.469302, 0, 3.93802, 0)
 
 [node name="Key" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.830865, 1.1344, -2.86717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04397, 0.984459, -2.86717)
 collision_mask = 3
 monitoring = false
 script = ExtResource("1_rolf8")
@@ -68,8 +75,23 @@ shape = SubResource("BoxShape3D_g412b")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184917, 0)
 mesh = SubResource("BoxMesh_k5n7u")
 
+[node name="Key3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.619432, 0.984459, -2.86717)
+collision_mask = 3
+monitoring = false
+script = ExtResource("1_rolf8")
+trigger = ExtResource("2_doe0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Key3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195715, 0)
+shape = SubResource("BoxShape3D_g412b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Key3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184917, 0)
+mesh = SubResource("BoxMesh_ksfcc")
+
 [node name="Key2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10043, 0.528118, -2.64436)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.10043, 0.616786, -2.64436)
 collision_mask = 3
 monitoring = false
 script = ExtResource("1_rolf8")
@@ -80,7 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.195715, 0)
 shape = SubResource("BoxShape3D_7y0ac")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Key2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184917, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0462676, 0)
 mesh = SubResource("BoxMesh_l1i4x")
 
 [node name="Node3D" type="Node3D" parent="."]
