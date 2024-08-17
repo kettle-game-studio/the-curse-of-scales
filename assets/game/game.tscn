@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6tgxpl2npofy"]
+
+[ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
+[ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
+
+[node name="Game" type="Node"]
+
+[node name="Sandbox" parent="." instance=ExtResource("1_dgxda")]
+
+[node name="Player" parent="." instance=ExtResource("2_7ojib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12963, 0, 0.348647)
