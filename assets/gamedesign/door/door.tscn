@@ -1,0 +1,100 @@
+[gd_scene load_steps=13 format=3 uid="uid://cqcivmapg633v"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/triggable.gd" id="1_12j2c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lsc56"]
+size = Vector3(1, 2, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_egjjw"]
+size = Vector3(1, 2, 0.2)
+
+[sub_resource type="Animation" id="Animation_tkjn8"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.05076, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xg167"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8luqc"]
+_data = {
+"Open": SubResource("Animation_tkjn8"),
+"RESET": SubResource("Animation_xg167")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u84oy"]
+animation = &"Open"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdb7w"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p51ps"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rcg5"]
+advance_mode = 2
+advance_expression = "activated"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xa6w3"]
+states/Open/node = SubResource("AnimationNodeAnimation_u84oy")
+states/Open/position = Vector2(504.667, 99.3333)
+states/RESET/node = SubResource("AnimationNodeAnimation_rdb7w")
+states/RESET/position = Vector2(353.333, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_p51ps"), "RESET", "Open", SubResource("AnimationNodeStateMachineTransition_3rcg5")]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_daxda"]
+size = Vector3(1, 1.58643, 0.240234)
+
+[node name="Door" type="Area3D"]
+script = ExtResource("1_12j2c")
+
+[node name="Hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516693, 0, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518278, 0, 0)
+slide_on_ceiling = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_lsc56")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_egjjw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8luqc")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_xa6w3")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17734, 0)
+shape = SubResource("BoxShape3D_daxda")

@@ -19,6 +19,10 @@ class_name Player;
 @onready var big_scale_cast: ShapeCast3D = $BigScaleCast
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var scale_audio: AudioStreamPlayer = $ScaleAudio
+@onready var drag_ray: RayCast3D = %DragRay
+@onready var hand: Marker3D = %Hand
+@onready var action_label: Label = %ActionLabel
+var item: Draggable
 
 enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING }
 var state := ScaleState.MAX
@@ -39,11 +43,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	elif event.is_action_pressed("change_scale"):
 		change_scale()
+	elif event.is_action_pressed("interact"):
+		interact()
 
 func  _process(delta: float) -> void:
 	scale_animation(delta)
+	check_interaction()
 
 func _physics_process(delta: float):
+	if item:
+		item.global_transform = hand.global_transform
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -104,3 +113,30 @@ func scale_animation(delta: float):
 	shape.height = max_shape.height*s
 	shape.radius = max_shape.radius*s
 	collider.position.y = shape.height/2
+
+func check_interaction():
+	if drag_ray.is_colliding():
+		var collider = drag_ray.get_collider()
+		if collider is Triggable:
+			if item && collider.activable(item.trigger):
+				action_label.text = "[E] to %s" % collider.action_name
+			elif !collider.activated:
+				action_label.text = "%s is needed" % collider.trigger.name
+		elif collider is Draggable:
+			action_label.text = "[E] - Drag %s" % collider.trigger.name
+	elif action_label.text != "":
+		action_label.text = ""
+
+func interact():
+	var collider = drag_ray.get_collider()
+	if item && collider is Triggable && collider.activate(item.trigger):
+		item.queue_free()
+		item = null
+		action_label.text = ""
+		return
+	if collider is Draggable:
+		if item:
+			item.global_position = collider.global_position
+			item.drop()
+		item = collider
+		item.drag()

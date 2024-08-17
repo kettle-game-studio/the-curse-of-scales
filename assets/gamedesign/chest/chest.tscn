@@ -1,0 +1,146 @@
+[gd_scene load_steps=16 format=3 uid="uid://bpsxip8j60g2h"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/triggable.gd" id="1_p0kgl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_25ows"]
+size = Vector3(1.87988, 0.155762, 0.784912)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mho2b"]
+albedo_color = Color(0.482353, 0.321569, 0.145098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4d7tu"]
+material = SubResource("StandardMaterial3D_mho2b")
+size = Vector3(1.88, 0.315, 0.785)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pqeqe"]
+material = SubResource("StandardMaterial3D_mho2b")
+size = Vector3(1.88, 0.65, 0.785)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0a55k"]
+size = Vector3(1.87988, 0.668945, 0.784912)
+
+[sub_resource type="Animation" id="Animation_o5drx"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.433333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.467748, 0, 0), Vector3(-0.350811, 0, 0), Vector3(-2.33874, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_to5cn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_etp26"]
+_data = {
+"Open": SubResource("Animation_o5drx"),
+"RESET": SubResource("Animation_to5cn")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tiooj"]
+size = Vector3(1.79688, 0.924683, 0.503906)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u84oy"]
+animation = &"Open"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rdb7w"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p51ps"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3rcg5"]
+advance_mode = 2
+advance_expression = "activated"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_m2npf"]
+states/Open/node = SubResource("AnimationNodeAnimation_u84oy")
+states/Open/position = Vector2(504.667, 99.3333)
+states/RESET/node = SubResource("AnimationNodeAnimation_rdb7w")
+states/RESET/position = Vector2(353.333, 100)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_p51ps"), "RESET", "Open", SubResource("AnimationNodeStateMachineTransition_3rcg5")]
+
+[node name="Chest" type="Area3D"]
+monitoring = false
+script = ExtResource("1_p0kgl")
+action_name = &"open chest"
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672314, -0.387505)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.241221, 0.390709)
+shape = SubResource("BoxShape3D_25ows")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166602, 0.387505)
+mesh = SubResource("BoxMesh_4d7tu")
+skeleton = NodePath("../../../StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343241, 0)
+mesh = SubResource("BoxMesh_pqeqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334473, 0)
+shape = SubResource("BoxShape3D_0a55k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_etp26")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0130839, 0.607816, 0.191122)
+shape = SubResource("BoxShape3D_tiooj")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_m2npf")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Key" load_steps=2 format=3 uid="uid://ctl8nojk4om8f"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/key.gd" id="1_b72w5"]
+
+[resource]
+script = ExtResource("1_b72w5")
+color = Color(0, 0.00784314, 1, 1)
+name = &"TestKey2"
