@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=8 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
+[ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
@@ -29,3 +30,5 @@ process_mode = 3
 stream = SubResource("AudioStreamPlaylist_roke2")
 autoplay = true
 bus = &"Music"
+
+[node name="FlyingDutchman" parent="." instance=ExtResource("6_5h4fs")]

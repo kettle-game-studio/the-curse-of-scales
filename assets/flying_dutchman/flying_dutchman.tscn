@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://col11m3s73iqx"]
+
+[ext_resource type="PackedScene" uid="uid://caspvtd47bren" path="res://assets/flying_dutchman/level_design_ship.glb" id="1_x3h2t"]
+[ext_resource type="Material" uid="uid://dgip42mmr3kgs" path="res://assets/flying_dutchman/ghost_ship_material.tres" id="2_8u1be"]
+
+[node name="FlyingDutchman" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4842, 0, -10.4461)
+
+[node name="level_design_ship" parent="." instance=ExtResource("1_x3h2t")]
+
+[node name="Level1" parent="level_design_ship/Ship" index="0"]
+surface_material_override/0 = ExtResource("2_8u1be")
+
+[node name="Level2" parent="level_design_ship/Ship" index="1"]
+surface_material_override/0 = ExtResource("2_8u1be")
+
+[node name="Level3" parent="level_design_ship/Ship" index="2"]
+surface_material_override/0 = ExtResource("2_8u1be")
+
+[node name="Player" parent="level_design_ship" index="1"]
+surface_material_override/0 = ExtResource("2_8u1be")
+
+[node name="Plane" parent="level_design_ship" index="2"]
+visible = false
+
+[node name="Cylinder" parent="level_design_ship" index="3"]
+surface_material_override/0 = ExtResource("2_8u1be")
+
+[editable path="level_design_ship"]
