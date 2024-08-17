@@ -1,12 +1,127 @@
-[gd_scene load_steps=3 format=3 uid="uid://col11m3s73iqx"]
+[gd_scene load_steps=7 format=3 uid="uid://col11m3s73iqx"]
 
 [ext_resource type="PackedScene" uid="uid://caspvtd47bren" path="res://assets/flying_dutchman/level_design_ship.glb" id="1_x3h2t"]
 [ext_resource type="Material" uid="uid://dgip42mmr3kgs" path="res://assets/flying_dutchman/ghost_ship_material.tres" id="2_8u1be"]
 
+[sub_resource type="Animation" id="Animation_eain7"]
+resource_name = "fly"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level_design_ship/Ship/Level2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.23333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -17.3005, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level_design_ship/Ship/Level3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.66667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -33.4847, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("level_design_ship/Ship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.23333, 2.66667, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.263196), Vector3(0, 0, -0.246083), Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("level_design_ship/Ship/Level4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.46667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-4.76837e-07, -45.3191, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pt6if"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("level_design_ship/Ship/Level2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("level_design_ship/Ship/Level3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("level_design_ship/Ship:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("level_design_ship/Ship/Level4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_303wy"]
+_data = {
+"RESET": SubResource("Animation_pt6if"),
+"fly": SubResource("Animation_eain7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k0wto"]
+animation = &"fly"
+
 [node name="FlyingDutchman" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4842, 0, -10.4461)
 
 [node name="level_design_ship" parent="." instance=ExtResource("1_x3h2t")]
+
+[node name="Ship" parent="level_design_ship" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Level1" parent="level_design_ship/Ship" index="0"]
 surface_material_override/0 = ExtResource("2_8u1be")
@@ -17,13 +132,22 @@ surface_material_override/0 = ExtResource("2_8u1be")
 [node name="Level3" parent="level_design_ship/Ship" index="2"]
 surface_material_override/0 = ExtResource("2_8u1be")
 
+[node name="Level4" parent="level_design_ship/Ship" index="3"]
+surface_material_override/0 = ExtResource("2_8u1be")
+
 [node name="Player" parent="level_design_ship" index="1"]
 surface_material_override/0 = ExtResource("2_8u1be")
 
-[node name="Plane" parent="level_design_ship" index="2"]
-visible = false
-
-[node name="Cylinder" parent="level_design_ship" index="3"]
+[node name="Cylinder" parent="level_design_ship" index="2"]
 surface_material_override/0 = ExtResource("2_8u1be")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_303wy")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeAnimation_k0wto")
+anim_player = NodePath("../AnimationPlayer")
 
 [editable path="level_design_ship"]

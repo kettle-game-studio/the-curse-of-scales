@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=9 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -10,6 +10,20 @@
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
 stream_0 = ExtResource("5_qgk2g")
+
+[sub_resource type="Environment" id="Environment_qu8ju"]
+background_mode = 1
+background_color = Color(1.92523e-07, 0.357675, 0.367989, 1)
+background_energy_multiplier = 0.1
+glow_enabled = true
+glow_intensity = 8.0
+glow_hdr_threshold = 0.33
+fog_light_color = Color(0.2196, 0.607839, 0.68781, 1)
+fog_light_energy = 0.1
+fog_density = 0.0416
+adjustment_brightness = 1.28
+adjustment_contrast = 1.2
+adjustment_saturation = 1.35
 
 [node name="Game" type="Node"]
 script = ExtResource("1_dld7d")
@@ -32,3 +46,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="FlyingDutchman" parent="." instance=ExtResource("6_5h4fs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8963, -1.02945, 1.19075)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qu8ju")
