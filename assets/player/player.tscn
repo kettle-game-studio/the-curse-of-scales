@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=7 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
 [ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="2_xtnvb"]
 [ext_resource type="AudioStream" uid="uid://hkkswyamobuc" path="res://assets/player/jump.mp3" id="3_sio0l"]
+[ext_resource type="AudioStream" uid="uid://bvjnqcn3s2xrw" path="res://assets/player/scale.mp3" id="4_051vn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgk0d"]
 
@@ -36,4 +37,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342085, -0.239288, -0.78990
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_u5otx")
+bus = &"Sounds"
+
+[node name="ScaleAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_051vn")
+volume_db = -22.554
 bus = &"Sounds"

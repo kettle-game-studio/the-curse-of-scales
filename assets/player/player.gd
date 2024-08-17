@@ -18,6 +18,7 @@ class_name Player;
 @onready var collider: CollisionShape3D = $Collider
 @onready var big_scale_cast: ShapeCast3D = $BigScaleCast
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
+@onready var scale_audio: AudioStreamPlayer = $ScaleAudio
 
 enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING }
 var state := ScaleState.MAX
@@ -73,11 +74,16 @@ func rotate_handle(shift: Vector2):
 func change_scale():
 	if state == ScaleState.MAX || state == ScaleState.MAXIMIZING:
 		state = ScaleState.MINIMIZING
+		scale_audio.play()
+		scale_audio.pitch_scale = randf_range(0.9, 1.5)
 	elif state == ScaleState.MIN || state == ScaleState.MINIMIZING:
 		if big_scale_cast.is_colliding():
 			#TODO: destroy chests
 			return
 		state = ScaleState.MAXIMIZING
+		scale_audio.play()
+		scale_audio.pitch_scale = randf_range(0.9, 1.5)
+
 
 var scaling = 1
 func scale_animation(delta: float):
