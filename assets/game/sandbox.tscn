@@ -16,6 +16,7 @@ size = Vector2(50, 50)
 [node name="Sandbox" type="Node3D"]
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape3D_irt0e")
@@ -34,6 +35,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("BoxMesh_30kh0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_cs8su")
+
+[node name="Cube5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.87463, 1.03677, -7.00402)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_30kh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_cs8su")
+
+[node name="Cube6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88693, 1.03677, -7.00402)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_30kh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_cs8su")
+
+[node name="Cube7" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88428, 1.03677, -7.00402)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_30kh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_cs8su")
+
+[node name="Cube8" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.88428, 0.00684083, -7.00402)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_30kh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_cs8su")
 
