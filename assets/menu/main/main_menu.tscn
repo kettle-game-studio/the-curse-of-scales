@@ -109,6 +109,10 @@ text = "Mouse sensitivity"
 
 [node name="HSlider" parent="MarginContainer/Settings/MarginContainer/VBoxContainer/Mouse" instance=ExtResource("3_ayba1")]
 layout_mode = 2
+min_value = 0.001
+max_value = 0.5
+step = 0.001
+value = 0.001
 field_name = &"mouse_sensitivity"
 
 [node name="Gamepad" type="HBoxContainer" parent="MarginContainer/Settings/MarginContainer/VBoxContainer"]

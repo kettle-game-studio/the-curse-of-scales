@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=8 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
 [ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="2_xtnvb"]
 [ext_resource type="AudioStream" uid="uid://hkkswyamobuc" path="res://assets/player/jump.mp3" id="3_sio0l"]
 [ext_resource type="AudioStream" uid="uid://bvjnqcn3s2xrw" path="res://assets/player/scale.mp3" id="4_051vn"]
+[ext_resource type="Texture2D" uid="uid://c06liubh1uku" path="res://assets/player/cross.png" id="5_dsxfo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgk0d"]
 
@@ -33,7 +34,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66984, 0)
 
 [node name="Hand" type="Marker3D" parent="ScaleRoot/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342085, -0.239288, -0.789904)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.362029, -0.239288, -0.414534)
+
+[node name="DragRay" type="RayCast3D" parent="ScaleRoot/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -2.2, 0)
+collide_with_areas = true
+debug_shape_custom_color = Color(0, 0.458824, 0, 1)
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_u5otx")
@@ -43,3 +52,33 @@ bus = &"Sounds"
 stream = ExtResource("4_051vn")
 volume_db = -22.554
 bus = &"Sounds"
+
+[node name="ActionLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = 24.5
+offset_right = 5.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Press F to pay respect"
+
+[node name="HUD" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("5_dsxfo")

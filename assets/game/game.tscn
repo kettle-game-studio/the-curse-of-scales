@@ -39,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12963, 0, 0.348647)
 [node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
 process_mode = 3
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = SubResource("AudioStreamPlaylist_roke2")
 autoplay = true

@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_n5hmd")
-mouse_sensitivity = 0.05
+mouse_sensitivity = 0.01
 joystick_sensitivity = 2.0
 sounds_volume = 1.0
 music_volume = 1.0
