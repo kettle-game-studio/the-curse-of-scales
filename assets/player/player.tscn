@@ -1,33 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=3 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6b8v3"]
-radius = 0.25
-height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgk0d"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 3
 script = ExtResource("1_qjx7e")
 
-[node name="SmallScale" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.499399, 0)
-shape = SubResource("CapsuleShape3D_6b8v3")
-disabled = true
-
-[node name="BigScale" type="CollisionShape3D" parent="."]
+[node name="Collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_wgk0d")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66984, 0)
-
-[node name="Marker3D" type="Marker3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342085, -0.239288, -0.789904)
-
-[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+[node name="BigScaleCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.101159, 0)
 shape = SubResource("CapsuleShape3D_wgk0d")
-target_position = Vector3(0, 1.1, 0)
 max_results = 1
 debug_shape_custom_color = Color(0.403922, 0, 0, 1)
+
+[node name="ScaleRoot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="ScaleRoot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66984, 0)
+
+[node name="Hand" type="Marker3D" parent="ScaleRoot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342085, -0.239288, -0.789904)
