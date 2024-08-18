@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=3 uid="uid://nkpffogjhm51"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/ladder/ladder.gd" id="1_1mb78"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lf6ty"]
+size = Vector3(1, 6, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vuk42"]
+albedo_color = Color(1, 0.6, 0.34902, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vouw4"]
+material = SubResource("StandardMaterial3D_vuk42")
+size = Vector3(0.87, 5.965, 0.935)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gnkc3"]
+size = Vector3(1, 6, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_px0ej"]
+size = Vector3(1, 1, 1.0979)
+
+[node name="Ladder" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("BoxMesh_lf6ty")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0.0808573)
+mesh = SubResource("BoxMesh_vouw4")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_gnkc3")
+
+[node name="Area3D" type="Area3D" parent="." node_paths=PackedStringArray("entrance", "exit")]
+monitorable = false
+script = ExtResource("1_1mb78")
+entrance = NodePath("Marker3D2")
+exit = NodePath("Marker3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496229, 0.260986)
+shape = SubResource("BoxShape3D_px0ej")
+
+[node name="Marker3D" type="Marker3D" parent="Area3D"]
+transform = Transform3D(-1, 0, -0.000872763, 0, 1, 0, 0.000872763, 0, -1, 0, 0.1, 0.431645)
+gizmo_extents = 1.64
+
+[node name="Marker3D2" type="Marker3D" parent="Area3D"]
+transform = Transform3D(-1, 0, -0.000872763, 0, 1, 0, 0.000872763, 0, -1, 0, 0.476926, 0.431645)
+gizmo_extents = 1.64
+
+[node name="Area3D2" type="Area3D" parent="." node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 5.96879, 0)
+script = ExtResource("1_1mb78")
+entrance = NodePath("Marker3D2")
+exit = NodePath("Marker3D")
+direction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44089e-16, 0.496229, -0.0489502)
+shape = SubResource("BoxShape3D_px0ej")
+
+[node name="Marker3D" type="Marker3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03819e-08, 0, 0.233142)
+gizmo_extents = 1.45
+
+[node name="Marker3D2" type="Marker3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.39363e-08, -0.512979, -0.2738)
+gizmo_extents = 1.45
