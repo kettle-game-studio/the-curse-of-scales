@@ -10,7 +10,7 @@ void vertex() {
 }
 
 void fragment() {
-	DEPTH = 0.0;
+	//DEPTH = 0.0;
 	ALBEDO = Color;
 	ALPHA = texture(noise, VERTEX / 10.0 + vec3(TIME)).x * 0.5;
 	EMISSION = Color * 2.0;

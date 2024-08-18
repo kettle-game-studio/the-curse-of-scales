@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://u4htsjtmglim"]
+
+[ext_resource type="Shader" path="res://assets/flying_dutchman/vortex.gdshader" id="1_f1fky"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tq2b3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vf43k"]
+height = 2048
+seamless = true
+noise = SubResource("FastNoiseLite_tq2b3")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_f1fky")
+shader_parameter/Color = Color(0.0708107, 0.152996, 0.22121, 1)
+shader_parameter/Color2 = Color(0.0146922, 0.092063, 0.12096, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_vf43k")

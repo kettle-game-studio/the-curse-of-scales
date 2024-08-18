@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=17 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
+[ext_resource type="Material" uid="uid://u4htsjtmglim" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
@@ -24,6 +25,68 @@ fog_density = 0.0416
 adjustment_brightness = 1.28
 adjustment_contrast = 1.2
 adjustment_saturation = 1.35
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_miw7b"]
+flip_faces = true
+top_radius = 400.0
+bottom_radius = 100.0
+height = 500.0
+radial_segments = 512
+rings = 128
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="Animation" id="Animation_ib0f5"]
+resource_name = "rotate"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j3poc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.243631, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5nsu"]
+_data = {
+"RESET": SubResource("Animation_j3poc"),
+"rotate": SubResource("Animation_ib0f5")
+}
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_arvyi"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uhkxg"]
+animation = &"rotate"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_547mm"]
+graph_offset = Vector2(-120.951, 23.8691)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_arvyi")
+nodes/TimeScale/position = Vector2(160, 100)
+nodes/output/position = Vector2(340, 140)
+nodes/rotate/node = SubResource("AnimationNodeAnimation_uhkxg")
+nodes/rotate/position = Vector2(-20, 120)
+node_connections = [&"TimeScale", 0, &"rotate", &"output", 0, &"TimeScale"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_dld7d")
@@ -46,7 +109,22 @@ autoplay = true
 bus = &"Music"
 
 [node name="FlyingDutchman" parent="." instance=ExtResource("6_5h4fs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.8963, -1.02945, 1.19075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.176, -1.02945, 1.19075)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qu8ju")
+
+[node name="Vortex" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.970468, 0, 0.241227, 0, 1, 0, -0.241227, 0, 0.970468, -15.6826, 58.9896, 0)
+mesh = SubResource("CylinderMesh_miw7b")
+material = ExtResource("7_p2fpc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vortex"]
+libraries = {
+"": SubResource("AnimationLibrary_i5nsu")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Vortex"]
+tree_root = SubResource("AnimationNodeBlendTree_547mm")
+anim_player = NodePath("../AnimationPlayer")
+parameters/TimeScale/scale = 0.1
