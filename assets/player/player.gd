@@ -10,7 +10,8 @@ class_name Player;
 @export var jump_velocity: float = 4.5
 @export var move_speed: float = 3.0
 @export var run_speed: float = 6.0
-@export var max_up_rotation_angle: float = 30
+@export var climb_speed: float = 8.0
+@export var max_up_rotation_angle: float = 90
 @export var max_down_rotation_angle: float = 70
 
 @onready var camera := %Camera3D
@@ -30,7 +31,7 @@ var shape: CapsuleShape3D
 var max_shape: CapsuleShape3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
+var ladder: Ladder
 func _ready() -> void:
 	shape = collider.shape as CapsuleShape3D
 	max_shape = shape.duplicate()
@@ -51,37 +52,40 @@ func  _process(delta: float) -> void:
 	check_interaction()
 
 func _physics_process(delta: float):
-	if item:
-		item.global_transform = hand.global_transform
-
 	var camera_axis = Input.get_vector("rotate_left", "rotate_right", "rotate_up", "rotate_down")
 	rotate_handle(Vector2(camera_axis.x*abs(camera_axis.x), camera_axis.y*abs(camera_axis.y))*delta*settings.joystick_sensitivity)
 
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if state == ScaleState.CLIMBING:
-		velocity.y = -move_speed/2*input_dir.y
-		move_and_slide()
+		velocity.x = 0
+		velocity.z = 0
+		velocity.y = -climb_speed*input_dir.y
+		if velocity.y < 0:
+			velocity.y *= 2
+		global_position.x = ladder.entrance.global_position.x
+		global_position.z = ladder.entrance.global_position.z
 		if interactive_area is Ladder:
 			if interactive_area.direction == Ladder.Direction.UP && global_position.y <= interactive_area.exit.global_position.y || interactive_area.direction == Ladder.Direction.DOWN  && global_position.y >= interactive_area.exit.global_position.y:
 				interact()
-		return
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	elif Input.is_action_just_pressed("jump"):
-		jump_audio.play()
-		velocity.y = jump_velocity
+	else: 
+		if not is_on_floor():
+			velocity.y -= gravity * delta
+		elif Input.is_action_just_pressed("jump"):
+			jump_audio.play()
+			velocity.y = jump_velocity
 
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized())
-	var input_speed : float = min(input_dir.length(), 1.0)
-	var speed : float = input_speed * (run_speed if Input.is_action_pressed("run") else move_speed)
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
-		velocity.z = move_toward(velocity.z, 0, move_speed)
-
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized())
+		var input_speed : float = min(input_dir.length(), 1.0)
+		var speed : float = input_speed * (run_speed if Input.is_action_pressed("run") else move_speed)
+		if direction:
+			velocity.x = direction.x * speed
+			velocity.z = direction.z * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, move_speed)
+			velocity.z = move_toward(velocity.z, 0, move_speed)
 	move_and_slide()
+	if item:
+		item.global_transform = hand.global_transform
 
 func rotate_handle(shift: Vector2):
 	rotate_y(-shift.x)
@@ -122,20 +126,19 @@ func scale_animation(delta: float):
 	collider.position.y = shape.height/2
 
 func check_interaction():
+	var collider = drag_ray.get_collider()
 	if interactive_area:
 		if interactive_area is Ladder:
 			if state == ScaleState.CLIMBING:
 				action_label.text = "[E] to stop climbing"
 			elif state == ScaleState.MAX:
 				action_label.text = "[E] to climb"
-	elif drag_ray.is_colliding():
-		var collider = drag_ray.get_collider()
-		if collider is Triggable:
-			if item && collider.activable(item.trigger):
-				action_label.text = "[E] to %s" % collider.action_name
-			elif !collider.activated:
-				action_label.text = "%s is needed" % collider.trigger.name
-		elif collider is Draggable:
+	elif collider is Triggable:
+		if item && collider.activable(item.trigger):
+			action_label.text = "[E] to %s" % collider.action_name
+		elif !collider.activated && collider.trigger:
+			action_label.text = "%s is needed" % collider.trigger.name
+	elif collider is Draggable:
 			action_label.text = "[E] - Drag %s" % collider.trigger.name
 	elif action_label.text != "":
 		action_label.text = ""
@@ -149,6 +152,7 @@ func interact():
 				global_position = interactive_area.exit.global_position
 			elif state == ScaleState.MAX:
 				state = ScaleState.CLIMBING
+				ladder = interactive_area
 				global_position = interactive_area.entrance.global_position
 	elif item && collider is Triggable && collider.activate(item.trigger):
 		item.queue_free()

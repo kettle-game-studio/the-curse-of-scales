@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cqcivmapg633v"]
 
-[ext_resource type="Script" path="res://assets/gamedesign/triggable.gd" id="1_12j2c"]
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_12j2c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lsc56"]
 size = Vector3(1, 2, 0.2)
