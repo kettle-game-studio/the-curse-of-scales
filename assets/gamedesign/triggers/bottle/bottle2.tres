@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Bottle" load_steps=2 format=3 uid="uid://c1sp7as7yo0yc"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/bottle/bottle.gd" id="1_rvryf"]
+
+[resource]
+script = ExtResource("1_rvryf")
+name = &""

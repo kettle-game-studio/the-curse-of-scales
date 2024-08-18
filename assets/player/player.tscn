@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=10 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
 [ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="2_xtnvb"]
 [ext_resource type="AudioStream" uid="uid://hkkswyamobuc" path="res://assets/player/jump.mp3" id="3_sio0l"]
 [ext_resource type="AudioStream" uid="uid://bvjnqcn3s2xrw" path="res://assets/player/scale.mp3" id="4_051vn"]
 [ext_resource type="Texture2D" uid="uid://c06liubh1uku" path="res://assets/player/cross.png" id="5_dsxfo"]
+[ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="6_xyypn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgk0d"]
 
@@ -37,6 +38,7 @@ debug_shape_custom_color = Color(0.403922, 0, 0, 1)
 [node name="Camera3D" type="Camera3D" parent="ScaleRoot"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66984, 0)
+near = 0.001
 
 [node name="Hand" type="Marker3D" parent="ScaleRoot/Camera3D"]
 unique_name_in_owner = true
@@ -81,6 +83,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="CenterContainer" type="CenterContainer" parent="HUD"]
 layout_mode = 2
@@ -88,3 +94,12 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="HUD/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("5_dsxfo")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("6_xyypn")
+theme_type_variation = &"Subtitles"
+text = "Ehehe"
+fit_content = true
+shortcut_keys_enabled = false

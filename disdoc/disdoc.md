@@ -38,26 +38,26 @@
 
 ## Список моделек
 
-- Корабль
+- ~~Корабль~~
 
 - Штопор для разбивания стекла
 - Попугай
 
-- Бочки
+- ~~Бочки~~
 - Мешки
 - Дверь
-- Сундук
-- Стол/Стул
-- Карта
-- Бутылка
-- Золотой ключ + замок (амбарный замок здоровенный)
-- Скелетный ключ + замок (выглядеть должен мистически-костно)
-- Пиратская сабля
+- ~~Сундук~~
+- ~~Стол/Стул~~
+- ~~Карта~~
+- ~~Бутылка~~
+- ~~Золотой ключ + замок (амбарный замок здоровенный)~~
+- ~~Скелетный ключ + замок (выглядеть должен мистически-костно)~~
+- ~~Пиратская сабля~~
 - Ботинки
 - Гамаки
 - Кровать
-- Мышеловка
-- Фонарь
+- ~~Мышеловка~~
+- ~~Фонарь~~
 - Штурвал
 - Пушка + ядра
 - Огромный крючок
@@ -65,7 +65,7 @@
 - Ведро
 
 - Верёвки
-- Якорь
+- ~~Якорь~~
 
 - Портрет всех персонажей вместе (если руки дойдут)
 
@@ -120,13 +120,15 @@
 
 #### Интро:
 
-> Ivan the Skull: Let me tell ya a story... About a pirate, who lost his crew, his ship and his sanity... To the CURSE of scales!
+> Storyteller: Let me tell ya a story... About a pirate, who lost his crew, his ship and his sanity... To the CURSE of scales!
 
 #### На первой палубе:
 
 Диалог в самом начале:
 
-> Ivan the Skull: You're awake, ain't ya, matey? You lost your bet to the sea-devil a week ago, Captain. But YARR we still have the chest! The last skeleton key is somewhere here on the ship.
+> Ivan the Skull: You're already awake, ain't ya? You lost your bet to the sea-devil a week ago, Captain.
+
+> But YARR we still have the chest, we do! The last skeleton key is somewhere here on the ship.
 
 > Ivan the Skull: Come take take my... Eh... skull, Cap, together we might control the scale.
 
@@ -142,5 +144,6 @@
 > Ivan the Skull: Shiver me timbers!
 
 #### На второй палубе:
+
 
 
