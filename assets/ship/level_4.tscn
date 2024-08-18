@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://jywta2kwkebr"]
+
+[ext_resource type="ArrayMesh" uid="uid://bg0xjqe5gjjub" path="res://assets/ship/parts/ship_Cube_006.res" id="1_ss1ci"]
+[ext_resource type="ArrayMesh" uid="uid://bgbpykgiwoqdm" path="res://assets/ship/parts/ship_Cube_007.res" id="2_ug2hg"]
+[ext_resource type="ArrayMesh" uid="uid://f57prxnl4plw" path="res://assets/ship/parts/ship_Cube_003.res" id="3_vkc0t"]
+[ext_resource type="ArrayMesh" uid="uid://bhmkjby6v6gqd" path="res://assets/ship/parts/ship_Cube_005.res" id="4_5nnwq"]
+[ext_resource type="ArrayMesh" uid="uid://40foqj4weiop" path="res://assets/ship/parts/ship_Cube_024.res" id="5_njbyo"]
+
+[node name="Level4" type="Node3D"]
+
+[node name="stairrails1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_ss1ci")
+skeleton = NodePath("")
+
+[node name="stairrails2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_ug2hg")
+skeleton = NodePath("")
+
+[node name="stairs1" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_vkc0t")
+skeleton = NodePath("")
+
+[node name="stairs2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_5nnwq")
+skeleton = NodePath("")
+
+[node name="Ship_001" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_njbyo")
+skeleton = NodePath("")

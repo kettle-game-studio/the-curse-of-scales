@@ -16,7 +16,7 @@ size = Vector3(0.87, 5.965, 0.935)
 size = Vector3(1, 6, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_px0ej"]
-size = Vector3(1, 1, 1.0979)
+size = Vector3(1, 1, 0.65039)
 
 [node name="Ladder" type="Node3D"]
 
@@ -63,7 +63,7 @@ exit = NodePath("Marker3D")
 direction = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44089e-16, 0.496229, -0.0489502)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38406e-08, 6.46502, 0.272705)
 shape = SubResource("BoxShape3D_px0ej")
 
 [node name="Marker3D" type="Marker3D" parent="Area3D2"]

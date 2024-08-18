@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bpsxip8j60g2h"]
 
-[ext_resource type="Script" path="res://assets/gamedesign/triggable.gd" id="1_p0kgl"]
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_p0kgl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25ows"]
 size = Vector3(1.87988, 0.155762, 0.784912)

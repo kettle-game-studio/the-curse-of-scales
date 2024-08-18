@@ -17,6 +17,6 @@ func activate(item: TriggerItem) -> bool:
 	if activable(item):
 		monitorable = false
 		activated = true
-		triggered.emit()
+		triggered.emit(item)
 		return true
 	return false
