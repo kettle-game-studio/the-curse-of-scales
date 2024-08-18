@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=18 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
 [ext_resource type="Material" uid="uid://u4htsjtmglim" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
+[ext_resource type="PackedScene" uid="uid://cpaorskppqfqp" path="res://assets/skeleton/skeleton.glb" id="8_03l3g"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
@@ -36,6 +37,21 @@ rings = 128
 cap_top = false
 cap_bottom = false
 
+[sub_resource type="Animation" id="Animation_j3poc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.243631, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ib0f5"]
 resource_name = "rotate"
 length = 2.0
@@ -51,21 +67,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 3.14159, 0), Vector3(0, 6.28319, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_j3poc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.243631, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i5nsu"]
@@ -115,7 +116,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.176, -1.02945, 1.19075)
 environment = SubResource("Environment_qu8ju")
 
 [node name="Vortex" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.970468, 0, 0.241227, 0, 1, 0, -0.241227, 0, 0.970468, -15.6826, 58.9896, 0)
+transform = Transform3D(0.970468, 0, 0.241228, 0, 1, 0, -0.241228, 0, 0.970468, -15.6826, 58.9896, 0)
 mesh = SubResource("CylinderMesh_miw7b")
 material = ExtResource("7_p2fpc")
 
@@ -128,3 +129,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_547mm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 0.1
+
+[node name="skeleton" parent="." instance=ExtResource("8_03l3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79142, 0, 10.5695)
