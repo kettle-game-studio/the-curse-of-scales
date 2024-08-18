@@ -24,7 +24,7 @@ class_name Player;
 @onready var action_label: Label = %ActionLabel
 var item: Draggable
 
-enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING }
+enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING, CLIMBING }
 var state := ScaleState.MAX
 var shape: CapsuleShape3D
 var max_shape: CapsuleShape3D
@@ -53,19 +53,26 @@ func  _process(delta: float) -> void:
 func _physics_process(delta: float):
 	if item:
 		item.global_transform = hand.global_transform
-	# Add the gravity.
+
+	var camera_axis = Input.get_vector("rotate_left", "rotate_right", "rotate_up", "rotate_down")
+	rotate_handle(Vector2(camera_axis.x*abs(camera_axis.x), camera_axis.y*abs(camera_axis.y))*delta*settings.joystick_sensitivity)
+
+	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
+	if state == ScaleState.CLIMBING:
+		velocity.y = -move_speed/2*input_dir.y
+		move_and_slide()
+		if interactive_area is Ladder:
+			if interactive_area.direction == Ladder.Direction.UP && global_position.y <= interactive_area.exit.global_position.y || interactive_area.direction == Ladder.Direction.DOWN  && global_position.y >= interactive_area.exit.global_position.y:
+				interact()
+		return
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	elif Input.is_action_just_pressed("jump"):
 		jump_audio.play()
 		velocity.y = jump_velocity
 
-	var camera_axis = Input.get_vector("rotate_left", "rotate_right", "rotate_up", "rotate_down")
-	rotate_handle(Vector2(camera_axis.x*abs(camera_axis.x), camera_axis.y*abs(camera_axis.y))*delta*settings.joystick_sensitivity)
-
-	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	var input_speed : float = min(input_dir.length(), 1.0)
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized())
+	var input_speed : float = min(input_dir.length(), 1.0)
 	var speed : float = input_speed * (run_speed if Input.is_action_pressed("run") else move_speed)
 	if direction:
 		velocity.x = direction.x * speed
@@ -96,18 +103,18 @@ func change_scale():
 
 var scaling = 1
 func scale_animation(delta: float):
-	if state == ScaleState.MAX || state == ScaleState.MIN:
-		return
 	if state == ScaleState.MINIMIZING:
 		scaling -= delta/scaling_time
 		if scaling <= 0:
 			scaling = 0
 			state = ScaleState.MIN
-	else:
+	elif state == ScaleState.MAXIMIZING:
 		scaling += delta/scaling_time
 		if scaling >= 1:
 			scaling = 1
 			state = ScaleState.MAX
+	else:
+		return
 	var s = lerpf(min_scale, 1, scaling)
 	scale_root.scale = Vector3(s, s, s)
 	shape.height = max_shape.height*s
@@ -115,7 +122,13 @@ func scale_animation(delta: float):
 	collider.position.y = shape.height/2
 
 func check_interaction():
-	if drag_ray.is_colliding():
+	if interactive_area:
+		if interactive_area is Ladder:
+			if state == ScaleState.CLIMBING:
+				action_label.text = "[E] to stop climbing"
+			elif state == ScaleState.MAX:
+				action_label.text = "[E] to climb"
+	elif drag_ray.is_colliding():
 		var collider = drag_ray.get_collider()
 		if collider is Triggable:
 			if item && collider.activable(item.trigger):
@@ -129,7 +142,15 @@ func check_interaction():
 
 func interact():
 	var collider = drag_ray.get_collider()
-	if item && collider is Triggable && collider.activate(item.trigger):
+	if interactive_area:
+		if interactive_area is Ladder:
+			if state == ScaleState.CLIMBING:
+				state = ScaleState.MAX
+				global_position = interactive_area.exit.global_position
+			elif state == ScaleState.MAX:
+				state = ScaleState.CLIMBING
+				global_position = interactive_area.entrance.global_position
+	elif item && collider is Triggable && collider.activate(item.trigger):
 		item.queue_free()
 		item = null
 		action_label.text = ""
@@ -140,3 +161,10 @@ func interact():
 			item.drop()
 		item = collider
 		item.drag()
+
+var interactive_area: InteractiveArea
+func on_enter_interactive_area(area: InteractiveArea):
+	interactive_area = area
+	
+func on_exit_interactive_area(area: InteractiveArea):
+	interactive_area = null

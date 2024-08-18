@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bm4w87imvtb7q"]
+[gd_scene load_steps=20 format=3 uid="uid://bm4w87imvtb7q"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_rolf8"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="2_doe0r"]
 [ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/chest.tscn" id="3_esaso"]
 [ext_resource type="Resource" uid="uid://ctl8nojk4om8f" path="res://assets/gamedesign/triggers/test/test_key2.tres" id="3_xpcwn"]
+[ext_resource type="PackedScene" uid="uid://nkpffogjhm51" path="res://assets/gamedesign/ladder/ladder_example.tscn" id="6_b2dtk"]
 [ext_resource type="PackedScene" uid="uid://cqcivmapg633v" path="res://assets/gamedesign/door/door.tscn" id="6_n6u4s"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_irt0e"]
@@ -203,3 +204,6 @@ trigger = ExtResource("2_doe0r")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75043, 0, -5.61431)
 action_name = &"open door"
 trigger = ExtResource("3_xpcwn")
+
+[node name="Ladder" parent="." instance=ExtResource("6_b2dtk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.2351, 0, -2.32018)
