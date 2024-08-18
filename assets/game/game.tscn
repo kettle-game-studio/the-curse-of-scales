@@ -1,13 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=20 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
+[ext_resource type="PackedScene" uid="uid://bqk4vvc80kfd6" path="res://assets/ship/ship.tscn" id="2_nhekc"]
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
+[ext_resource type="PackedScene" uid="uid://bmiat20mwcc0x" path="res://assets/gamedesign/triggers/bottle/bottle.tscn" id="5_40tdv"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
-[ext_resource type="Material" uid="uid://u4htsjtmglim" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
-[ext_resource type="PackedScene" uid="uid://cpaorskppqfqp" path="res://assets/skeleton/skeleton.glb" id="8_03l3g"]
+[ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="6_vs4ba"]
+[ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
@@ -17,7 +19,6 @@ stream_0 = ExtResource("5_qgk2g")
 background_mode = 1
 background_color = Color(1.92523e-07, 0.357675, 0.367989, 1)
 background_energy_multiplier = 0.1
-glow_enabled = true
 glow_intensity = 8.0
 glow_hdr_threshold = 0.33
 fog_light_color = Color(0.2196, 0.607839, 0.68781, 1)
@@ -81,7 +82,6 @@ _data = {
 animation = &"rotate"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_547mm"]
-graph_offset = Vector2(-120.951, 23.8691)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_arvyi")
 nodes/TimeScale/position = Vector2(160, 100)
 nodes/output/position = Vector2(340, 140)
@@ -95,10 +95,17 @@ script = ExtResource("1_dld7d")
 [node name="Level" type="Node3D" parent="."]
 process_mode = 1
 
+[node name="Ship" parent="Level" instance=ExtResource("2_nhekc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66944, 8.74151, 0.02561)
+
 [node name="Player" parent="Level" instance=ExtResource("2_7ojib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12963, 0, 0.348647)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82959, 16.9029, -6.44227)
 
 [node name="Sandbox" parent="Level" instance=ExtResource("1_dgxda")]
+
+[node name="Bottle" parent="Level" instance=ExtResource("5_40tdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62837, 4.62561, -4.27148)
+trigger = ExtResource("6_vs4ba")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
 process_mode = 3
@@ -129,6 +136,3 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_547mm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 0.1
-
-[node name="skeleton" parent="." instance=ExtResource("8_03l3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.79142, 0, 10.5695)

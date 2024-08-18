@@ -1,0 +1,155 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqk4vvc80kfd6"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
+[ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
+[ext_resource type="Material" uid="uid://dgip42mmr3kgs" path="res://assets/flying_dutchman/ghost_ship_material.tres" id="2_1knnk"]
+[ext_resource type="PackedScene" uid="uid://cc83qv8reicf3" path="res://assets/ship/level_1.tscn" id="2_tv5n4"]
+[ext_resource type="PackedScene" uid="uid://dfuy7wlihxknl" path="res://assets/ship/level_2.tscn" id="3_6hr7j"]
+[ext_resource type="PackedScene" uid="uid://o6wcnula0gvo" path="res://assets/ship/level_3.tscn" id="4_nmvmb"]
+[ext_resource type="Script" path="res://assets/gamedesign/ladder/ladder.gd" id="4_skj3d"]
+[ext_resource type="PackedScene" uid="uid://jywta2kwkebr" path="res://assets/ship/level_4.tscn" id="5_1u8yt"]
+[ext_resource type="PackedScene" uid="uid://bmiat20mwcc0x" path="res://assets/gamedesign/triggers/bottle/bottle.tscn" id="6_50vet"]
+[ext_resource type="PackedScene" uid="uid://csubmtacpped2" path="res://assets/gamedesign/mars/mars.tscn" id="7_51ts2"]
+[ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="7_elavf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
+
+[node name="Ship" type="Node3D" node_paths=PackedStringArray("levels", "animation_start_position")]
+script = ExtResource("1_7opui")
+levels = [NodePath("ship/Level1"), NodePath("ship/Level2"), NodePath("ship/Level3"), NodePath("ship/Level4")]
+animation_start_position = NodePath("StartPosition")
+animation_material = ExtResource("2_1knnk")
+
+[node name="ship" type="Node3D" parent="."]
+
+[node name="Ship" type="MeshInstance3D" parent="ship"]
+visible = false
+mesh = ExtResource("1_1j6ig")
+skeleton = NodePath("")
+
+[node name="Level1" parent="ship" instance=ExtResource("2_tv5n4")]
+
+[node name="LadderMarsBottom" type="Area3D" parent="ship/Level1" node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.06039, -0.779909)
+script = ExtResource("4_skj3d")
+entrance = NodePath("Marwaker3D")
+exit = NodePath("Marker3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level1/LadderMarsBottom"]
+shape = SubResource("BoxShape3D_xmvyp")
+
+[node name="Marwaker3D" type="Marker3D" parent="ship/Level1/LadderMarsBottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472474, 0.131231)
+gizmo_extents = 1.33
+
+[node name="Marker3D2" type="Marker3D" parent="ship/Level1/LadderMarsBottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
+gizmo_extents = 1.33
+
+[node name="LadderMarsTop" type="Area3D" parent="ship/Level1" node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.5361, -0.779909)
+script = ExtResource("4_skj3d")
+entrance = NodePath("Entrance")
+exit = NodePath("Exit")
+direction = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level1/LadderMarsTop"]
+shape = SubResource("BoxShape3D_xmvyp")
+
+[node name="Entrance" type="Marker3D" parent="ship/Level1/LadderMarsTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.367538, 0.131231)
+gizmo_extents = 1.33
+
+[node name="Exit" type="Marker3D" parent="ship/Level1/LadderMarsTop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.793863, 0.0688896, 0.909091)
+gizmo_extents = 1.33
+
+[node name="Level2" parent="ship" instance=ExtResource("3_6hr7j")]
+
+[node name="Ladder1Bottom" type="Area3D" parent="ship/Level2" node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.78764, 17.4209)
+script = ExtResource("4_skj3d")
+entrance = NodePath("Marwaker3D")
+exit = NodePath("Marker3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level2/Ladder1Bottom"]
+shape = SubResource("BoxShape3D_xmvyp")
+
+[node name="Marwaker3D" type="Marker3D" parent="ship/Level2/Ladder1Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472474, 0.131231)
+gizmo_extents = 1.33
+
+[node name="Marker3D2" type="Marker3D" parent="ship/Level2/Ladder1Bottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
+gizmo_extents = 1.33
+
+[node name="Ladder1Top" type="Area3D" parent="ship/Level2" node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.37285, 17.4209)
+script = ExtResource("4_skj3d")
+entrance = NodePath("Marwaker3D")
+exit = NodePath("Marker3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level2/Ladder1Top"]
+shape = SubResource("BoxShape3D_xmvyp")
+
+[node name="Marwaker3D" type="Marker3D" parent="ship/Level2/Ladder1Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472474, 0.131231)
+gizmo_extents = 1.33
+
+[node name="Marker3D2" type="Marker3D" parent="ship/Level2/Ladder1Top"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
+gizmo_extents = 1.33
+
+[node name="Bottle2" parent="ship/Level2" instance=ExtResource("6_50vet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81303, 0.935166, 1.70117)
+trigger = ExtResource("7_elavf")
+
+[node name="LadderMars2" type="Area3D" parent="ship/Level2" node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59627, -0.779909)
+script = ExtResource("4_skj3d")
+entrance = NodePath("Marwaker3D")
+exit = NodePath("Marker3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level2/LadderMars2"]
+shape = SubResource("BoxShape3D_xmvyp")
+
+[node name="Marwaker3D" type="Marker3D" parent="ship/Level2/LadderMars2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472474, 0.131231)
+gizmo_extents = 1.33
+
+[node name="Marker3D2" type="Marker3D" parent="ship/Level2/LadderMars2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
+gizmo_extents = 1.33
+
+[node name="Level3" parent="ship" instance=ExtResource("4_nmvmb")]
+
+[node name="Bottle" parent="ship/Level3" instance=ExtResource("6_50vet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81303, 6.66811, 1.70117)
+trigger = ExtResource("7_elavf")
+
+[node name="Ladder3" type="Area3D" parent="ship/Level3" node_paths=PackedStringArray("entrance", "exit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.13288, -0.779909)
+script = ExtResource("4_skj3d")
+entrance = NodePath("Marwaker3D")
+exit = NodePath("Marker3D2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level3/Ladder3"]
+shape = SubResource("BoxShape3D_xmvyp")
+
+[node name="Marwaker3D" type="Marker3D" parent="ship/Level3/Ladder3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472474, 0.131231)
+gizmo_extents = 1.33
+
+[node name="Marker3D2" type="Marker3D" parent="ship/Level3/Ladder3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
+gizmo_extents = 1.33
+
+[node name="Level4" parent="ship" instance=ExtResource("5_1u8yt")]
+
+[node name="Mars" parent="ship" instance=ExtResource("7_51ts2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00246739, 35.6022, 2.81917)
+
+[node name="StartPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.5497, 0)
+
+[connection signal="triggered" from="ship/Mars" to="." method="recive_bottle"]

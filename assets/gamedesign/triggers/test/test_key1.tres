@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Key" load_steps=2 format=3 uid="uid://3sq46nuf2xrh"]
 
-[ext_resource type="Script" path="res://assets/gamedesign/key.gd" id="1_lpelc"]
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/key.gd" id="1_lpelc"]
 
 [resource]
 script = ExtResource("1_lpelc")
