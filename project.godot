@@ -15,6 +15,10 @@ run/main_scene="res://assets/game/game.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+DialogsSystem="*res://assets/dialogs/dialogs_system.tscn"
+
 [input]
 
 ui_accept={

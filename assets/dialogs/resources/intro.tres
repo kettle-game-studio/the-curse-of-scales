@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeechLine" load_steps=3 format=3 uid="uid://csj351olot7xt"]
+
+[ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="1_gdadl"]
+[ext_resource type="AudioStream" uid="uid://cq6y7c08mclgg" path="res://assets/sound/intro.mp3" id="2_npwuk"]
+
+[resource]
+script = ExtResource("1_gdadl")
+author = &"Storyteller"
+line = "Let me tell ya a story... About a pirate, who lost his ship, his crew and his sanity... To the CURSE of scales!"
+sound = ExtResource("2_npwuk")

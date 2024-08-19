@@ -1,15 +1,50 @@
-[gd_scene load_steps=20 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=27 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
+[ext_resource type="Resource" uid="uid://csj351olot7xt" path="res://assets/dialogs/resources/intro.tres" id="2_eq7oa"]
 [ext_resource type="PackedScene" uid="uid://bqk4vvc80kfd6" path="res://assets/ship/ship.tscn" id="2_nhekc"]
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
 [ext_resource type="PackedScene" uid="uid://bmiat20mwcc0x" path="res://assets/gamedesign/triggers/bottle/bottle.tscn" id="5_40tdv"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
 [ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="6_vs4ba"]
+[ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
+
+[sub_resource type="Animation" id="Animation_wf7q6"]
+resource_name = "Begin"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"intro"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r0wkq"]
+_data = {
+"Begin": SubResource("Animation_wf7q6")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0pg8"]
+animation = &"Begin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ku08u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_54s0t"]
+states/Begin/node = SubResource("AnimationNodeAnimation_h0pg8")
+states/Begin/position = Vector2(379.333, 100.444)
+transitions = ["Start", "Begin", SubResource("AnimationNodeStateMachineTransition_ku08u")]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
@@ -91,9 +126,16 @@ node_connections = [&"TimeScale", 0, &"rotate", &"output", 0, &"TimeScale"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_dld7d")
+intro_speech = ExtResource("2_eq7oa")
 
 [node name="Level" type="Node3D" parent="."]
 process_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_r0wkq")
+}
 
 [node name="Ship" parent="Level" instance=ExtResource("2_nhekc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66944, 8.74151, 0.02561)
@@ -106,6 +148,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82959, 16.9029, -6.44227)
 [node name="Bottle" parent="Level" instance=ExtResource("5_40tdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62837, 4.62561, -4.27148)
 trigger = ExtResource("6_vs4ba")
+
+[node name="Storyteller" type="AudioStreamPlayer" parent="Level"]
+script = ExtResource("7_3ovya")
+author = &"Storyteller"
+
+[node name="AnimationTree" type="AnimationTree" parent="Level"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_54s0t")
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
 process_mode = 3

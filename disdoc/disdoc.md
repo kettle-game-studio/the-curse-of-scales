@@ -87,6 +87,7 @@
 
 #### Старший помошник
 
+- Иван
 - Череп, которого мы нашли в самом начале
 - Треуголка
 - Умер от непропорционального увеличения разных частей тела
@@ -94,6 +95,7 @@
 
 #### Кок
 
+- Ингвар
 - Любит сыр
 - Швед
 - Нет шапки
@@ -110,6 +112,7 @@
 
 #### Рулевой
 
+- Карлос
 - Обе руки -- крюки
 - Самый большой алкаш в команде
 - Любил ловить рыбу
@@ -127,7 +130,7 @@
 
 > Ivan the Skull: You're already awake, ain't ya? You lost your bet to the sea-devil a week ago, Captain.
 
-> But YARR we still have the chest! The last skeleton key is somewhere here on the ship.
+>  Ivan the Skull: But, YARRR, we still have the chest! The last skeleton key is somewhere here on the ship.
 
 > Ivan the Skull: Come take take my skull, Cap. A lucky charm — to control your scale.
 
@@ -137,14 +140,32 @@
 
 > Ivan the Skull: Take it up the mast to the crows nest!
 
-Когда залез на мачту:
-> Parrot: [YARR in popugeese] Corkscrew, use the corkscrew [YARR in popugeese]
-
 Когда отмасштабировал палубу в первый раз:
 
 > Ivan the Skull: Shiver me timbers!
 
 #### На второй палубе:
 
+Когда заходим в кают-компанию:
 
+> Ivan the Skull: These were the times, eh? Five trusty mates on a quest for treasure!
 
+Активация карты:
+
+> Ivan the Skull: You must at least remember this one. This is the very map which lead to the chest and the curse.
+
+Заходим в каюту Николь:
+
+> Ivan the Skull: They say woman on the ship is a bad omen. But Nicole was french, which is even worse...
+
+Заходим в камбуз:
+
+> Ivan the Skull: Ahh, the caboose. Domain of Ingvar the Cook. He loved cheese too much for his own good
+
+Заходим в каюту Ивана:
+
+> Ivan the Skull: And here it is. My humble cabin. Used to be a lot less free space here.
+
+Заходим в каюту Карлоса: 
+
+> Ivan the Skull: Carlos was our steersman and fisher. Great feat for a guy with hooks for hands.
