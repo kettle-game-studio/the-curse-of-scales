@@ -5,6 +5,7 @@ class_name Triggable
 @export var action_name: StringName
 @export var trigger: TriggerItem
 @export var one_shot := true
+@export var triggerable_when_small := false
 
 signal triggered(item: TriggerItem)
 
