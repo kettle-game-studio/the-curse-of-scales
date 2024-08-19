@@ -6,5 +6,5 @@
 [resource]
 script = ExtResource("1_gdadl")
 author = &"Storyteller"
-line = "Let me tell ya a story... About a pirate, who lost his crew, his ship and his sanity... To the CURSE of scales!"
+line = "Let me tell ya a story... About a pirate, who lost his ship, his crew and his sanity... To the CURSE of scales!"
 sound = ExtResource("2_npwuk")

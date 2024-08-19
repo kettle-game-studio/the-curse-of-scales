@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dr23gqxdfg82p"]
+[gd_scene load_steps=2 format=3 uid="uid://dr23gqxdfg82p"]
+
+[ext_resource type="Script" path="res://assets/dialogs/dialogs_system.gd" id="1_2wlgt"]
 
 [node name="DialogsSystem" type="MarginContainer"]
 anchors_preset = 15
@@ -10,6 +12,7 @@ theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
+script = ExtResource("1_2wlgt")
 
 [node name="Subtitles" type="RichTextLabel" parent="."]
 layout_mode = 2
