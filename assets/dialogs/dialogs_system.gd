@@ -10,11 +10,13 @@ func register(speecher: Speecher):
 	speechers[speecher.author] = speecher
 
 func play(line: SpeechLine):
-	subtitles.text = "[center][b]%s[/b]\n%s[/center]" % [line.author, line.line]
-	var speecher = speechers.get(line.author)
+	var speecher := speechers.get(line.author) as Speecher
 	if !speecher:
 		push_warning("Not found speecher %s" % line.author)
 		speecher = speechers["DEFAULT"]
+	if !is_instance_valid(speecher) || speecher.is_queued_for_deletion() || speecher.dying:
+		return
+	subtitles.text = "[center][b]%s[/b]\n%s[/center]" % [line.author, line.line]
 	await speecher.speech(line)
 	subtitles.text = ""
 

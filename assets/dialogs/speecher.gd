@@ -3,6 +3,8 @@ class_name Speecher
 @export var author: StringName
 @export var audioPlayer: Node
 
+var dying := false
+
 signal finished
 
 func _ready() -> void:
@@ -20,6 +22,11 @@ func _ready() -> void:
 	assert(audioPlayer, "AudioStreamPlayer should be setted or be a child of this node")
 	DialogsSystem.register(self)
 	audioPlayer.bus = "Speech"
+	tree_exiting.connect(func():
+		dying = true
+		if audioPlayer.playing:
+			finished.emit()
+	)
 
 func speech(line: SpeechLine):
 	audioPlayer.stream = line.sound

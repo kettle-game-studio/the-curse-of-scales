@@ -25,8 +25,8 @@ class_name Player;
 @onready var action_label := %ActionLabel
 var item: Draggable
 
-enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING, CLIMBING }
-var state := ScaleState.MAX
+enum ScaleState { BEGIN, MAX, MIN, MAXIMIZING, MINIMIZING, CLIMBING }
+var state := ScaleState.BEGIN
 var shape: CapsuleShape3D
 var max_shape: CapsuleShape3D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -142,11 +142,13 @@ func check_interaction():
 			action_label.text = "[E] - Drag %s" % collider.trigger.name
 	elif action_label.text != "":
 		action_label.text = ""
+	if action_label.text:
+		action_label.text = "[center]%s[/center]" % action_label.text
 	if !can_interact():
 		action_label.text = "[color=red]%s[/color]" % action_label.text
 
 func can_interact():
-	return state == ScaleState.CLIMBING || state == ScaleState.MAX
+	return  state == ScaleState.BEGIN || state == ScaleState.CLIMBING || state == ScaleState.MAX
 
 func interact():
 	if !can_interact():
@@ -168,6 +170,11 @@ func interact():
 		action_label.text = ""
 		return
 	if collider is Draggable:
+		var t = collider.trigger
+		if t is ChangePlayer:
+			state = t.new_state
+			collider.queue_free()
+			return
 		if item:
 			item.global_transform = collider.global_transform
 			item.drop()
