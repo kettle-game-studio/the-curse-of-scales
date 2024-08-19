@@ -128,7 +128,7 @@
 
 > Ivan the Skull: You're already awake, ain't ya? You lost your bet to the sea-devil a week ago, Captain.
 
-> But YARR we still have the chest, we do! The last skeleton key is somewhere here on the ship.
+> But YARR we still have the chest! The last skeleton key is somewhere here on the ship.
 
 > Ivan the Skull: Come take take my... Eh... skull, Cap, together we might control the scale.
 
