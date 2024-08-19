@@ -10,3 +10,4 @@ func register(speecher: Speecher):
 func play(line: SpeechLine):
 	subtitles.text = "[center]%s\n%s[/center]" % [line.author, line.line]
 	await speechers[line.author].speech(line)
+	subtitles.text = ""

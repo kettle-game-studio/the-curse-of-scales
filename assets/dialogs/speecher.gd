@@ -19,8 +19,10 @@ func _ready() -> void:
 			audioPlayer = c[0]
 	assert(audioPlayer, "AudioStreamPlayer should be setted or be a child of this node")
 	DialogsSystem.register(self)
+	audioPlayer.bus = "Speech"
 
 func speech(line: SpeechLine):
 	audioPlayer.stream = line.sound
 	audioPlayer.play()
 	audioPlayer.finished.connect(func(): finished.emit(), Object.ConnectFlags.CONNECT_ONE_SHOT)
+	await audioPlayer.finished
