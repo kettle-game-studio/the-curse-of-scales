@@ -137,9 +137,6 @@
 
 > Ivan the Skull: Take it up the mast to the crows nest!
 
-Когда залез на мачту:
-> Parrot: [YARR in popugeese] Corkscrew, use the corkscrew [YARR in popugeese]
-
 Когда отмасштабировал палубу в первый раз:
 
 > Ivan the Skull: Shiver me timbers!
