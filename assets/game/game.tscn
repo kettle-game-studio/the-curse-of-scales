@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=28 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
+[ext_resource type="Material" uid="uid://b6hapbsjjnon" path="res://assets/flying_dutchman/sea_material.tres" id="11_lo82i"]
 
 [sub_resource type="Animation" id="Animation_wf7q6"]
 resource_name = "Begin"
@@ -98,8 +99,8 @@ flip_faces = true
 top_radius = 400.0
 bottom_radius = 100.0
 height = 500.0
-radial_segments = 512
-rings = 128
+radial_segments = 128
+rings = 32
 cap_top = false
 cap_bottom = false
 
@@ -153,6 +154,11 @@ nodes/output/position = Vector2(340, 140)
 nodes/rotate/node = SubResource("AnimationNodeAnimation_uhkxg")
 nodes/rotate/position = Vector2(-20, 120)
 node_connections = [&"TimeScale", 0, &"rotate", &"output", 0, &"TimeScale"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lqtph"]
+size = Vector2(500, 500)
+subdivide_width = 500
+subdivide_depth = 500
 
 [node name="Game" type="Node"]
 script = ExtResource("1_dld7d")
@@ -214,3 +220,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_547mm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.417, 0)
+material_override = ExtResource("11_lo82i")
+mesh = SubResource("PlaneMesh_lqtph")

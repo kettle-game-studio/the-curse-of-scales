@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://b6hapbsjjnon"]
+
+[ext_resource type="Shader" path="res://assets/flying_dutchman/sea.gdshader" id="1_r4g7y"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tq2b3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vf43k"]
+width = 2048
+height = 2048
+seamless = true
+noise = SubResource("FastNoiseLite_tq2b3")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_r4g7y")
+shader_parameter/Color = Color(0.0705882, 0.152941, 0.219608, 1)
+shader_parameter/Color2 = Color(0.0377541, 0.0683341, 0.124425, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_vf43k")
