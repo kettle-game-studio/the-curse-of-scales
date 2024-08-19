@@ -22,7 +22,7 @@ class_name Player;
 @onready var scale_audio: AudioStreamPlayer = $ScaleAudio
 @onready var drag_ray: RayCast3D = %DragRay
 @onready var hand: Marker3D = %Hand
-@onready var action_label: Label = %ActionLabel
+@onready var action_label := %ActionLabel
 var item: Draggable
 
 enum ScaleState { MAX, MIN, MAXIMIZING, MINIMIZING, CLIMBING }
@@ -131,10 +131,10 @@ func check_interaction():
 		if interactive_area is Ladder:
 			if state == ScaleState.CLIMBING:
 				action_label.text = "[E] to stop climbing"
-			elif state == ScaleState.MAX:
+			else:
 				action_label.text = "[E] to climb"
 	elif collider is Triggable:
-		if item && collider.activable(item.trigger):
+		if collider.activable(item.trigger if item else null):
 			action_label.text = "[E] to %s" % collider.action_name
 		elif !collider.activated && collider.trigger:
 			action_label.text = "%s is needed" % collider.trigger.name
@@ -142,8 +142,15 @@ func check_interaction():
 			action_label.text = "[E] - Drag %s" % collider.trigger.name
 	elif action_label.text != "":
 		action_label.text = ""
+	if !can_interact():
+		action_label.text = "[color=red]%s[/color]" % action_label.text
+
+func can_interact():
+	return state == ScaleState.CLIMBING || state == ScaleState.MAX
 
 func interact():
+	if !can_interact():
+		return
 	var collider = drag_ray.get_collider()
 	if interactive_area:
 		if interactive_area is Ladder:
@@ -155,8 +162,9 @@ func interact():
 				ladder = interactive_area
 				global_position = interactive_area.entrance.global_position
 	elif item && collider is Triggable && collider.activate(item.trigger):
-		item.queue_free()
-		item = null
+		if collider.trigger:
+			item.queue_free()
+			item = null
 		action_label.text = ""
 		return
 	if collider is Draggable:

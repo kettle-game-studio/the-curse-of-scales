@@ -200,6 +200,9 @@ shape = SubResource("BoxShape3D_cs8su")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55706, 0, -2.7563)
 trigger = ExtResource("2_doe0r")
 
+[node name="Chest2" parent="." instance=ExtResource("3_esaso")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.29729, 0, -2.7563)
+
 [node name="Door" parent="." instance=ExtResource("6_n6u4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.75043, 0, -5.61431)
 action_name = &"open door"

@@ -11,7 +11,7 @@ signal triggered(item: TriggerItem)
 var activated := false
 
 func activable(item: TriggerItem) -> bool:
-	return !(one_shot && activated) && item == trigger
+	return !(one_shot && activated) && (!trigger || item == trigger)
 
 func activate(item: TriggerItem) -> bool:
 	if activable(item):
