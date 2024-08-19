@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://wdcfd0iv37k1"]
+
+[ext_resource type="Script" path="res://assets/dialogs/dialog_trigger.gd" id="1_kjnnr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k1orx"]
+
+[node name="DialogTrigger" type="Node3D"]
+script = ExtResource("1_kjnnr")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 128
+monitorable = false
+
+[node name="Trigger" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_k1orx")
+
+[connection signal="body_entered" from="Area3D" to="." method="play" flags=6 unbinds=1]

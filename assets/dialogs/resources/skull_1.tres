@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeechLine" load_steps=3 format=3 uid="uid://ckwg31mfp1ltk"]
+
+[ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="1_yvvnp"]
+[ext_resource type="AudioStream" uid="uid://xd8odmbnhi3s" path="res://assets/sound/skull_1.mp3" id="2_cugnt"]
+
+[resource]
+script = ExtResource("1_yvvnp")
+author = &"Skull"
+line = "You're already awake, ain't ya? You lost your bet to the sea-devil a week ago, Captain."
+sound = ExtResource("2_cugnt")

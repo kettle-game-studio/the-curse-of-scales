@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dr23gqxdfg82p"]
+[gd_scene load_steps=3 format=3 uid="uid://dr23gqxdfg82p"]
 
 [ext_resource type="Script" path="res://assets/dialogs/dialogs_system.gd" id="1_2wlgt"]
+[ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="2_5555l"]
 
 [node name="DialogsSystem" type="MarginContainer"]
+process_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,3 +31,7 @@ text = "[center][b]Name[/b]
 Text[/center]"
 fit_content = true
 shortcut_keys_enabled = false
+
+[node name="DefaultPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("2_5555l")
+author = &"DEFAULT"
