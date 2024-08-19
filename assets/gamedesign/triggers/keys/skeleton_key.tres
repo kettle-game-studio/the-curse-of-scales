@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Key" load_steps=2 format=3 uid="uid://d0mrqx4hbctc0"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/key.gd" id="1_2c5cs"]
+
+[resource]
+script = ExtResource("1_2c5cs")
+color = Color(0, 0, 0, 1)
+name = &"Skeleton Key"

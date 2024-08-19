@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=24 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -12,8 +12,15 @@
 [ext_resource type="ArrayMesh" uid="uid://dlhhje0r7gb8u" path="res://assets/ship/parts/ship_Cylinder_017.res" id="6_qoohd"]
 [ext_resource type="PackedScene" uid="uid://csubmtacpped2" path="res://assets/gamedesign/mars/mars.tscn" id="7_51ts2"]
 [ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="7_elavf"]
-[ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/chest.tscn" id="7_ltim6"]
-[ext_resource type="Resource" uid="uid://drgmpfperrssr" path="res://assets/gamedesign/triggers/keys/golden_key.tres" id="8_tkh5i"]
+[ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/golden_chest.tscn" id="7_ltim6"]
+[ext_resource type="PackedScene" uid="uid://cnvx03s84i1rl" path="res://assets/gamedesign/triggers/keys/golden_key.tscn" id="8_sgbgy"]
+[ext_resource type="PackedScene" uid="uid://cpn8ko8363h1h" path="res://assets/gamedesign/triggers/keys/skeleton_key.tscn" id="9_rojmg"]
+[ext_resource type="PackedScene" uid="uid://vxnln255cwxd" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
+[ext_resource type="PackedScene" uid="uid://dwki5pnguubja" path="res://assets/stuff/stuff_prefab/table_prefab.tscn" id="11_lxvjh"]
+[ext_resource type="ArrayMesh" uid="uid://dqw4kxj4h3yy5" path="res://assets/skeleton/meshes/skeleton_skull.res" id="14_0v0y4"]
+[ext_resource type="ArrayMesh" uid="uid://cxq1bbua6kl1h" path="res://assets/skeleton/meshes/skeleton_hat.res" id="15_wi4qm"]
+[ext_resource type="ArrayMesh" uid="uid://bb8mfol5m6i2i" path="res://assets/skeleton/meshes/skeleton_beard.res" id="16_b844b"]
+[ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="18_fjegs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
 
@@ -83,7 +90,35 @@ shape = SubResource("ConcavePolygonShape3D_8o6si")
 
 [node name="Chest" parent="ship/Level1/Gameplay" instance=ExtResource("7_ltim6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.38803, -2.74461, -17.3251)
-trigger = ExtResource("8_tkh5i")
+
+[node name="Chest2" parent="ship/Level1/Gameplay" instance=ExtResource("10_aucgn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.44852, -2.68739, -17.1887)
+
+[node name="Item" parent="ship/Level1/Gameplay" instance=ExtResource("8_sgbgy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.256106, -2.70759, -16.1152)
+
+[node name="Item2" parent="ship/Level1/Gameplay" instance=ExtResource("9_rojmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603606, -2.69638, -15.9138)
+
+[node name="StuffTable" parent="ship/Level1/Gameplay" instance=ExtResource("11_lxvjh")]
+
+[node name="Bottle" parent="ship/Level1/Gameplay" instance=ExtResource("6_50vet")]
+transform = Transform3D(-4.37114e-08, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, 1, 1, 4.37114e-08, 4.37114e-08, -0.369769, -3.28675, -4.2519)
+trigger = ExtResource("7_elavf")
+
+[node name="SkeletonSkull" type="MeshInstance3D" parent="ship/Level1/Gameplay"]
+transform = Transform3D(0.397276, 0, 0.917699, 0, 1, 0, -0.917699, 0, 0.397276, -4.15992, -3.88161, -15.9241)
+mesh = ExtResource("14_0v0y4")
+skeleton = NodePath("../..")
+
+[node name="SkeletonHat" type="MeshInstance3D" parent="ship/Level1/Gameplay/SkeletonSkull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("15_wi4qm")
+skeleton = NodePath("../..")
+
+[node name="SkeletonBeard" type="MeshInstance3D" parent="ship/Level1/Gameplay/SkeletonSkull"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("16_b844b")
 
 [node name="Level2" parent="ship" instance=ExtResource("3_6hr7j")]
 
@@ -169,6 +204,7 @@ gizmo_extents = 1.33
 
 [node name="Mars" parent="ship" instance=ExtResource("7_51ts2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00246739, 35.6022, 2.81917)
+trigger = ExtResource("18_fjegs")
 
 [node name="StartPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.5497, 0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpsxip8j60g2h"]
+[gd_scene load_steps=18 format=3 uid="uid://bpsxip8j60g2h"]
 
-[ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_p0kgl"]
-[ext_resource type="ArrayMesh" uid="uid://dubxwu1sq4jny" path="res://assets/stuff/stuff_mesh/stuff_chest_cap.res" id="2_e20pi"]
-[ext_resource type="ArrayMesh" uid="uid://bbfdnms4ifatr" path="res://assets/stuff/stuff_mesh/stuff_chest.res" id="3_c1bgm"]
-[ext_resource type="ArrayMesh" uid="uid://dfpt0om0unm04" path="res://assets/stuff/stuff_mesh/stuff_gold_lock.res" id="4_6bo3e"]
-[ext_resource type="ArrayMesh" uid="uid://bkiv8jgavvtk0" path="res://assets/stuff/stuff_mesh/stuff_shackle.res" id="5_4wl33"]
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_ff6ry"]
+[ext_resource type="ArrayMesh" uid="uid://dubxwu1sq4jny" path="res://assets/stuff/stuff_mesh/stuff_chest_cap.res" id="2_j1381"]
+[ext_resource type="Resource" uid="uid://drgmpfperrssr" path="res://assets/gamedesign/triggers/keys/golden_key.tres" id="2_xeqm6"]
+[ext_resource type="ArrayMesh" uid="uid://bbfdnms4ifatr" path="res://assets/stuff/stuff_mesh/stuff_chest.res" id="3_82rcl"]
+[ext_resource type="ArrayMesh" uid="uid://dfpt0om0unm04" path="res://assets/stuff/stuff_mesh/stuff_gold_lock.res" id="4_0nimr"]
+[ext_resource type="ArrayMesh" uid="uid://bkiv8jgavvtk0" path="res://assets/stuff/stuff_mesh/stuff_shackle.res" id="5_xo2xa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25ows"]
 size = Vector3(1.87988, 0.155762, 0.784912)
@@ -170,8 +171,9 @@ transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransitio
 
 [node name="Chest" type="Area3D"]
 monitoring = false
-script = ExtResource("1_p0kgl")
+script = ExtResource("1_ff6ry")
 action_name = &"open chest"
+trigger = ExtResource("2_xeqm6")
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474852, -0.352048)
@@ -185,7 +187,7 @@ shape = SubResource("BoxShape3D_25ows")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/StaticBody3D2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.672314, 0.387505)
-mesh = ExtResource("2_e20pi")
+mesh = ExtResource("2_j1381")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
@@ -195,7 +197,7 @@ shape = SubResource("BoxShape3D_0a55k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
-mesh = ExtResource("3_c1bgm")
+mesh = ExtResource("3_82rcl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -216,10 +218,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 0.358669, 0.4109
 
 [node name="StuffGoldLock" type="MeshInstance3D" parent="Lock"]
 transform = Transform3D(-1, -7.10543e-15, -1.50996e-07, -7.10543e-15, 1, 4.23516e-22, 1.50996e-07, 0, -1, 2.08537e-05, -0.00150743, -0.00693297)
-mesh = ExtResource("4_6bo3e")
+mesh = ExtResource("4_0nimr")
 skeleton = NodePath("../..")
 
 [node name="StuffShackle" type="MeshInstance3D" parent="Lock"]
 transform = Transform3D(-1, 0, -8.74228e-08, -3.55271e-15, 1, 0, 8.74228e-08, 0, -1, -0.000205689, -0.000265807, -0.0111269)
-mesh = ExtResource("5_4wl33")
+mesh = ExtResource("5_xo2xa")
 skeleton = NodePath("../..")

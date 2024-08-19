@@ -1,19 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmiat20mwcc0x"]
+[gd_scene load_steps=7 format=3 uid="uid://bmiat20mwcc0x"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_v7t18"]
 [ext_resource type="PackedScene" uid="uid://du11atf51ukvh" path="res://assets/ship/level_2_bottle.tscn" id="1_xfcix"]
 [ext_resource type="PackedScene" uid="uid://o6wcnula0gvo" path="res://assets/ship/level_3.tscn" id="2_w1x37"]
 [ext_resource type="PackedScene" uid="uid://jywta2kwkebr" path="res://assets/ship/level_4.tscn" id="3_kd3xy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m87y"]
-transparency = 1
-albedo_color = Color(0, 0.835294, 0.592157, 0.501961)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_fb430"]
-material = SubResource("StandardMaterial3D_5m87y")
-top_radius = 0.01
-bottom_radius = 0.08
-height = 0.25
+[ext_resource type="ArrayMesh" uid="uid://d4kma1xax6eak" path="res://assets/stuff/stuff_mesh/stuff_bottle.res" id="5_ek75y"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3xwnr"]
 height = 0.23577
@@ -23,7 +14,7 @@ radius = 0.1
 script = ExtResource("1_v7t18")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-0.00276151, 0.00117179, 3.06845e-05, 0, -7.85309e-05, 0.00299897, 0.00117219, 0.00276057, 7.22881e-05, 0, 0.0787807, -0.00831677)
+transform = Transform3D(-0.005, 4.37114e-10, 1.91069e-17, 0, -2.18557e-10, 0.005, 4.37114e-10, 0.005, 2.18557e-10, 0.00231117, 0.174107, -0.0287252)
 
 [node name="Level2Bottle" parent="Node3D" instance=ExtResource("1_xfcix")]
 process_mode = 4
@@ -37,8 +28,8 @@ process_mode = 4
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124671, 0)
-mesh = SubResource("CylinderMesh_fb430")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045943, 0)
+mesh = ExtResource("5_ek75y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119933, 0)

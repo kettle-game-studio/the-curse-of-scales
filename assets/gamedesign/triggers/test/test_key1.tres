@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_lpelc")
 color = Color(0.539346, 0.53584, 1.92523e-07, 1)
-name = &"TestKey1"
+name = &"Bottle"
