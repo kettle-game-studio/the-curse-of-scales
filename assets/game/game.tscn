@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=29 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 [ext_resource type="Material" uid="uid://b6hapbsjjnon" path="res://assets/flying_dutchman/sea_material.tres" id="11_lo82i"]
+[ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="12_vwxsf"]
 
 [sub_resource type="Animation" id="Animation_wf7q6"]
 resource_name = "Begin"
@@ -225,3 +226,5 @@ parameters/TimeScale/scale = 0.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.417, 0)
 material_override = ExtResource("11_lo82i")
 mesh = SubResource("PlaneMesh_lqtph")
+
+[node name="Stuff2Lafet" parent="." instance=ExtResource("12_vwxsf")]

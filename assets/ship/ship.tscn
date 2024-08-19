@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=41 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://assets/dialogs/dialog.gd" id="22_d1em6"]
 [ext_resource type="PackedScene" uid="uid://cgtdl00mxbbx5" path="res://assets/gamedesign/cannon/cannon.tscn" id="26_6e2a2"]
 [ext_resource type="PackedScene" uid="uid://0uhl138cen52" path="res://assets/stuff/stuff_prefab/stuff_2_plank_10.tscn" id="27_3iaro"]
+[ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="30_35x0o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
 
@@ -280,6 +281,32 @@ gizmo_extents = 1.33
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
 gizmo_extents = 1.33
 
+[node name="Stuff2Lafet" parent="ship/Level3" instance=ExtResource("30_35x0o")]
+transform = Transform3D(0.157124, 1.50512e-07, -0.987579, 1.49012e-08, 1, 1.21072e-08, 0.987579, 1.154e-07, 0.157124, -9.87425, 6.55972, 1.34126)
+skeleton = NodePath("../../Level1/Stuff2Lafet")
+
+[node name="Stuff2Cannon" parent="ship/Level3/Stuff2Lafet" index="0"]
+transform = Transform3D(0.99794, -0.062829, 0.0129458, 0.062829, 0.916572, -0.394902, 0.0129456, 0.394902, 0.918632, 0.056071, 0.315818, -0.352426)
+skeleton = NodePath("../../../Level1/Stuff2Lafet")
+
+[node name="Stuff2Lafet2" parent="ship/Level3" instance=ExtResource("30_35x0o")]
+transform = Transform3D(0.266397, 0, -0.963863, 0, 1, 0, 0.963863, 0, 0.266397, -8.32288, 6.92827, 8.77914)
+
+[node name="Stuff2Cannon" parent="ship/Level3/Stuff2Lafet2" index="0"]
+transform = Transform3D(0.748824, 0.659298, -0.0677313, -0.658613, 0.728807, -0.187269, -0.0741033, 0.18484, 0.979971, 0.377517, 0.0629578, -1.40504)
+
+[node name="Stuff2Lafet3" parent="ship/Level3" instance=ExtResource("30_35x0o")]
+transform = Transform3D(-0.147732, -0.447519, 0.881987, -0.0900758, 0.894154, 0.438605, -0.984917, -0.0146499, -0.172406, 11.1283, 6.96221, 1.28689)
+skeleton = NodePath("../Stuff2Lafet2")
+
+[node name="Stuff2Cannon" parent="ship/Level3/Stuff2Lafet3" index="0"]
+transform = Transform3D(0.999909, 0.00426319, -0.0128457, -0.0135038, 0.378343, -0.925567, 0.000914142, 0.925657, 0.378366, 0.0718606, 1.03998, -0.498893)
+skeleton = NodePath("../../Stuff2Lafet2")
+
+[node name="Stuff2Lafet4" parent="ship/Level3" instance=ExtResource("30_35x0o")]
+transform = Transform3D(0.0630337, -0.059878, 0.996214, -0.918002, -0.395085, 0.0343382, 0.391533, -0.916691, -0.0798719, 3.09907, 9.24962, 18.7265)
+skeleton = NodePath("../..")
+
 [node name="Level4" parent="ship" instance=ExtResource("5_1u8yt")]
 
 [node name="Mars" parent="ship" instance=ExtResource("7_51ts2")]
@@ -293,3 +320,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.5497, 0)
 
 [editable path="ship/Level1/Gameplay/SkullDialog1"]
 [editable path="ship/Level1/Stuff2Lafet"]
+[editable path="ship/Level3/Stuff2Lafet"]
+[editable path="ship/Level3/Stuff2Lafet2"]
+[editable path="ship/Level3/Stuff2Lafet3"]
