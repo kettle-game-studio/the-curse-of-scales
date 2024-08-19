@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpn8ko8363h1h"]
+
+[ext_resource type="PackedScene" uid="uid://dbtfow5c5u3vf" path="res://assets/gamedesign/triggers/item_prefab.tscn" id="1_kbsqu"]
+[ext_resource type="Resource" uid="uid://d0mrqx4hbctc0" path="res://assets/gamedesign/triggers/keys/skeleton_key.tres" id="2_00io0"]
+[ext_resource type="ArrayMesh" uid="uid://b8ss2w7kg7clf" path="res://assets/stuff/stuff_mesh/stuff_skelet_key.res" id="3_pca7l"]
+
+[node name="Item" instance=ExtResource("1_kbsqu")]
+trigger = ExtResource("2_00io0")
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = ExtResource("3_pca7l")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=25 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -6,10 +6,8 @@
 [ext_resource type="Resource" uid="uid://csj351olot7xt" path="res://assets/dialogs/resources/intro.tres" id="2_eq7oa"]
 [ext_resource type="PackedScene" uid="uid://bqk4vvc80kfd6" path="res://assets/ship/ship.tscn" id="2_nhekc"]
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
-[ext_resource type="PackedScene" uid="uid://bmiat20mwcc0x" path="res://assets/gamedesign/triggers/bottle/bottle.tscn" id="5_40tdv"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
-[ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="6_vs4ba"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 
@@ -144,10 +142,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66944, 8.74151, 0.02561)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82959, 16.9029, -6.44227)
 
 [node name="Sandbox" parent="Level" instance=ExtResource("1_dgxda")]
-
-[node name="Bottle" parent="Level" instance=ExtResource("5_40tdv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.62837, 4.62561, -4.27148)
-trigger = ExtResource("6_vs4ba")
 
 [node name="Storyteller" type="AudioStreamPlayer" parent="Level"]
 script = ExtResource("7_3ovya")

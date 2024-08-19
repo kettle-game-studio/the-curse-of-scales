@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_rolf8"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="2_doe0r"]
-[ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/chest.tscn" id="3_esaso"]
+[ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/golden_chest.tscn" id="3_esaso"]
 [ext_resource type="Resource" uid="uid://ctl8nojk4om8f" path="res://assets/gamedesign/triggers/test/test_key2.tres" id="3_xpcwn"]
 [ext_resource type="PackedScene" uid="uid://nkpffogjhm51" path="res://assets/gamedesign/ladder/ladder_example.tscn" id="6_b2dtk"]
 [ext_resource type="PackedScene" uid="uid://cqcivmapg633v" path="res://assets/gamedesign/door/door.tscn" id="6_n6u4s"]

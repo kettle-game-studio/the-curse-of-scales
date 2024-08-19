@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbtfow5c5u3vf"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_m7pft"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d3gmm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cq7tk"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[node name="Item" type="Area3D"]
+script = ExtResource("1_m7pft")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_d3gmm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cq7tk")

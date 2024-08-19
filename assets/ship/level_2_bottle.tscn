@@ -4,26 +4,23 @@
 
 [node name="Level2Bottle" instance=ExtResource("1_2qsni")]
 
-[node name="floor2" parent="." index="0"]
+[node name="floor2" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.14889, 0)
 
-[node name="bom" parent="." index="1"]
+[node name="bom" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.3015, 16.1761)
 
-[node name="parus" parent="." index="2"]
+[node name="parus" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88891, 0)
 
-[node name="parus3" parent="." index="3"]
+[node name="parus3" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.16173, 0)
 
-[node name="parus2" parent="." index="4"]
+[node name="parus2" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88891, 0)
 
-[node name="parus4" parent="." index="5"]
+[node name="parus4" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.02347, 0)
 
-[node name="parus5" parent="." index="6"]
+[node name="parus5" parent="." index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.4967, 0)
-
-[node name="Ship_003" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.88891, 0)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Key" load_steps=2 format=3 uid="uid://drgmpfperrssr"]
+
+[ext_resource type="Script" path="res://assets/gamedesign/triggers/key.gd" id="1_inogx"]
+
+[resource]
+script = ExtResource("1_inogx")
+color = Color(0, 0, 0, 1)
+name = &"Golden Key"
