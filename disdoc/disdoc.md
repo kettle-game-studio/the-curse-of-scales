@@ -127,7 +127,7 @@
 
 > Ivan the Skull: You're already awake, ain't ya? You lost your bet to the sea-devil a week ago, Captain.
 
-> But YARR we still have the chest! The last skeleton key is somewhere here on the ship.
+>  Ivan the Skull: But, YARRR, we still have the chest! The last skeleton key is somewhere here on the ship.
 
 > Ivan the Skull: Come take take my skull, Cap. A lucky charm — to control your scale.
 
@@ -143,5 +143,14 @@
 
 #### На второй палубе:
 
+Когда заходим в кают-компанию:
 
+> Ivan the Skull: These were the times, eh? Five trusty mates on a quest for treasure!
 
+Активация карты:
+
+> Ivan the Skull: You must at least remember this one. This is the very map which lead to the chest and the curse.
+
+> Ivan the Skull: They say woman on the ship is a bad omen. But Nicole was french, which is even worse...
+
+> 
