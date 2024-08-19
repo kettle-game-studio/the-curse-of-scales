@@ -41,7 +41,6 @@
 - ~~Корабль~~
 
 - Штопор для разбивания стекла
-- Попугай
 
 - ~~Бочки~~
 - Мешки
@@ -130,9 +129,11 @@
 
 > But YARR we still have the chest! The last skeleton key is somewhere here on the ship.
 
-> Ivan the Skull: Come take take my... Eh... skull, Cap, together we might control the scale.
+> Ivan the Skull: Come take take my skull, Cap. A lucky charm — to control your scale.
 
-> Ivan the Skull: See that bottle, do you, John? We just might scale up the upper deck and the cabins up there. 
+Когда прошёл сквозь решётку
+
+> Ivan the Skull: See that bottle on the table? We just might scale back the upper deck with the cabins. 
 
 > Ivan the Skull: Take it up the mast to the crows nest!
 
