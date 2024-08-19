@@ -1,49 +1,79 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpsxip8j60g2h"]
+[gd_scene load_steps=17 format=3 uid="uid://bpsxip8j60g2h"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_p0kgl"]
+[ext_resource type="ArrayMesh" uid="uid://dubxwu1sq4jny" path="res://assets/stuff/stuff_mesh/stuff_chest_cap.res" id="2_e20pi"]
+[ext_resource type="ArrayMesh" uid="uid://bbfdnms4ifatr" path="res://assets/stuff/stuff_mesh/stuff_chest.res" id="3_c1bgm"]
+[ext_resource type="ArrayMesh" uid="uid://dfpt0om0unm04" path="res://assets/stuff/stuff_mesh/stuff_gold_lock.res" id="4_6bo3e"]
+[ext_resource type="ArrayMesh" uid="uid://bkiv8jgavvtk0" path="res://assets/stuff/stuff_mesh/stuff_shackle.res" id="5_4wl33"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25ows"]
 size = Vector3(1.87988, 0.155762, 0.784912)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mho2b"]
-albedo_color = Color(0.482353, 0.321569, 0.145098, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_4d7tu"]
-material = SubResource("StandardMaterial3D_mho2b")
-size = Vector3(1.88, 0.315, 0.785)
-
-[sub_resource type="BoxMesh" id="BoxMesh_pqeqe"]
-material = SubResource("StandardMaterial3D_mho2b")
-size = Vector3(1.88, 0.65, 0.785)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0a55k"]
 size = Vector3(1.87988, 0.668945, 0.784912)
 
 [sub_resource type="Animation" id="Animation_o5drx"]
 resource_name = "Open"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/path = NodePath("CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.433333, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.467748, 0, 0), Vector3(-0.350811, 0, 0), Vector3(-2.33874, 0, 0)]
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/path = NodePath("Node3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(-2.14262, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lock/StuffGoldLock:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"update": 0,
+"values": [Vector3(2.08537e-05, -0.00150743, -0.00693297), Vector3(2.08564e-05, -0.0664308, -0.00693297)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lock:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(7.45058e-09, 0.358669, 0.410922), Vector3(5.96858e-09, 0.358669, 0.410922), Vector3(0.020673, 0.358669, 0.410922), Vector3(0.0413459, 0.358669, 0.410922), Vector3(0.0413459, 0.0862824, 0.410922)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Lock:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -4.09617e-08), Vector3(0, 0, -0.792938), Vector3(0, 0, -1.58588), Vector3(0, 0, -1.58588)]
 }
 
 [sub_resource type="Animation" id="Animation_to5cn"]
@@ -51,26 +81,62 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node3D:rotation")
+tracks/0/path = NodePath("CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape3D:disabled")
+tracks/1/path = NodePath("Node3D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Lock/StuffGoldLock:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.08537e-05, -0.00150743, -0.00693297)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Lock:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Lock:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(7.45058e-09, 0.358669, 0.410922)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_etp26"]
@@ -108,28 +174,28 @@ script = ExtResource("1_p0kgl")
 action_name = &"open chest"
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672314, -0.387505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.474852, -0.352048)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.201062, -0.0351728)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node3D/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.241221, 0.390709)
 shape = SubResource("BoxShape3D_25ows")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.166602, 0.387505)
-mesh = SubResource("BoxMesh_4d7tu")
-skeleton = NodePath("../../../StaticBody3D")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D/StaticBody3D2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.672314, 0.387505)
+mesh = ExtResource("2_e20pi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.343241, 0)
-mesh = SubResource("BoxMesh_pqeqe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334473, 0)
 shape = SubResource("BoxShape3D_0a55k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+mesh = ExtResource("3_c1bgm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -144,3 +210,16 @@ shape = SubResource("BoxShape3D_tiooj")
 tree_root = SubResource("AnimationNodeStateMachine_m2npf")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Lock" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.45058e-09, 0.358669, 0.410922)
+
+[node name="StuffGoldLock" type="MeshInstance3D" parent="Lock"]
+transform = Transform3D(-1, -7.10543e-15, -1.50996e-07, -7.10543e-15, 1, 4.23516e-22, 1.50996e-07, 0, -1, 2.08537e-05, -0.00150743, -0.00693297)
+mesh = ExtResource("4_6bo3e")
+skeleton = NodePath("../..")
+
+[node name="StuffShackle" type="MeshInstance3D" parent="Lock"]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.55271e-15, 1, 0, 8.74228e-08, 0, -1, -0.000205689, -0.000265807, -0.0111269)
+mesh = ExtResource("5_4wl33")
+skeleton = NodePath("../..")

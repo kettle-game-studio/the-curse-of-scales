@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=28 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="6_vs4ba"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
+[ext_resource type="PackedScene" uid="uid://cnvx03s84i1rl" path="res://assets/gamedesign/triggers/keys/golden_key.tscn" id="13_ml8va"]
 
 [sub_resource type="Animation" id="Animation_wf7q6"]
 resource_name = "Begin"
@@ -187,3 +188,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendTree_547mm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 0.1
+
+[node name="Item" parent="." instance=ExtResource("13_ml8va")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79355, 5.9881, -15.6997)
