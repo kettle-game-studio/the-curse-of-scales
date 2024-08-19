@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=40 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -12,24 +12,26 @@
 [ext_resource type="ArrayMesh" uid="uid://dlhhje0r7gb8u" path="res://assets/ship/parts/ship_Cylinder_017.res" id="6_qoohd"]
 [ext_resource type="PackedScene" uid="uid://csubmtacpped2" path="res://assets/gamedesign/mars/mars.tscn" id="7_51ts2"]
 [ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="7_elavf"]
-[ext_resource type="PackedScene" path="res://assets/gamedesign/chest/golden_chest.tscn" id="7_ltim6"]
+[ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/golden_chest.tscn" id="7_ltim6"]
 [ext_resource type="PackedScene" uid="uid://cnvx03s84i1rl" path="res://assets/gamedesign/triggers/keys/golden_key.tscn" id="8_sgbgy"]
 [ext_resource type="PackedScene" uid="uid://cpn8ko8363h1h" path="res://assets/gamedesign/triggers/keys/skeleton_key.tscn" id="9_rojmg"]
-[ext_resource type="PackedScene" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
+[ext_resource type="PackedScene" uid="uid://vxnln255cwxd" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
 [ext_resource type="PackedScene" uid="uid://dwki5pnguubja" path="res://assets/stuff/stuff_prefab/table_prefab.tscn" id="11_lxvjh"]
 [ext_resource type="ArrayMesh" uid="uid://dqw4kxj4h3yy5" path="res://assets/skeleton/meshes/skeleton_skull.res" id="14_0v0y4"]
 [ext_resource type="ArrayMesh" uid="uid://cxq1bbua6kl1h" path="res://assets/skeleton/meshes/skeleton_hat.res" id="15_wi4qm"]
 [ext_resource type="ArrayMesh" uid="uid://bb8mfol5m6i2i" path="res://assets/skeleton/meshes/skeleton_beard.res" id="16_b844b"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="17_wx2i5"]
-[ext_resource type="PackedScene" uid="uid://wdcfd0iv37k1" path="res://assets/dialogs/dialog_trigger.tscn" id="18_4h5oj"]
+[ext_resource type="PackedScene" path="res://assets/dialogs/dialog_trigger.tscn" id="18_4h5oj"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="18_fjegs"]
 [ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="19_o1uo1"]
-[ext_resource type="Resource" uid="uid://ckwg31mfp1ltk" path="res://assets/dialogs/resources/skull_1.tres" id="20_tpsa1"]
+[ext_resource type="Resource" path="res://assets/dialogs/resources/skull_1.tres" id="20_tpsa1"]
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="20_tywap"]
-[ext_resource type="Resource" uid="uid://dtidvpe41ev40" path="res://assets/dialogs/resources/skull_2.tres" id="21_w5aug"]
+[ext_resource type="Resource" path="res://assets/dialogs/resources/skull_2.tres" id="21_w5aug"]
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/change_player.gd" id="21_xfjlu"]
-[ext_resource type="Resource" uid="uid://di7agemiphlj3" path="res://assets/dialogs/resources/skull_3.tres" id="22_4yh6t"]
+[ext_resource type="Resource" path="res://assets/dialogs/resources/skull_3.tres" id="22_4yh6t"]
 [ext_resource type="Script" path="res://assets/dialogs/dialog.gd" id="22_d1em6"]
+[ext_resource type="PackedScene" uid="uid://cgtdl00mxbbx5" path="res://assets/gamedesign/cannon/cannon.tscn" id="26_6e2a2"]
+[ext_resource type="PackedScene" uid="uid://0uhl138cen52" path="res://assets/stuff/stuff_prefab/stuff_2_plank_10.tscn" id="27_3iaro"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
 
@@ -50,6 +52,14 @@ name = &"Skull"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j8d70"]
 radius = 0.394252
+
+[sub_resource type="Curve3D" id="Curve3D_pnk8w"]
+bake_interval = 238.45
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.148, 0, 0, 0, 0, 0, 0, 0, 0, 0.53137, 9.05146, 23.7563, 0, 0, 0, 0, 0, 0, 8.25684, 5.21491, 26.5217, 0, 0, 0, 0, 0, 0, 17.5854, 3.4327, 14.9018, 0, 0, 0, 0, 0, 0, 22.287, 7.62469, 4.57174, 0, 0, 0, 0, 0, 0, 22.2535, 20.3025, -10.7612, 0, 0, 0, 0, 0, 0, 12.9661, 38.3333, -19.6315, 0, 0, 0, 0, 0, 0, 0.626268, 40.6018, -7.60841),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
 [node name="Ship" type="Node3D" node_paths=PackedStringArray("levels", "animation_start_position")]
 script = ExtResource("1_7opui")
@@ -169,6 +179,27 @@ author = &"Skull"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0370002, 0)
 shape = SubResource("SphereShape3D_j8d70")
 
+[node name="Stuff2Lafet" parent="ship/Level1" instance=ExtResource("26_6e2a2")]
+transform = Transform3D(0.998875, -4.6203e-10, -0.0474203, 0.00973858, 0.978685, 0.205136, 0.0464096, -0.205367, 0.977585, -1.84968, -2.51181, 15.5376)
+skeleton = NodePath("../../..")
+
+[node name="Area3D" parent="ship/Level1/Stuff2Lafet" index="2"]
+move_per_second = 0.1
+
+[node name="Path3D" parent="ship/Level1/Stuff2Lafet" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.692428, 0)
+curve = SubResource("Curve3D_pnk8w")
+
+[node name="Cannonball" parent="ship/Level1/Stuff2Lafet/Path3D" index="0"]
+transform = Transform3D(-0.999866, -0.00574423, -0.0150782, 0, 0.934464, -0.355998, 0.0161356, -0.35595, -0.934345, 0.148, 0, 0)
+progress = 0.0
+
+[node name="Stuff2Plank-10" parent="ship/Level1" instance=ExtResource("27_3iaro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28991, -1.21038, 17.1559)
+
+[node name="Stuff2Plank-11" parent="ship/Level1" instance=ExtResource("27_3iaro")]
+transform = Transform3D(0.017435, 4.61517e-10, 0.999848, 0.51647, -0.856258, -0.00900601, 0.856128, 0.516548, -0.0149288, -0.54631, -1.72272, 16.1849)
+
 [node name="Level2" parent="ship" instance=ExtResource("3_6hr7j")]
 
 [node name="Ladder1Bottom" type="Area3D" parent="ship/Level2" node_paths=PackedStringArray("entrance", "exit")]
@@ -261,3 +292,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.5497, 0)
 [connection signal="triggered" from="ship/Mars" to="." method="recive_bottle"]
 
 [editable path="ship/Level1/Gameplay/SkullDialog1"]
+[editable path="ship/Level1/Stuff2Lafet"]

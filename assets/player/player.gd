@@ -25,7 +25,7 @@ class_name Player;
 @onready var action_label := %ActionLabel
 var item: Draggable
 
-enum ScaleState { BEGIN, MAX, MIN, MAXIMIZING, MINIMIZING, CLIMBING }
+enum ScaleState { BEGIN, MAX, MIN, MAXIMIZING, MINIMIZING, CLIMBING, NONE }
 var state := ScaleState.BEGIN
 var shape: CapsuleShape3D
 var max_shape: CapsuleShape3D
@@ -52,9 +52,13 @@ func  _process(delta: float) -> void:
 	check_interaction()
 
 func _physics_process(delta: float):
+	
 	var camera_axis = Input.get_vector("rotate_left", "rotate_right", "rotate_up", "rotate_down")
 	rotate_handle(Vector2(camera_axis.x*abs(camera_axis.x), camera_axis.y*abs(camera_axis.y))*delta*settings.joystick_sensitivity)
 
+	if state == ScaleState.NONE:
+		return
+		
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if state == ScaleState.CLIMBING:
 		velocity.x = 0
@@ -133,6 +137,8 @@ func check_interaction():
 				action_label.text = "[E] to stop climbing"
 			else:
 				action_label.text = "[E] to climb"
+		elif interactive_area is Cannon:
+			action_label.text = "[E] to shoot"
 	elif collider is Triggable:
 		if collider.activable(item.trigger if item else null):
 			action_label.text = "[E] to %s" % collider.action_name
@@ -144,16 +150,19 @@ func check_interaction():
 		action_label.text = ""
 	if action_label.text:
 		action_label.text = "[center]%s[/center]" % action_label.text
-	if !can_interact():
+	if !can_interact(interactive_area):
 		action_label.text = "[color=red]%s[/color]" % action_label.text
 
-func can_interact():
-	return  state == ScaleState.BEGIN || state == ScaleState.CLIMBING || state == ScaleState.MAX
+func can_interact(interactive_area):
+	var triggerable_when_small = false
+	if interactive_area && interactive_area is Cannon:
+		triggerable_when_small = true
+	return triggerable_when_small || state == ScaleState.BEGIN || state == ScaleState.CLIMBING || state == ScaleState.MAX
 
 func interact():
-	if !can_interact():
-		return
 	var collider = drag_ray.get_collider()
+	if !can_interact(interactive_area):
+		return
 	if interactive_area:
 		if interactive_area is Ladder:
 			if state == ScaleState.CLIMBING:
@@ -163,7 +172,9 @@ func interact():
 				state = ScaleState.CLIMBING
 				ladder = interactive_area
 				global_position = interactive_area.entrance.global_position
-	elif item && collider is Triggable && collider.activate(item.trigger):
+		elif interactive_area is Cannon:
+			interactive_area.shoot(self)
+	elif collider is Triggable && collider.activate(item.trigger if item else null):
 		if collider.trigger:
 			item.queue_free()
 			item = null
