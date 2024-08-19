@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=26 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -18,9 +18,11 @@
 [ext_resource type="PackedScene" uid="uid://vxnln255cwxd" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
 [ext_resource type="PackedScene" uid="uid://dwki5pnguubja" path="res://assets/stuff/stuff_prefab/table_prefab.tscn" id="11_lxvjh"]
 [ext_resource type="ArrayMesh" uid="uid://dqw4kxj4h3yy5" path="res://assets/skeleton/meshes/skeleton_skull.res" id="14_0v0y4"]
+[ext_resource type="ArrayMesh" uid="uid://br57qn58lmy6s" path="res://assets/stuff/stuff_mesh/stuff_chair.res" id="14_rmlus"]
 [ext_resource type="ArrayMesh" uid="uid://cxq1bbua6kl1h" path="res://assets/skeleton/meshes/skeleton_hat.res" id="15_wi4qm"]
 [ext_resource type="ArrayMesh" uid="uid://bb8mfol5m6i2i" path="res://assets/skeleton/meshes/skeleton_beard.res" id="16_b844b"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="18_fjegs"]
+[ext_resource type="PackedScene" uid="uid://ct14vftjs7b14" path="res://assets/stuff/stuff_prefab/barrel_prefab.tscn" id="18_xe0eo"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
 
@@ -106,19 +108,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.603606, -2.69638, -15.9138
 transform = Transform3D(-4.37114e-08, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, 1, 1, 4.37114e-08, 4.37114e-08, -0.369769, -3.28675, -4.2519)
 trigger = ExtResource("7_elavf")
 
+[node name="StuffChair" type="MeshInstance3D" parent="ship/Level1/Gameplay"]
+transform = Transform3D(-0.301555, 0, -0.953449, 0, 1, 0, 0.953449, 0, -0.301555, -4.10935, -2.53336, -15.8588)
+mesh = ExtResource("14_rmlus")
+skeleton = NodePath("../../..")
+
 [node name="SkeletonSkull" type="MeshInstance3D" parent="ship/Level1/Gameplay"]
-transform = Transform3D(0.397276, 0, 0.917699, 0, 1, 0, -0.917699, 0, 0.397276, -4.15992, -3.88161, -15.9241)
+transform = Transform3D(0.397276, -0.430819, 0.810288, 1.49012e-08, 0.882956, 0.469456, -0.917699, -0.186504, 0.350777, -3.39889, -3.12621, -15.5946)
 mesh = ExtResource("14_0v0y4")
 skeleton = NodePath("../..")
 
 [node name="SkeletonHat" type="MeshInstance3D" parent="ship/Level1/Gameplay/SkeletonSkull"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("15_wi4qm")
 skeleton = NodePath("../..")
 
 [node name="SkeletonBeard" type="MeshInstance3D" parent="ship/Level1/Gameplay/SkeletonSkull"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("16_b844b")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ship/Level1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00340271, -2.20264, 1.54723)
+use_collision = true
+size = Vector3(23.6149, 5.40527, 0.452271)
+
+[node name="StuffBarrel" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7.81809, -1.86556, -1.72388)
+skeleton = NodePath("../../..")
+
+[node name="StuffBarrel4" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7.81809, -1.86556, -2.70165)
+skeleton = NodePath("../../..")
+
+[node name="StuffBarrel5" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -8.5771, -0.948496, -2.18073)
+skeleton = NodePath("../../..")
+
+[node name="StuffBarrel6" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -8.5771, -0.948496, -1.11413)
+skeleton = NodePath("../../..")
+
+[node name="StuffBarrel7" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -8.5771, -0.948496, -0.0789633)
+skeleton = NodePath("../../..")
+
+[node name="StuffBarrel2" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7.81809, -1.86556, -0.672054)
+skeleton = NodePath("../../..")
+
+[node name="StuffBarrel3" parent="ship/Level1" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -7.81947, -1.86556, 0.420891)
+skeleton = NodePath("../../..")
 
 [node name="Level2" parent="ship" instance=ExtResource("3_6hr7j")]
 

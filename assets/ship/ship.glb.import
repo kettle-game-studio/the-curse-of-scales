@@ -42,6 +42,15 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/path": "res://assets/ship/parts/ship_Cube.res"
 },
+"ship_Cube_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/ship/parts/ship_Cube_001.res"
+},
 "ship_Cube_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -95,6 +104,15 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://assets/ship/parts/ship_Cube_007.res"
+},
+"ship_Cube_008": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/path": "res://assets/ship/parts/ship_Cube_008.res"
 },
 "ship_Cube_009": {
 "generate/lightmap_uv": 0,
@@ -194,15 +212,6 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://assets/ship/parts/ship_Cylinder_009.res"
-},
-"ship_Cylinder_011": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://assets/ship/parts/ship_Cylinder_011.res"
 },
 "ship_Cylinder_012": {
 "generate/lightmap_uv": 0,
