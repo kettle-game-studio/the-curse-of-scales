@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeechLine" load_steps=3 format=3 uid="uid://dtidvpe41ev40"]
+
+[ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="1_lkuau"]
+[ext_resource type="AudioStream" uid="uid://cccq4fx060sip" path="res://assets/sound/skull_2.mp3" id="2_i35ad"]
+
+[resource]
+script = ExtResource("1_lkuau")
+author = &"Skull"
+line = "But, YARRR, we still have the chest! The last skeleton key is somewhere here on the ship."
+sound = ExtResource("2_i35ad")

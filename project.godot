@@ -114,6 +114,7 @@ interact={
 [layer_names]
 
 3d_physics/layer_2="IgnoreScaling"
+3d_physics/layer_8="Player"
 
 [rendering]
 

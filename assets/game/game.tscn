@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=26 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
@@ -13,6 +13,7 @@
 
 [sub_resource type="Animation" id="Animation_wf7q6"]
 resource_name = "Begin"
+length = 10.4025
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,10 +28,38 @@ tracks/0/keys = {
 "method": &"intro"
 }]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level/Player:process_mode")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+
+[sub_resource type="Animation" id="Animation_p2vob"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Level/Player:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r0wkq"]
 _data = {
-"Begin": SubResource("Animation_wf7q6")
+"Begin": SubResource("Animation_wf7q6"),
+"RESET": SubResource("Animation_p2vob")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h0pg8"]
@@ -138,22 +167,23 @@ libraries = {
 "": SubResource("AnimationLibrary_r0wkq")
 }
 
+[node name="AnimationTree" type="AnimationTree" parent="Level"]
+active = false
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_54s0t")
+anim_player = NodePath("../AnimationPlayer")
+
 [node name="Ship" parent="Level" instance=ExtResource("2_nhekc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66944, 8.74151, 0.02561)
 
 [node name="Player" parent="Level" instance=ExtResource("2_7ojib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82959, 16.9029, -6.44227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82959, 6.34876, -14.025)
 
 [node name="Sandbox" parent="Level" instance=ExtResource("1_dgxda")]
 
 [node name="Storyteller" type="AudioStreamPlayer" parent="Level"]
 script = ExtResource("7_3ovya")
 author = &"Storyteller"
-
-[node name="AnimationTree" type="AnimationTree" parent="Level"]
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeStateMachine_54s0t")
-anim_player = NodePath("../AnimationPlayer")
 
 [node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
 process_mode = 3

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SpeechLine" load_steps=3 format=3 uid="uid://di7agemiphlj3"]
+
+[ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="1_nbh8v"]
+[ext_resource type="AudioStream" uid="uid://cduggeam3sk2n" path="res://assets/sound/skull_3.mp3" id="2_xtdu0"]
+
+[resource]
+script = ExtResource("1_nbh8v")
+author = &"Skull"
+line = "Come take take my skull, Cap. A lucky charm — to control your scale."
+sound = ExtResource("2_xtdu0")
