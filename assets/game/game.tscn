@@ -1,6 +1,5 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=26 format=3 uid="uid://b6tgxpl2npofy"]
 
-[ext_resource type="PackedScene" uid="uid://bm4w87imvtb7q" path="res://assets/game/sandbox.tscn" id="1_dgxda"]
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
 [ext_resource type="Resource" uid="uid://csj351olot7xt" path="res://assets/dialogs/resources/intro.tres" id="2_eq7oa"]
@@ -11,7 +10,7 @@
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 [ext_resource type="Material" uid="uid://b6hapbsjjnon" path="res://assets/flying_dutchman/sea_material.tres" id="11_lo82i"]
-[ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="12_vwxsf"]
+[ext_resource type="PackedScene" uid="uid://7pq0gedjd1os" path="res://assets/stuff/water.glb" id="11_ttfla"]
 
 [sub_resource type="Animation" id="Animation_wf7q6"]
 resource_name = "Begin"
@@ -79,22 +78,6 @@ transitions = ["Start", "Begin", SubResource("AnimationNodeStateMachineTransitio
 stream_count = 1
 stream_0 = ExtResource("5_qgk2g")
 
-[sub_resource type="Environment" id="Environment_qu8ju"]
-background_mode = 1
-background_color = Color(0.104485, 0.248536, 0.23095, 1)
-background_energy_multiplier = 0.1
-ambient_light_source = 2
-ambient_light_color = Color(0.677148, 0.540761, 0.461005, 1)
-ambient_light_energy = 0.3
-glow_intensity = 8.0
-glow_hdr_threshold = 0.33
-fog_light_color = Color(0.2196, 0.607839, 0.68781, 1)
-fog_light_energy = 0.1
-fog_density = 0.0416
-adjustment_brightness = 1.28
-adjustment_contrast = 1.2
-adjustment_saturation = 1.35
-
 [sub_resource type="CylinderMesh" id="CylinderMesh_miw7b"]
 flip_faces = true
 top_radius = 400.0
@@ -156,11 +139,6 @@ nodes/rotate/node = SubResource("AnimationNodeAnimation_uhkxg")
 nodes/rotate/position = Vector2(-20, 120)
 node_connections = [&"TimeScale", 0, &"rotate", &"output", 0, &"TimeScale"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_lqtph"]
-size = Vector2(500, 500)
-subdivide_width = 500
-subdivide_depth = 500
-
 [node name="Game" type="Node"]
 script = ExtResource("1_dld7d")
 intro_speech = ExtResource("2_eq7oa")
@@ -181,12 +159,10 @@ tree_root = SubResource("AnimationNodeStateMachine_54s0t")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Ship" parent="Level" instance=ExtResource("2_nhekc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66944, 8.74151, 0.02561)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.742, 0.026)
 
 [node name="Player" parent="Level" instance=ExtResource("2_7ojib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.82959, 6.34876, -14.025)
-
-[node name="Sandbox" parent="Level" instance=ExtResource("1_dgxda")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17041, 6.34876, -14.025)
 
 [node name="Storyteller" type="AudioStreamPlayer" parent="Level"]
 script = ExtResource("7_3ovya")
@@ -204,9 +180,6 @@ bus = &"Music"
 [node name="FlyingDutchman" parent="." instance=ExtResource("6_5h4fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.176, -1.02945, 1.19075)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qu8ju")
-
 [node name="Vortex" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.970468, 0, 0.241228, 0, 1, 0, -0.241228, 0, 0.970468, -15.6826, 58.9896, 0)
 mesh = SubResource("CylinderMesh_miw7b")
@@ -222,9 +195,10 @@ tree_root = SubResource("AnimationNodeBlendTree_547mm")
 anim_player = NodePath("../AnimationPlayer")
 parameters/TimeScale/scale = 0.1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.417, 0)
-material_override = ExtResource("11_lo82i")
-mesh = SubResource("PlaneMesh_lqtph")
+[node name="water" parent="." instance=ExtResource("11_ttfla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.26399, 0)
 
-[node name="Stuff2Lafet" parent="." instance=ExtResource("12_vwxsf")]
+[node name="Plane" parent="water" index="0"]
+material_override = ExtResource("11_lo82i")
+
+[editable path="water"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqcivmapg633v"]
+[gd_scene load_steps=16 format=3 uid="uid://cqcivmapg633v"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_12j2c"]
+[ext_resource type="ArrayMesh" uid="uid://edccvnjgkn0q" path="res://assets/stuff/stuff_mesh/door_door.res" id="2_5otj4"]
+[ext_resource type="ArrayMesh" uid="uid://beehfm4vp0bqy" path="res://assets/stuff/stuff_mesh/stuff2_log-10.res" id="3_5nuxm"]
+[ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="4_0y17r"]
+[ext_resource type="ArrayMesh" uid="uid://dqqlkjy5gwbtv" path="res://assets/stuff/stuff_mesh/stuff2_plank-05.res" id="5_k7xaf"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lsc56"]
-size = Vector3(1, 2, 0.2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_egjjw"]
-size = Vector3(1, 2, 0.2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_lg8or"]
+size = Vector3(0.277222, 2.9942, 1.51025)
 
 [sub_resource type="Animation" id="Animation_tkjn8"]
 resource_name = "Open"
@@ -20,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 2.05076, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, -1.99039, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xg167"]
@@ -65,25 +66,28 @@ states/RESET/position = Vector2(353.333, 100)
 transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_p51ps"), "RESET", "Open", SubResource("AnimationNodeStateMachineTransition_3rcg5")]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_daxda"]
-size = Vector3(1, 1.58643, 0.240234)
+size = Vector3(1.30872, 2.80565, 0.199951)
 
 [node name="Door" type="Area3D"]
 script = ExtResource("1_12j2c")
+action_name = &"Open"
 
 [node name="Hinge" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516693, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76959, 0, 0.068905)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.518278, 0, 0)
 slide_on_ceiling = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("BoxShape3D_lsc56")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hinge/CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.237396, 1.50009, -0.0421106)
+shape = SubResource("BoxShape3D_lg8or")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Hinge/CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_egjjw")
+[node name="DoorDoor" type="MeshInstance3D" parent="Hinge/CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.251312, 0, -0.068905)
+gi_mode = 2
+mesh = ExtResource("2_5otj4")
+skeleton = NodePath("../../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -96,5 +100,30 @@ advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17734, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0350952, 1.49031, -0.0989989)
 shape = SubResource("BoxShape3D_daxda")
+
+[node name="Stuff2Log-10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5004, 0, 0, 0, 1, 0.845, 0, -0.00700004)
+mesh = ExtResource("3_5nuxm")
+skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")
+
+[node name="Stuff2Log-11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.5004, 0, 0, 0, 1, -0.846153, 0, -0.00700004)
+mesh = ExtResource("3_5nuxm")
+skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")
+
+[node name="Stuff2Plank-10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0101786, 3.02099, -0.00766135)
+mesh = ExtResource("4_0y17r")
+skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")
+
+[node name="Stuff2Plank-05" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.294974, -0.347212, 0, 0.126225, 0.811396, 0, 1.77636e-15, -1.77636e-15, 0.614184, -0.573699, 2.9078, -0.0119599)
+mesh = ExtResource("5_k7xaf")
+skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")
+
+[node name="Stuff2Plank-06" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.292557, 0.362359, 1.77636e-15, -0.131732, 0.804745, -8.88178e-16, 1.77636e-15, 0, 0.614184, 0.587133, 2.9037, -0.0119599)
+mesh = ExtResource("5_k7xaf")
+skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")

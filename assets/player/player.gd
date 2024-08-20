@@ -20,6 +20,10 @@ class_name Player;
 @onready var big_scale_cast: ShapeCast3D = $BigScaleCast
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var scale_audio: AudioStreamPlayer = $ScaleAudio
+@onready var take_audio: AudioStreamPlayer = $TakeAudio
+@onready var lader_audio: AudioStreamPlayer = $LaderAudio
+@onready var walk_audio: AudioStreamPlayer = $WalkAudio
+@onready var run_audio: AudioStreamPlayer = $RunAudio
 @onready var drag_ray: RayCast3D = %DragRay
 @onready var hand: Marker3D = %Hand
 @onready var action_label := %ActionLabel
@@ -61,6 +65,8 @@ func _physics_process(delta: float):
 		
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	if state == ScaleState.CLIMBING:
+		walk_audio.stop()
+		run_audio.stop()
 		velocity.x = 0
 		velocity.z = 0
 		velocity.y = -climb_speed*input_dir.y
@@ -68,6 +74,10 @@ func _physics_process(delta: float):
 			velocity.y *= 2
 		global_position.x = ladder.entrance.global_position.x
 		global_position.z = ladder.entrance.global_position.z
+		if abs(velocity.y) > 0.01 && !lader_audio.playing:
+			lader_audio.play()
+		elif abs(velocity.y) <= 0.01 && lader_audio.playing:
+			lader_audio.stop()
 		if interactive_area is Ladder:
 			if interactive_area.direction == Ladder.Direction.UP && global_position.y <= interactive_area.exit.global_position.y || interactive_area.direction == Ladder.Direction.DOWN  && global_position.y >= interactive_area.exit.global_position.y:
 				interact()
@@ -80,13 +90,26 @@ func _physics_process(delta: float):
 
 		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y).normalized())
 		var input_speed : float = min(input_dir.length(), 1.0)
-		var speed : float = input_speed * (run_speed if Input.is_action_pressed("run") else move_speed)
+		var sprint := Input.is_action_pressed("run")
+		var speed : float = input_speed * (run_speed if sprint else move_speed)
+		if state == ScaleState.MIN:
+			speed /= 2.
 		if direction:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, move_speed)
 			velocity.z = move_toward(velocity.z, 0, move_speed)
+		if direction:
+			if !sprint && !walk_audio.playing:
+				run_audio.stop()
+				walk_audio.play(randf())
+			if sprint && walk_audio.playing:
+				run_audio.play(randf())
+				walk_audio.stop()
+		else:
+			walk_audio.stop()
+			run_audio.stop()
 	move_and_slide()
 	if item:
 		item.global_transform = hand.global_transform
@@ -168,6 +191,8 @@ func interact():
 			if state == ScaleState.CLIMBING:
 				state = ScaleState.MAX
 				global_position = interactive_area.exit.global_position
+				lader_audio.stop()
+				velocity.y = 0
 			elif state == ScaleState.MAX:
 				state = ScaleState.CLIMBING
 				ladder = interactive_area
@@ -182,6 +207,7 @@ func interact():
 		return
 	if collider is Draggable:
 		var t = collider.trigger
+		take_audio.play()
 		if t is ChangePlayer:
 			state = t.new_state
 			collider.queue_free()
