@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=61 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://csubmtacpped2" path="res://assets/gamedesign/mars/mars.tscn" id="7_51ts2"]
 [ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="7_elavf"]
 [ext_resource type="PackedScene" uid="uid://cpn8ko8363h1h" path="res://assets/gamedesign/triggers/keys/skeleton_key.tscn" id="9_rojmg"]
-[ext_resource type="PackedScene" uid="uid://vxnln255cwxd" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
+[ext_resource type="PackedScene" uid="uid://dus1ik886hfge" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
 [ext_resource type="PackedScene" uid="uid://dwki5pnguubja" path="res://assets/stuff/stuff_prefab/table_prefab.tscn" id="11_lxvjh"]
 [ext_resource type="Script" path="res://assets/dialogs/dialog_trigger.gd" id="12_3cakc"]
 [ext_resource type="ArrayMesh" uid="uid://dqw4kxj4h3yy5" path="res://assets/skeleton/meshes/skeleton_skull.res" id="14_0v0y4"]
@@ -37,9 +37,13 @@
 [ext_resource type="PackedScene" uid="uid://0uhl138cen52" path="res://assets/stuff/stuff_prefab/stuff_2_plank_10.tscn" id="27_3iaro"]
 [ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="30_35x0o"]
 [ext_resource type="PackedScene" uid="uid://cqcivmapg633v" path="res://assets/gamedesign/door/door.tscn" id="30_h57bp"]
+[ext_resource type="PackedScene" uid="uid://6tqmtklqp6rs" path="res://assets/gamedesign/door/golden_door.tscn" id="31_wsxfa"]
 [ext_resource type="PackedScene" uid="uid://cluwd1uwqnk0r" path="res://assets/stuff/stuff_prefab/crate.tscn" id="33_rf4hv"]
+[ext_resource type="PackedScene" uid="uid://c6hjj1qs57k0c" path="res://assets/gamedesign/chest/common_chest.tscn" id="35_oxa1d"]
+[ext_resource type="PackedScene" uid="uid://cnvx03s84i1rl" path="res://assets/gamedesign/triggers/keys/golden_key.tscn" id="36_aynbg"]
 [ext_resource type="AudioStream" uid="uid://c7w7nwsggmjaj" path="res://assets/sound/skull_6.mp3" id="37_613hh"]
 [ext_resource type="LightmapGIData" path="res://assets/ship/ship.lmbake" id="40_p5dxc"]
+[ext_resource type="ArrayMesh" uid="uid://cgci2in3hmhhy" path="res://assets/ship/parts/ship_mars_collider.res" id="42_yclhq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
 
@@ -101,6 +105,9 @@ sound = ExtResource("37_613hh")
 [sub_resource type="Resource" id="Resource_7f0ss"]
 script = ExtResource("22_d1em6")
 lines = Array[ExtResource("19_o1uo1")]([SubResource("Resource_qunuy")])
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_x50dr"]
+data = PackedVector3Array(0, 18.1104, -5.0783, 0.9907, 38.3747, -4.9807, 0.9907, 18.1104, -4.9807, 0, 18.1104, -5.0783, 0, 38.3747, -5.0783, 0.9907, 38.3747, -4.9807, 0.9907, 18.1104, -4.9807, 1.9434, 38.3747, -4.6917, 1.9434, 18.1104, -4.6917, 0.9907, 18.1104, -4.9807, 0.9907, 38.3747, -4.9807, 1.9434, 38.3747, -4.6917, 1.9434, 18.1104, -4.6917, 2.8214, 38.3747, -4.2225, 2.8214, 18.1104, -4.2225, 1.9434, 18.1104, -4.6917, 1.9434, 38.3747, -4.6917, 2.8214, 38.3747, -4.2225, 2.8214, 18.1104, -4.2225, 3.5909, 38.3747, -3.5909, 3.5909, 18.1104, -3.5909, 2.8214, 18.1104, -4.2225, 2.8214, 38.3747, -4.2225, 3.5909, 38.3747, -3.5909, 3.5909, 18.1104, -3.5909, 4.2225, 38.3747, -2.8214, 4.2225, 18.1104, -2.8214, 3.5909, 18.1104, -3.5909, 3.5909, 38.3747, -3.5909, 4.2225, 38.3747, -2.8214, 4.2225, 18.1104, -2.8214, 4.6917, 38.3747, -1.9434, 4.6917, 18.1104, -1.9434, 4.2225, 18.1104, -2.8214, 4.2225, 38.3747, -2.8214, 4.6917, 38.3747, -1.9434, 4.6917, 18.1104, -1.9434, 4.9807, 38.3747, -0.9907, 4.9807, 18.1104, -0.9907, 4.6917, 18.1104, -1.9434, 4.6917, 38.3747, -1.9434, 4.9807, 38.3747, -0.9907, 4.9807, 18.1104, -0.9907, 5.0783, 38.3747, 0, 5.0783, 18.1104, 0, 4.9807, 18.1104, -0.9907, 4.9807, 38.3747, -0.9907, 5.0783, 38.3747, 0, 5.0783, 18.1104, 0, 4.9807, 38.3747, 0.9907, 4.9807, 18.1104, 0.9907, 5.0783, 18.1104, 0, 5.0783, 38.3747, 0, 4.9807, 38.3747, 0.9907, 4.9807, 18.1104, 0.9907, 4.6917, 38.3747, 1.9434, 4.6917, 18.1104, 1.9434, 4.9807, 18.1104, 0.9907, 4.9807, 38.3747, 0.9907, 4.6917, 38.3747, 1.9434, 4.6917, 18.1104, 1.9434, 4.2225, 38.3747, 2.8214, 4.2225, 18.1104, 2.8214, 4.6917, 18.1104, 1.9434, 4.6917, 38.3747, 1.9434, 4.2225, 38.3747, 2.8214, 4.2225, 18.1104, 2.8214, 3.5909, 38.3747, 3.5909, 3.5909, 18.1104, 3.5909, 4.2225, 18.1104, 2.8214, 4.2225, 38.3747, 2.8214, 3.5909, 38.3747, 3.5909, 3.5909, 18.1104, 3.5909, 2.8214, 38.3747, 4.2225, 2.8214, 18.1104, 4.2225, 3.5909, 18.1104, 3.5909, 3.5909, 38.3747, 3.5909, 2.8214, 38.3747, 4.2225, 2.8214, 18.1104, 4.2225, 1.9434, 38.3747, 4.6917, 1.9434, 18.1104, 4.6917, 2.8214, 18.1104, 4.2225, 2.8214, 38.3747, 4.2225, 1.9434, 38.3747, 4.6917, 1.9434, 18.1104, 4.6917, 0.9907, 38.3747, 4.9807, 0.9907, 18.1104, 4.9807, 1.9434, 18.1104, 4.6917, 1.9434, 38.3747, 4.6917, 0.9907, 38.3747, 4.9807, 0.9907, 18.1104, 4.9807, 0, 38.3747, 5.0783, 0, 18.1104, 5.0783, 0.9907, 18.1104, 4.9807, 0.9907, 38.3747, 4.9807, 0, 38.3747, 5.0783, 0, 18.1104, 5.0783, -0.9907, 38.3747, 4.9807, -0.9907, 18.1104, 4.9807, 0, 18.1104, 5.0783, 0, 38.3747, 5.0783, -0.9907, 38.3747, 4.9807, -0.9907, 18.1104, 4.9807, -1.9434, 38.3747, 4.6917, -1.9434, 18.1104, 4.6917, -0.9907, 18.1104, 4.9807, -0.9907, 38.3747, 4.9807, -1.9434, 38.3747, 4.6917, -1.9434, 18.1104, 4.6917, -2.8214, 38.3747, 4.2225, -2.8214, 18.1104, 4.2225, -1.9434, 18.1104, 4.6917, -1.9434, 38.3747, 4.6917, -2.8214, 38.3747, 4.2225, -2.8214, 18.1104, 4.2225, -3.5909, 38.3747, 3.5909, -3.5909, 18.1104, 3.5909, -2.8214, 18.1104, 4.2225, -2.8214, 38.3747, 4.2225, -3.5909, 38.3747, 3.5909, -3.5909, 18.1104, 3.5909, -4.2225, 38.3747, 2.8214, -4.2225, 18.1104, 2.8214, -3.5909, 18.1104, 3.5909, -3.5909, 38.3747, 3.5909, -4.2225, 38.3747, 2.8214, -4.2225, 18.1104, 2.8214, -4.6917, 38.3747, 1.9434, -4.6917, 18.1104, 1.9434, -4.2225, 18.1104, 2.8214, -4.2225, 38.3747, 2.8214, -4.6917, 38.3747, 1.9434, -4.6917, 18.1104, 1.9434, -4.9807, 38.3747, 0.9907, -4.9807, 18.1104, 0.9907, -4.6917, 18.1104, 1.9434, -4.6917, 38.3747, 1.9434, -4.9807, 38.3747, 0.9907, -4.9807, 18.1104, 0.9907, -5.0783, 38.3747, 0, -5.0783, 18.1104, 0, -4.9807, 18.1104, 0.9907, -4.9807, 38.3747, 0.9907, -5.0783, 38.3747, 0, -5.0783, 18.1104, 0, -4.9807, 38.3747, -0.9907, -4.9807, 18.1104, -0.9907, -5.0783, 18.1104, 0, -5.0783, 38.3747, 0, -4.9807, 38.3747, -0.9907, -4.9807, 18.1104, -0.9907, -4.6917, 38.3747, -1.9434, -4.6917, 18.1104, -1.9434, -4.9807, 18.1104, -0.9907, -4.9807, 38.3747, -0.9907, -4.6917, 38.3747, -1.9434, -4.6917, 18.1104, -1.9434, -4.2225, 38.3747, -2.8214, -4.2225, 18.1104, -2.8214, -4.6917, 18.1104, -1.9434, -4.6917, 38.3747, -1.9434, -4.2225, 38.3747, -2.8214, -4.2225, 18.1104, -2.8214, -3.5909, 38.3747, -3.5909, -3.5909, 18.1104, -3.5909, -4.2225, 18.1104, -2.8214, -4.2225, 38.3747, -2.8214, -3.5909, 38.3747, -3.5909, -3.5909, 18.1104, -3.5909, -2.8214, 38.3747, -4.2225, -2.8214, 18.1104, -4.2225, -3.5909, 18.1104, -3.5909, -3.5909, 38.3747, -3.5909, -2.8214, 38.3747, -4.2225, -2.8214, 18.1104, -4.2225, -1.9434, 38.3747, -4.6917, -1.9434, 18.1104, -4.6917, -2.8214, 18.1104, -4.2225, -2.8214, 38.3747, -4.2225, -1.9434, 38.3747, -4.6917, -1.9434, 18.1104, -4.6917, -0.9907, 38.3747, -4.9807, -0.9907, 18.1104, -4.9807, -1.9434, 18.1104, -4.6917, -1.9434, 38.3747, -4.6917, -0.9907, 38.3747, -4.9807, -0.9907, 18.1104, -4.9807, 0, 38.3747, -5.0783, 0, 18.1104, -5.0783, -0.9907, 18.1104, -4.9807, -0.9907, 38.3747, -4.9807, 0, 38.3747, -5.0783)
 
 [sub_resource type="Environment" id="Environment_cbfio"]
 background_mode = 1
@@ -242,6 +249,9 @@ dialog = SubResource("Resource_5qw48")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0535507, 1.54144, 0.175049)
 shape = SubResource("BoxShape3D_l1uq2")
 
+[node name="Door" parent="ship/Level1/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.40318, -4.68611, -0.148296)
+
 [node name="Stuff2Plank-10" parent="ship/Level1" instance=ExtResource("27_3iaro")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28991, -1.21038, 17.1559)
 
@@ -317,7 +327,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, -0.175367, 0.984503, 7.66552e-09, 0
 [node name="Door2" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
 transform = Transform3D(-4.37114e-08, 0, -1, -0.170209, 0.985408, 7.44009e-09, 0.985408, 0.170209, -4.30735e-08, -3.19353, 3.68269, -19.7245)
 
-[node name="Door3" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
+[node name="GoldenDoor" parent="ship/Level2/Gameplay" instance=ExtResource("31_wsxfa")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.365646, 4.17262, -22.2644)
 
 [node name="Door4" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
@@ -367,7 +377,7 @@ skeleton = NodePath("../../../../Level1")
 curve = SubResource("Curve3D_w2m83")
 
 [node name="Cannonball" parent="ship/Level3/Gameplay/Cannon/Path3D" index="0"]
-transform = Transform3D(-0.999305, -0.00199297, 0.0369763, -5.83586e-05, 0.998619, 0.052247, -0.0370301, 0.052209, -0.997936, -0.794503, -0.450535, 22.1117)
+transform = Transform3D(-0.999304, -0.00199295, 0.0369763, -5.83595e-05, 0.998618, 0.0522466, -0.0370301, 0.0522085, -0.997935, -0.794502, -0.450527, 22.1117)
 
 [node name="Bottle" parent="ship/Level3/Gameplay" instance=ExtResource("6_50vet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81303, 6.66811, 1.70117)
@@ -389,6 +399,12 @@ gizmo_extents = 1.33
 [node name="Marker3D2" type="Marker3D" parent="ship/Level3/Gameplay/Ladder3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
 gizmo_extents = 1.33
+
+[node name="Door2" parent="ship/Level3/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 4.23573, 6.67893, -8.15759)
+
+[node name="Door3" parent="ship/Level3/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -4.18669, 6.67893, -8.15759)
 
 [node name="StuffBarrel" parent="ship/Level3" instance=ExtResource("18_xe0eo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24673, 8.82341, 19.872)
@@ -420,6 +436,17 @@ skeleton = NodePath("../../..")
 
 [node name="Level4" parent="ship" instance=ExtResource("5_1u8yt")]
 
+[node name="Gameplay" type="Node3D" parent="ship/Level4"]
+
+[node name="Door" parent="ship/Level4/Gameplay" instance=ExtResource("31_wsxfa")]
+transform = Transform3D(-0.9, 0, -7.86805e-08, 0, 0.9, 0, 7.86805e-08, 0, -0.9, 0.000678629, 12.6765, -15.4804)
+
+[node name="Chest" parent="ship/Level4/Gameplay" instance=ExtResource("35_oxa1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.078, -22.479)
+
+[node name="Item2" parent="ship/Level4/Gameplay" instance=ExtResource("36_aynbg")]
+transform = Transform3D(-3.09086e-08, 3.09086e-08, -1, 0.707107, 0.707107, 0, 0.707107, -0.707107, -4.37114e-08, -0.0480301, 16.4713, -22.4037)
+
 [node name="Mars" parent="ship" instance=ExtResource("7_51ts2")]
 transform = Transform3D(-1.13856, -9.9536e-08, -1.64429, 1.74846e-07, -2, 0, -1.64429, -1.43748e-07, 1.13856, -2.90023, 35.9719, 0.444686)
 trigger = ExtResource("18_fjegs")
@@ -427,6 +454,23 @@ trigger = ExtResource("18_fjegs")
 [node name="BottleOpenDialog" type="Node3D" parent="ship/Mars"]
 script = ExtResource("12_3cakc")
 dialog = SubResource("Resource_7f0ss")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ship"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 19.0706, -0.128914)
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.1955, 0)
+shape = SubResource("ConcavePolygonShape3D_x50dr")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ship/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.82257, 0)
+shape = SubResource("ConcavePolygonShape3D_x50dr")
+
+[node name="ShipMarsCollider" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 22.5373, -0.128914)
+visible = false
+mesh = ExtResource("42_yclhq")
 
 [node name="StartPosition" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 42.5497, 0)
@@ -439,9 +483,6 @@ light_data = ExtResource("40_p5dxc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cbfio")
-
-[node name="Door" parent="." instance=ExtResource("30_h57bp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40318, -4.68611, -0.148296)
 
 [connection signal="taken" from="ship/Level1/Gameplay/Bottle" to="ship/Level1/Gameplay/Bottle/TakeDialog" method="play"]
 [connection signal="triggered" from="ship/Mars" to="." method="recive_bottle"]
