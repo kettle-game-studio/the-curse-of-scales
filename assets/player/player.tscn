@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=13 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
 [ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="2_xtnvb"]
@@ -7,6 +7,9 @@
 [ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="5_8yep5"]
 [ext_resource type="Texture2D" uid="uid://c06liubh1uku" path="res://assets/player/cross.png" id="5_dsxfo"]
 [ext_resource type="AudioStream" uid="uid://ncv6di473rwv" path="res://assets/player/take.mp3" id="5_wa6ry"]
+[ext_resource type="AudioStream" uid="uid://bad5c7coleayd" path="res://assets/player/ladder.mp3" id="6_s65lh"]
+[ext_resource type="AudioStream" uid="uid://bsnufk1vifq50" path="res://assets/player/walk.mp3" id="7_ivkpj"]
+[ext_resource type="AudioStream" uid="uid://cnj3qm3jjt38s" path="res://assets/player/run.mp3" id="8_x1ec8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgk0d"]
 
@@ -61,6 +64,18 @@ bus = &"Sounds"
 
 [node name="TakeAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wa6ry")
+bus = &"Sounds"
+
+[node name="LaderAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_s65lh")
+bus = &"Sounds"
+
+[node name="WalkAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ivkpj")
+bus = &"Sounds"
+
+[node name="RunAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x1ec8")
 bus = &"Sounds"
 
 [node name="ActionLabel" type="RichTextLabel" parent="."]
