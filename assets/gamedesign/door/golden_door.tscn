@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://6tqmtklqp6rs"]
+
+[ext_resource type="PackedScene" uid="uid://cqcivmapg633v" path="res://assets/gamedesign/door/door.tscn" id="1_qaqpl"]
+[ext_resource type="Resource" uid="uid://drgmpfperrssr" path="res://assets/gamedesign/triggers/keys/golden_key.tres" id="2_rupb7"]
+[ext_resource type="ArrayMesh" uid="uid://dfpt0om0unm04" path="res://assets/stuff/stuff_mesh/stuff_gold_lock.res" id="2_tybdq"]
+
+[node name="Door" instance=ExtResource("1_qaqpl")]
+trigger = ExtResource("2_rupb7")
+
+[node name="StuffGoldLock" type="MeshInstance3D" parent="Hinge/CharacterBody3D" index="2"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.830496, 1.7513, -0.159791)
+mesh = ExtResource("2_tybdq")
+skeleton = NodePath("../../..")
