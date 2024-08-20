@@ -1239,7 +1239,7 @@ transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850022, 0.99281, 0.
 skeleton = NodePath("../..")
 
 [node name="Lamp6" parent="Illumination" instance=ExtResource("12_lbxpq")]
-transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850022, 0.99281, 0.0842864, 0.00743162, -0.085222, 0.996334, -0.85839, -4.05164, 17.5441)
+transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850218, 0.96364, 0.253317, -0.00720436, -0.253637, 0.967272, -2.98439, -4.81596, 14.3882)
 skeleton = NodePath("../..")
 
 [node name="Lamp4" parent="Illumination" instance=ExtResource("12_lbxpq")]

@@ -118,3 +118,7 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="HUD/CenterContainer"]
 layout_mode = 2
 texture = ExtResource("5_dsxfo")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.64066, 0)
+light_color = Color(1, 0.759515, 0.632416, 1)

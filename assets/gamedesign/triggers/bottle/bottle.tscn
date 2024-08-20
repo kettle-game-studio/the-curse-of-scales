@@ -1,11 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmiat20mwcc0x"]
+[gd_scene load_steps=33 format=3 uid="uid://bmiat20mwcc0x"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_v7t18"]
-[ext_resource type="PackedScene" uid="uid://du11atf51ukvh" path="res://assets/ship/level_2_bottle.tscn" id="1_xfcix"]
-[ext_resource type="PackedScene" uid="uid://o6wcnula0gvo" path="res://assets/ship/level_3.tscn" id="2_w1x37"]
-[ext_resource type="PackedScene" uid="uid://jywta2kwkebr" path="res://assets/ship/level_4.tscn" id="3_kd3xy"]
+[ext_resource type="ArrayMesh" uid="uid://cxvqm5e3qm2wb" path="res://assets/ship/parts/ship_Cube.res" id="4_rvsmj"]
 [ext_resource type="ArrayMesh" uid="uid://d4kma1xax6eak" path="res://assets/stuff/stuff_mesh/stuff_bottle.res" id="5_ek75y"]
+[ext_resource type="ArrayMesh" uid="uid://bgje7biohv3rg" path="res://assets/ship/parts/ship_Cylinder_001.res" id="5_ys4f3"]
+[ext_resource type="ArrayMesh" uid="uid://k07r4ifi3j15" path="res://assets/ship/parts/ship_Cylinder_009.res" id="6_fbgmt"]
 [ext_resource type="ArrayMesh" uid="uid://btdr8slgxhsao" path="res://assets/stuff/stuff_mesh/stuff_plug.res" id="6_wahm0"]
+[ext_resource type="ArrayMesh" uid="uid://drkk7mmhi0ke7" path="res://assets/ship/parts/ship_Cylinder_012.res" id="7_ji3j4"]
+[ext_resource type="ArrayMesh" uid="uid://b0iyra8drjnwo" path="res://assets/ship/parts/ship_Cylinder_013.res" id="8_22ox4"]
+[ext_resource type="ArrayMesh" uid="uid://bdo7wywym1tio" path="res://assets/ship/parts/ship_Cylinder_014.res" id="9_rv18o"]
+[ext_resource type="ArrayMesh" uid="uid://dlhhje0r7gb8u" path="res://assets/ship/parts/ship_Cylinder_017.res" id="10_kd3ch"]
+[ext_resource type="ArrayMesh" uid="uid://dl3ycgvtbw02" path="res://assets/ship/parts/ship_Cube_004.res" id="11_xixe4"]
+[ext_resource type="ArrayMesh" uid="uid://crrq0g2jca72m" path="res://assets/ship/parts/ship_Cylinder_003.res" id="12_0wsld"]
+[ext_resource type="ArrayMesh" uid="uid://dgho13rek78q0" path="res://assets/ship/parts/ship_Cube_026.res" id="13_smed6"]
+[ext_resource type="ArrayMesh" uid="uid://b0npc40bl56to" path="res://assets/ship/parts/ship_Grid_001.res" id="14_ehjxh"]
+[ext_resource type="ArrayMesh" uid="uid://db0yxe1qr8atf" path="res://assets/ship/parts/ship_Grid_007.res" id="15_ygwwk"]
+[ext_resource type="ArrayMesh" uid="uid://b0xxn2kbofpeh" path="res://assets/ship/parts/ship_Grid_008.res" id="16_8mw6q"]
+[ext_resource type="ArrayMesh" uid="uid://gmgklsam2upk" path="res://assets/ship/parts/ship_Grid_009.res" id="17_n1q4d"]
+[ext_resource type="ArrayMesh" uid="uid://cxkeuxct6y26i" path="res://assets/ship/parts/ship_Cube_022.res" id="18_rjls4"]
+[ext_resource type="ArrayMesh" uid="uid://c3ofs6pl4mgqg" path="res://assets/ship/parts/ship_Cube_027.res" id="19_js11l"]
+[ext_resource type="ArrayMesh" uid="uid://b1ob8hxarvv4j" path="res://assets/ship/parts/ship_Cube_009.res" id="20_7vnv6"]
+[ext_resource type="ArrayMesh" uid="uid://bg8axojagixup" path="res://assets/ship/parts/ship_Cylinder_002.res" id="21_efe0x"]
+[ext_resource type="ArrayMesh" uid="uid://2bgnhmuhwu1" path="res://assets/ship/parts/ship_Grid_011.res" id="22_x06dv"]
+[ext_resource type="ArrayMesh" uid="uid://jvo33f5j4xe4" path="res://assets/ship/parts/ship_Cylinder_015.res" id="23_if6pj"]
+[ext_resource type="ArrayMesh" uid="uid://bg0xjqe5gjjub" path="res://assets/ship/parts/ship_Cube_006.res" id="24_rq3g6"]
+[ext_resource type="ArrayMesh" uid="uid://bgbpykgiwoqdm" path="res://assets/ship/parts/ship_Cube_007.res" id="25_7uew3"]
+[ext_resource type="ArrayMesh" uid="uid://f57prxnl4plw" path="res://assets/ship/parts/ship_Cube_003.res" id="26_o5ixu"]
+[ext_resource type="ArrayMesh" uid="uid://bhmkjby6v6gqd" path="res://assets/ship/parts/ship_Cube_005.res" id="27_thdg2"]
+[ext_resource type="ArrayMesh" uid="uid://40foqj4weiop" path="res://assets/ship/parts/ship_Cube_024.res" id="28_24j04"]
+[ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="29_604e6"]
+[ext_resource type="ArrayMesh" uid="uid://ubaryb2mqd6u" path="res://assets/ship/parts/ship_Cube_008.res" id="30_ubsou"]
+[ext_resource type="ArrayMesh" uid="uid://re0r77tpef2w" path="res://assets/ship/parts/ship_stairs_2_collider.res" id="31_y0ktq"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3xwnr"]
 height = 0.23577
@@ -13,20 +38,6 @@ radius = 0.1
 
 [node name="Bottle" type="Area3D"]
 script = ExtResource("1_v7t18")
-
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-0.005, 4.37114e-10, 1.91069e-17, 0, -2.18557e-10, 0.005, 4.37114e-10, 0.005, 2.18557e-10, 0.00231117, 0.174107, -0.0287252)
-
-[node name="Level2Bottle" parent="Node3D" instance=ExtResource("1_xfcix")]
-process_mode = 4
-
-[node name="Level3" parent="Node3D" instance=ExtResource("2_w1x37")]
-process_mode = 4
-visible = false
-
-[node name="Level4" parent="Node3D" instance=ExtResource("3_kd3xy")]
-process_mode = 4
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045943, 0)
@@ -40,3 +51,126 @@ shape = SubResource("CylinderShape3D_3xwnr")
 [node name="StuffPlug" type="MeshInstance3D" parent="."]
 gi_mode = 2
 mesh = ExtResource("6_wahm0")
+
+[node name="ship" type="Node3D" parent="."]
+transform = Transform3D(0.004, 0, 0, 0, -1.74846e-10, 0.005, 0, -0.004, -2.18557e-10, -0.00227045, 0.192936, 0.0576215)
+
+[node name="floor1" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("4_rvsmj")
+skeleton = NodePath("")
+
+[node name="Mast_front" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.1904, 17.967)
+mesh = ExtResource("5_ys4f3")
+skeleton = NodePath("")
+
+[node name="Cylinder" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("6_fbgmt")
+skeleton = NodePath("")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("7_ji3j4")
+skeleton = NodePath("")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("8_22ox4")
+skeleton = NodePath("")
+
+[node name="Cylinder_003" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("9_rv18o")
+skeleton = NodePath("")
+
+[node name="Cylinder_006" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("10_kd3ch")
+skeleton = NodePath("")
+
+[node name="Nest_001" type="Node3D" parent="ship"]
+
+[node name="floor2" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.74002, 0)
+mesh = ExtResource("11_xixe4")
+skeleton = NodePath("")
+
+[node name="bom" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.1904, 16.1761)
+mesh = ExtResource("12_0wsld")
+skeleton = NodePath("")
+
+[node name="stairs1_001" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("13_smed6")
+skeleton = NodePath("")
+
+[node name="parus" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("14_ehjxh")
+skeleton = NodePath("")
+
+[node name="parus3" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0678, 0)
+mesh = ExtResource("15_ygwwk")
+skeleton = NodePath("")
+
+[node name="parus2" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("16_8mw6q")
+skeleton = NodePath("")
+
+[node name="parus4" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.0678, 0)
+mesh = ExtResource("17_n1q4d")
+skeleton = NodePath("")
+
+[node name="Ship_003" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("18_rjls4")
+skeleton = NodePath("")
+
+[node name="stairs1_002" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("19_js11l")
+skeleton = NodePath("")
+
+[node name="floor4" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("20_7vnv6")
+skeleton = NodePath("")
+
+[node name="Mast_back" type="MeshInstance3D" parent="ship"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 33.5416, -19.9233)
+mesh = ExtResource("21_efe0x")
+skeleton = NodePath("")
+
+[node name="Grid_006" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("22_x06dv")
+skeleton = NodePath("")
+
+[node name="Cylinder_004" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("23_if6pj")
+skeleton = NodePath("")
+
+[node name="stairrails1" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("24_rq3g6")
+skeleton = NodePath("")
+
+[node name="stairrails2" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("25_7uew3")
+skeleton = NodePath("")
+
+[node name="stairs1" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("26_o5ixu")
+skeleton = NodePath("")
+
+[node name="stairs2" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("27_thdg2")
+skeleton = NodePath("")
+
+[node name="Ship_001" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("28_24j04")
+skeleton = NodePath("")
+
+[node name="Ship_002" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("29_604e6")
+skeleton = NodePath("")
+
+[node name="Ship_004" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("30_ubsou")
+skeleton = NodePath("")
+
+[node name="stairs_2_collider" type="MeshInstance3D" parent="ship"]
+mesh = ExtResource("31_y0ktq")
+skeleton = NodePath("")
