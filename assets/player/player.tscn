@@ -96,7 +96,6 @@ size_flags_vertical = 3
 theme = ExtResource("5_8yep5")
 theme_type_variation = &"ActionLabel"
 bbcode_enabled = true
-text = "Press F to pay respect rgr"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false
