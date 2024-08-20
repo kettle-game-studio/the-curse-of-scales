@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dfuy7wlihxknl"]
+[gd_scene load_steps=42 format=3 uid="uid://dfuy7wlihxknl"]
 
 [ext_resource type="ArrayMesh" uid="uid://dl3ycgvtbw02" path="res://assets/ship/parts/ship_Cube_004.res" id="1_iqnpt"]
 [ext_resource type="PackedScene" uid="uid://buc8dks6c8jt7" path="res://assets/stuff/stuff_prefab/bucket.tscn" id="2_ba4je"]
@@ -21,6 +21,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="15_jwxs0"]
 [ext_resource type="PackedScene" uid="uid://ibaxkd8f0llm" path="res://assets/stuff/stuff_prefab/chair.tscn" id="17_qov50"]
 [ext_resource type="PackedScene" uid="uid://p4mqfm2emj42" path="res://assets/stuff/stuff_prefab/stool.tscn" id="18_35nv1"]
+[ext_resource type="PackedScene" uid="uid://l1jervngx5sm" path="res://assets/stuff/stuff_prefab/lantern.tscn" id="20_75kjb"]
 [ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="22_cn22y"]
 [ext_resource type="PackedScene" uid="uid://brw32huyga7vo" path="res://assets/stuff/stuff_prefab/barrel_storage.tscn" id="23_aqxbh"]
 [ext_resource type="ArrayMesh" uid="uid://tj1t5e6xwhah" path="res://assets/stuff/stuff_mesh/stuff_barrel.res" id="24_hdiqp"]
@@ -1241,6 +1242,9 @@ skeleton = NodePath("../..")
 [node name="Lamp6" parent="Illumination" instance=ExtResource("12_lbxpq")]
 transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850218, 0.96364, 0.253317, -0.00720436, -0.253637, 0.967272, -2.98439, -4.81596, 14.3882)
 skeleton = NodePath("../..")
+
+[node name="Node3D10" parent="Illumination/Lamp6" instance=ExtResource("20_75kjb")]
+transform = Transform3D(3.54824, -0.00144474, -0.111885, -0.0391395, 3.30944, -1.28397, 0.104826, 1.28456, 3.30778, 4.03784, 4.78887, 28.3545)
 
 [node name="Lamp4" parent="Illumination" instance=ExtResource("12_lbxpq")]
 transform = Transform3D(0.999911, -0.0103791, -0.00834606, 0.0110524, 0.996309, 0.0851372, 0.00743162, -0.085222, 0.996334, -8.10081, -4.56899, 3.53608)

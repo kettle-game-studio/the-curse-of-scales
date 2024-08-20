@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7ogujl7brcij"]
+
+[ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="1_dd537"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxwd0"]
+size = Vector3(2, 0.06, 0.245)
+
+[node name="Plank-10" type="Node3D"]
+
+[node name="Stuff2Plank-10" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_dd537")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stuff2Plank-10"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stuff2Plank-10/StaticBody3D"]
+shape = SubResource("BoxShape3D_uxwd0")
