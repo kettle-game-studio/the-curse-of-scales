@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c56pbwb78oy4t"]
+
+[ext_resource type="Script" path="res://assets/menu/final.gd" id="1_mt7bk"]
+[ext_resource type="Texture2D" uid="uid://dyi7sowv0jxr4" path="res://assets/menu/main/map.png" id="1_ordw4"]
+[ext_resource type="FontFile" uid="uid://cwwv1dshsuaw5" path="res://assets/fonts/BlackBeard Regular.otf" id="2_0aaw3"]
+[ext_resource type="Script" path="res://assets/menu/finish.gd" id="3_g0qn0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1q4l"]
+texture = ExtResource("1_ordw4")
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mt7bk")
+
+[node name="Final" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_p1q4l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.882353)
+theme_override_fonts/normal_font = ExtResource("2_0aaw3")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]
+
+We are very glad that you have finished our game!
+
+And we hope you liked it!
+
+Thank you very much!
+
+CREDITS:
+
+Oleg Arutyunov 😈 — Level Design & Voice Acting
+Sergey Duyunov — 3D models & Level Art
+Nicole Akopdzhanova 🐸 — 3d art & 2d art
+Viacheslav Ivanchenko 🦜— code, QA, SFX
+Adam Arutyunov — Music
+[/center]"
+fit_content = true
+scroll_active = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("3_g0qn0")

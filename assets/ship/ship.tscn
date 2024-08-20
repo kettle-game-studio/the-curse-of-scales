@@ -438,7 +438,7 @@ shape = SubResource("ConcavePolygonShape3D_8o6si")
 [node name="Chest2" parent="ship/Level1/Gameplay" instance=ExtResource("10_aucgn")]
 transform = Transform3D(1, 0, 0, 0, 0.988946, -0.148275, 0, 0.148275, 0.988946, 0.498918, -2.72789, -17.1702)
 
-[node name="Dialog" type="Node3D" parent="ship/Level1/Gameplay/Chest2"]
+[node name="FinalDialog" type="Node3D" parent="ship/Level1/Gameplay/Chest2"]
 script = ExtResource("12_3cakc")
 dialog = SubResource("Resource_k7sgh")
 
@@ -1132,7 +1132,7 @@ transform = Transform3D(-0.0276625, -0.00379274, 0.699443, -0.0950856, 0.693512,
 [node name="LightmapGI" type="LightmapGI" parent="."]
 light_data = ExtResource("40_p5dxc")
 
-[connection signal="triggered" from="ship/Level1/Gameplay/Chest2" to="ship/Level1/Gameplay/Chest2/Dialog" method="play" unbinds=1]
+[connection signal="triggered" from="ship/Level1/Gameplay/Chest2" to="ship/Level1/Gameplay/Chest2/FinalDialog" method="play" unbinds=1]
 [connection signal="taken" from="ship/Level1/Gameplay/Bottle" to="ship/Level1/Gameplay/Bottle/TakeDialog" method="play"]
 [connection signal="triggered" from="ship/Level2/Gameplay/NicoleDoor" to="ship/Level2/Gameplay/NicoleDoor/Dialog" method="play" unbinds=1]
 [connection signal="triggered" from="ship/Level2/Gameplay/IvanDoor" to="ship/Level2/Gameplay/IvanDoor/Dialog" method="play" unbinds=1]
