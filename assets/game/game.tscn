@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=32 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
@@ -6,13 +6,32 @@
 [ext_resource type="PackedScene" uid="uid://bqk4vvc80kfd6" path="res://assets/ship/ship.tscn" id="2_nhekc"]
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
-[ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
 [ext_resource type="AudioStream" uid="uid://b6xionvhpis7s" path="res://assets/sound/thunder.mp3" id="6_eddj6"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
 [ext_resource type="AudioStream" uid="uid://c4wtsq881h80i" path="res://assets/sound/sea.mp3" id="7_jluqk"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
+[ext_resource type="AudioStream" uid="uid://b3kibncj27gqi" path="res://assets/soundtrack/Uuuuuuu Ooooooo Aaaaaaa Mmm-mm-mm.mp3" id="9_ksoct"]
+[ext_resource type="AudioStream" uid="uid://bty1ergnnb7g6" path="res://assets/soundtrack/TCOS Outro.mp3" id="10_t4fwa"]
+[ext_resource type="AudioStream" uid="uid://ctkff0f4jt74j" path="res://assets/soundtrack/3-черн.mp3" id="11_f7yp4"]
 [ext_resource type="Material" uid="uid://b6hapbsjjnon" path="res://assets/flying_dutchman/sea_material.tres" id="11_lo82i"]
 [ext_resource type="PackedScene" uid="uid://7pq0gedjd1os" path="res://assets/stuff/water.glb" id="11_ttfla"]
+
+[sub_resource type="Environment" id="Environment_raly0"]
+background_mode = 1
+background_color = Color(0.0156863, 0.0901961, 0.121569, 1)
+background_energy_multiplier = 0.59
+ambient_light_source = 2
+ambient_light_color = Color(0.98353, 0.99494, 1, 1)
+ambient_light_energy = 0.24
+glow_intensity = 8.0
+glow_hdr_threshold = 0.33
+fog_enabled = true
+fog_light_color = Color(0.420734, 0.403875, 0.418295, 1)
+fog_light_energy = 0.1
+fog_density = 1.0
+adjustment_brightness = 1.28
+adjustment_contrast = 1.2
+adjustment_saturation = 1.35
 
 [sub_resource type="Animation" id="Animation_wf7q6"]
 resource_name = "Begin"
@@ -43,6 +62,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [4, 0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level/WorldEnvironment:environment:fog_density")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 9.86667, 10.3667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Level/WorldEnvironment:environment:fog_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_p2vob"]
 length = 0.001
@@ -57,6 +100,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Level/WorldEnvironment:environment:fog_density")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Level/WorldEnvironment:environment:fog_enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r0wkq"]
@@ -87,8 +154,11 @@ stream_3 = ExtResource("7_jluqk")
 stream_4 = ExtResource("7_jluqk")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
-stream_count = 1
-stream_0 = ExtResource("5_qgk2g")
+stream_count = 4
+stream_0 = ExtResource("9_ksoct")
+stream_1 = ExtResource("10_t4fwa")
+stream_2 = ExtResource("11_f7yp4")
+stream_3 = ExtResource("5_qgk2g")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_miw7b"]
 flip_faces = true
@@ -158,6 +228,9 @@ intro_speech = ExtResource("2_eq7oa")
 [node name="Level" type="Node3D" parent="."]
 process_mode = 1
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level"]
+environment = SubResource("Environment_raly0")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level"]
 root_node = NodePath("../..")
 libraries = {
@@ -165,7 +238,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="Level"]
-active = false
 root_node = NodePath("../..")
 tree_root = SubResource("AnimationNodeStateMachine_54s0t")
 anim_player = NodePath("../AnimationPlayer")
@@ -189,15 +261,13 @@ panning_strength = 0.04
 
 [node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
 process_mode = 3
+visible = false
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = SubResource("AudioStreamPlaylist_roke2")
 autoplay = true
 bus = &"Music"
-
-[node name="FlyingDutchman" parent="." instance=ExtResource("6_5h4fs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.176, -1.02945, 1.19075)
 
 [node name="Vortex" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.970468, 0, 0.241228, 0, 1, 0, -0.241228, 0, 0.970468, -15.6826, 58.9896, 0)
