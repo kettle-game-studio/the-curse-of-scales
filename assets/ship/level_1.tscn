@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cc83qv8reicf3"]
+[gd_scene load_steps=47 format=3 uid="uid://cc83qv8reicf3"]
 
 [ext_resource type="ArrayMesh" uid="uid://cxvqm5e3qm2wb" path="res://assets/ship/parts/ship_Cube.res" id="1_sxg5p"]
 [ext_resource type="ArrayMesh" uid="uid://bb7d6gh68t02y" path="res://assets/ship/parts/ship_Cylinder.res" id="2_ek13o"]
@@ -10,6 +10,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bdo7wywym1tio" path="res://assets/ship/parts/ship_Cylinder_014.res" id="8_3abg4"]
 [ext_resource type="ArrayMesh" uid="uid://bttsqm1a6cebl" path="res://assets/ship/parts/ship_Cylinder_016.res" id="9_n64ri"]
 [ext_resource type="ArrayMesh" uid="uid://dlhhje0r7gb8u" path="res://assets/ship/parts/ship_Cylinder_017.res" id="10_t1ors"]
+[ext_resource type="PackedScene" uid="uid://l1jervngx5sm" path="res://assets/stuff/stuff_prefab/lantern.tscn" id="11_gj1kb"]
 [ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/door_prop.tscn" id="11_h1451"]
 [ext_resource type="ArrayMesh" uid="uid://edccvnjgkn0q" path="res://assets/stuff/stuff_mesh/door_door.res" id="11_y0qeb"]
 [ext_resource type="PackedScene" uid="uid://brw32huyga7vo" path="res://assets/stuff/stuff_prefab/barrel_storage.tscn" id="12_jlae4"]
@@ -183,6 +184,42 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.409
 
 [node name="BarrelStorage2" parent="." instance=ExtResource("12_jlae4")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.12954, -2.54923, -16.2735)
+
+[node name="light" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4517, 26.4219, -7.62083)
+
+[node name="Node3D" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.31436, 0)
+
+[node name="Node3D2" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6507, -0.405848, 16.2352)
+
+[node name="Node3D3" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0485, 13.1514, 13.2602)
+
+[node name="Node3D5" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.748, 23.3886, 12.539)
+
+[node name="Node3D6" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.89581, 23.3886, 5.04279)
+
+[node name="Node3D7" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0813, 13.0453, 7.82692)
+
+[node name="Node3D8" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.44671, 4.95308, 23.6309)
+
+[node name="Node3D9" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.6023, 4.95308, 29.3613)
+
+[node name="Node3D10" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9901, -2.83427, 31.0058)
+
+[node name="Node3D11" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6778, -2.80619, 21.3768)
+
+[node name="Node3D4" parent="light" instance=ExtResource("11_gj1kb")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.7319, 11.3943, 3.11924)
 
 [node name="Stuff2Cannon" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.928596, 0.345701, -0.134908, -0.371092, 0.865059, -0.337585, 0, 0.363544, 0.931577, -5.61308, -1.36494, -17.3322)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bedqvhplo4kpf"]
+
+[ext_resource type="ArrayMesh" uid="uid://vxn8fv8ehdmd" path="res://assets/stuff/stuff_mesh/stuff2_log-05.res" id="1_3vc37"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fvxcl"]
+size = Vector3(0.2, 1, 0.2)
+
+[node name="Log-05" type="Node3D"]
+
+[node name="Stuff2Log-05" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_3vc37")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stuff2Log-05"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stuff2Log-05/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_fvxcl")
