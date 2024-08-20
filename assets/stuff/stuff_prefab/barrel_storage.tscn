@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://brw32huyga7vo"]
+[gd_scene load_steps=9 format=3 uid="uid://brw32huyga7vo"]
 
 [ext_resource type="ArrayMesh" uid="uid://b6ym3n54sld4t" path="res://assets/stuff/stuff_mesh/stuff2_log-20.res" id="1_34cv3"]
 [ext_resource type="ArrayMesh" uid="uid://beehfm4vp0bqy" path="res://assets/stuff/stuff_mesh/stuff2_log-10.res" id="2_jreb4"]
 [ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="3_e4cd4"]
 [ext_resource type="ArrayMesh" uid="uid://tj1t5e6xwhah" path="res://assets/stuff/stuff_mesh/stuff_barrel.res" id="4_my3ni"]
+[ext_resource type="ArrayMesh" uid="uid://btdr8slgxhsao" path="res://assets/stuff/stuff_mesh/stuff_plug.res" id="5_ueb2c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bf8ml"]
 size = Vector3(2.26373, 2.94984, 2.12036)
@@ -82,3 +83,18 @@ shape = SubResource("BoxShape3D_r8grr")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 0.538872, -0.00323486)
 shape = SubResource("BoxShape3D_h2v76")
+
+[node name="StuffPlug" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, -0.694507, 1.57191, -0.713365)
+mesh = ExtResource("5_ueb2c")
+skeleton = NodePath("../StaticBody3D")
+
+[node name="StuffPlug2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0.506826, 1.50788, -0.713365)
+mesh = ExtResource("5_ueb2c")
+skeleton = NodePath("../StaticBody3D")
+
+[node name="StuffPlug3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0.219851, 2.49221, -0.71347)
+mesh = ExtResource("5_ueb2c")
+skeleton = NodePath("../StaticBody3D")
