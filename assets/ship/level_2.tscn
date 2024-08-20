@@ -37,7 +37,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_t4xo4")
 
 [node name="bom" type="MeshInstance3D" parent="Ship"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.1904, 16.1761)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.0643, 17.8943)
 mesh = ExtResource("2_skpca")
 skeleton = NodePath("")
 
