@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://brw32huyga7vo"]
+
+[ext_resource type="ArrayMesh" uid="uid://b6ym3n54sld4t" path="res://assets/stuff/stuff_mesh/stuff2_log-20.res" id="1_34cv3"]
+[ext_resource type="ArrayMesh" uid="uid://beehfm4vp0bqy" path="res://assets/stuff/stuff_mesh/stuff2_log-10.res" id="2_jreb4"]
+[ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="3_e4cd4"]
+[ext_resource type="ArrayMesh" uid="uid://tj1t5e6xwhah" path="res://assets/stuff/stuff_mesh/stuff_barrel.res" id="4_my3ni"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bf8ml"]
+size = Vector3(2.26373, 2.94984, 2.12036)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r8grr"]
+size = Vector3(0.22522, 1.04492, 0.225464)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h2v76"]
+size = Vector3(0.22522, 1.04492, 0.225464)
+
+[node name="BarrelStorage" type="Node3D"]
+
+[node name="Stuff2Log-20" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03001, 1.19209e-07, 0.992924)
+mesh = ExtResource("1_34cv3")
+
+[node name="Stuff2Log-21" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03114, 0, 0.989185)
+mesh = ExtResource("1_34cv3")
+
+[node name="Stuff2Log-10" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965465, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.02796, 1.14721, -1.04571)
+mesh = ExtResource("2_jreb4")
+
+[node name="Stuff2Log-11" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.965465, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.02466, 1.14721, -1.04571)
+mesh = ExtResource("2_jreb4")
+
+[node name="Stuff2Plank-10" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06685, 0, 0, 0, 1, 0, 0, 0, 1, 0.0607133, 1.26189, 0.737665)
+mesh = ExtResource("3_e4cd4")
+
+[node name="Stuff2Plank-11" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06685, 0, 0, 0, 1, 0, 0, 0, 1, -0.0436012, 1.26189, 0.424632)
+mesh = ExtResource("3_e4cd4")
+
+[node name="Stuff2Plank-12" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06685, 0, 0, 0, 1, 0, 0, 0, 1, -0.0173993, 1.26189, 0.102774)
+mesh = ExtResource("3_e4cd4")
+
+[node name="Stuff2Plank-13" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06685, 0, 0, 0, 1, 0, 0, 0, 1, 0.0118537, 1.26189, -0.221075)
+mesh = ExtResource("3_e4cd4")
+
+[node name="Stuff2Plank-14" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06685, 0, 0, 0, 1, 0, 0, 0, 1, -0.0471404, 1.26189, -0.547087)
+mesh = ExtResource("3_e4cd4")
+
+[node name="Stuff2Plank-15" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06685, 0, 0, 0, 1, 0, 0, 0, 1, -0.0213323, 1.26189, -0.926657)
+mesh = ExtResource("3_e4cd4")
+
+[node name="StuffBarrel" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00418881, -0.999991, 0, 0.999991, -0.00418881, -0.494214, 1.81653, -0.628549)
+mesh = ExtResource("4_my3ni")
+
+[node name="StuffBarrel2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00418881, -0.999991, 0, 0.999991, -0.00418881, 0.501895, 1.81653, -0.628549)
+mesh = ExtResource("4_my3ni")
+
+[node name="StuffBarrel3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.00418881, -0.999991, 0, 0.999991, -0.00418881, -0.0127614, 2.66322, -0.625002)
+mesh = ExtResource("4_my3ni")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03001, 1.19209e-07, 0.992924)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04404, 2.54668, -0.960815)
+shape = SubResource("BoxShape3D_bf8ml")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06326, 0.538872, -0.00323486)
+shape = SubResource("BoxShape3D_r8grr")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00463867, 0.538872, -0.00323486)
+shape = SubResource("BoxShape3D_h2v76")

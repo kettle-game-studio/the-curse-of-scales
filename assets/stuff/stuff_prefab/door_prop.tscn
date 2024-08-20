@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1kpc0iequwyn"]
+
+[ext_resource type="ArrayMesh" uid="uid://edccvnjgkn0q" path="res://assets/stuff/stuff_mesh/door_door.res" id="1_hf7df"]
+[ext_resource type="ArrayMesh" uid="uid://beehfm4vp0bqy" path="res://assets/stuff/stuff_mesh/stuff2_log-10.res" id="2_fii3g"]
+[ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="3_ag6ib"]
+[ext_resource type="ArrayMesh" uid="uid://dqqlkjy5gwbtv" path="res://assets/stuff/stuff_mesh/stuff2_plank-05.res" id="4_ruf3f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lg8or"]
+size = Vector3(0.210693, 2.9942, 1.51025)
+
+[node name="DoorDoor" type="MeshInstance3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_hf7df")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00646973, 1.50009, -0.013916)
+shape = SubResource("BoxShape3D_lg8or")
+
+[node name="Stuff2Log-10" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.5004, 0, 1, 0, -4.37114e-08, 0.007, 0, 0.845)
+mesh = ExtResource("2_fii3g")
+
+[node name="Stuff2Log-11" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.5004, 0, 1, 0, -4.37114e-08, 0.00700007, 0, -0.846153)
+mesh = ExtResource("2_fii3g")
+
+[node name="Stuff2Plank-10" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.00766135, 3.02099, 0.0101786)
+mesh = ExtResource("3_ag6ib")
+
+[node name="Stuff2Plank-05" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.28937e-08, 1.51771e-08, -0.614184, 0.126225, 0.811396, 0, 0.294974, -0.347212, -2.68468e-08, 0.0119599, 2.9078, -0.573699)
+mesh = ExtResource("4_ruf3f")
+
+[node name="Stuff2Plank-06" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.27881e-08, -1.58392e-08, -0.614184, -0.131732, 0.804745, -8.88178e-16, 0.292557, 0.362359, -2.68468e-08, 0.0119599, 2.9037, 0.587133)
+mesh = ExtResource("4_ruf3f")
