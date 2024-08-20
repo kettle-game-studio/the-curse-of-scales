@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmiat20mwcc0x"]
+[gd_scene load_steps=8 format=3 uid="uid://bmiat20mwcc0x"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="1_v7t18"]
 [ext_resource type="PackedScene" uid="uid://du11atf51ukvh" path="res://assets/ship/level_2_bottle.tscn" id="1_xfcix"]
 [ext_resource type="PackedScene" uid="uid://o6wcnula0gvo" path="res://assets/ship/level_3.tscn" id="2_w1x37"]
 [ext_resource type="PackedScene" uid="uid://jywta2kwkebr" path="res://assets/ship/level_4.tscn" id="3_kd3xy"]
 [ext_resource type="ArrayMesh" uid="uid://d4kma1xax6eak" path="res://assets/stuff/stuff_mesh/stuff_bottle.res" id="5_ek75y"]
+[ext_resource type="ArrayMesh" uid="uid://btdr8slgxhsao" path="res://assets/stuff/stuff_mesh/stuff_plug.res" id="6_wahm0"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3xwnr"]
 height = 0.23577
@@ -29,8 +30,13 @@ visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0045943, 0)
+gi_mode = 2
 mesh = ExtResource("5_ek75y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119933, 0)
 shape = SubResource("CylinderShape3D_3xwnr")
+
+[node name="StuffPlug" type="MeshInstance3D" parent="."]
+gi_mode = 2
+mesh = ExtResource("6_wahm0")

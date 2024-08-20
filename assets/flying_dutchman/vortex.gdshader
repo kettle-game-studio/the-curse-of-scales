@@ -1,6 +1,6 @@
 shader_type spatial;
 
-render_mode unshaded;
+//render_mode unshaded;
 
 uniform sampler2D noise;
 uniform vec3 Color : source_color;
@@ -15,10 +15,11 @@ void vertex() {
 
 void fragment() {
 	vec2 time = vec2(0.0);//vec2(TIME / 10.0, 0.0);
-	ALBEDO = mix(Color2, Color, texture(noise, UV + time).xyz);
+	EMISSION = mix(Color2, Color, texture(noise, UV + time).xyz);
+	ALBEDO = vec3(0);
 }
 
-//void light() {
-	//DIFFUSE_LIGHT = ALBEDO;
-	//SPECULAR_LIGHT = ALBEDO;
-//}
+void light() {
+	DIFFUSE_LIGHT = vec3(0);
+	SPECULAR_LIGHT = vec3(0);
+}

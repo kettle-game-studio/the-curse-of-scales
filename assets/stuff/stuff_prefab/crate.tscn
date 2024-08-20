@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cluwd1uwqnk0r"]
+
+[ext_resource type="ArrayMesh" uid="uid://cp6wsemqxoi7j" path="res://assets/stuff/stuff_mesh/stuff2_box.res" id="1_nosqm"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_122bp"]
+points = PackedVector3Array(0.65502, 0.413291, 1.2015, 0.651045, 0.417294, 1.2015, 0.651045, 0.413291, 1.20552, 0.65502, -0.413372, 1.2015, 0.65502, 0.413291, -1.20174, -0.651173, 0.417294, 1.2015, 0.651045, 0.417294, -1.20174, 0.651045, -0.413372, 1.20552, -0.651173, 0.413291, 1.20552, 0.651045, -0.417294, 1.2015, 0.65502, -0.413372, -1.20174, 0.651045, 0.413291, -1.20552, -0.65502, 0.413291, 1.2015, -0.651173, 0.417294, -1.20174, -0.651173, -0.413372, 1.20552, -0.651173, -0.417294, 1.2015, 0.651045, -0.417294, -1.20174, 0.651045, -0.413372, -1.20552, -0.651173, 0.413291, -1.20552, -0.65502, -0.413372, 1.2015, -0.65502, 0.413291, -1.20174, -0.651173, -0.417294, -1.20174, -0.651173, -0.413372, -1.20552, -0.65502, -0.413372, -1.20174)
+
+[node name="Crate" type="Node3D"]
+
+[node name="Stuff2Box" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_nosqm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stuff2Box"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stuff2Box/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_122bp")
