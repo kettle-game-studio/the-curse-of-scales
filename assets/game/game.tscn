@@ -80,11 +80,11 @@ stream_0 = ExtResource("5_qgk2g")
 
 [sub_resource type="Environment" id="Environment_qu8ju"]
 background_mode = 1
-background_color = Color(0.104485, 0.248536, 0.23095, 1)
-background_energy_multiplier = 0.1
+background_color = Color(0.0156863, 0.0901961, 0.121569, 1)
+background_energy_multiplier = 0.59
 ambient_light_source = 2
-ambient_light_color = Color(0.677148, 0.540761, 0.461005, 1)
-ambient_light_energy = 0.3
+ambient_light_color = Color(0.275037, 0.482292, 0.575521, 1)
+ambient_light_energy = 0.24
 glow_intensity = 8.0
 glow_hdr_threshold = 0.33
 fog_light_color = Color(0.2196, 0.607839, 0.68781, 1)
