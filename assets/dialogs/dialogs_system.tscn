@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr23gqxdfg82p"]
+[gd_scene load_steps=4 format=3 uid="uid://dr23gqxdfg82p"]
 
 [ext_resource type="Script" path="res://assets/dialogs/dialogs_system.gd" id="1_2wlgt"]
+[ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="1_20ldh"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="2_5555l"]
 
 [node name="DialogsSystem" type="MarginContainer"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_20ldh")
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
@@ -19,13 +21,14 @@ script = ExtResource("1_2wlgt")
 [node name="Subtitles" type="RichTextLabel" parent="."]
 layout_mode = 2
 size_flags_vertical = 8
+theme = ExtResource("1_20ldh")
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 16
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
 bbcode_enabled = true
 text = "[center][b]Name[/b]
 Text[/center]"

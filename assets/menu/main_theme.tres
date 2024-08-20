@@ -1,13 +1,17 @@
-[gd_resource type="Theme" format=3 uid="uid://bqyy6crqqhoi7"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bqyy6crqqhoi7"]
+
+[ext_resource type="FontFile" uid="uid://cwwv1dshsuaw5" path="res://assets/fonts/BlackBeard Regular.otf" id="1_0j6hi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_queaj"]
+bg_color = Color(0.905882, 0.305882, 0.72549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72g8k"]
+bg_color = Color(0.854162, 0.444428, 0.63339, 1)
 
 [resource]
-default_font_size = 32
-Button/font_sizes/font_size = 32
-Label/font_sizes/font_size = 32
+default_font = ExtResource("1_0j6hi")
+default_font_size = 64
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_queaj")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_72g8k")
 RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0.647059)
 RichTextLabel/constants/shadow_outline_size = 16
-RichTextLabel/font_sizes/bold_font_size = 32
-RichTextLabel/font_sizes/bold_italics_font_size = 32
-RichTextLabel/font_sizes/italics_font_size = 32
-RichTextLabel/font_sizes/mono_font_size = 32
-RichTextLabel/font_sizes/normal_font_size = 32
