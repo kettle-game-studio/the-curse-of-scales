@@ -20,6 +20,7 @@ class_name Player;
 @onready var big_scale_cast: ShapeCast3D = $BigScaleCast
 @onready var jump_audio: AudioStreamPlayer = $JumpAudio
 @onready var scale_audio: AudioStreamPlayer = $ScaleAudio
+@onready var take_audio: AudioStreamPlayer = $TakeAudio
 @onready var drag_ray: RayCast3D = %DragRay
 @onready var hand: Marker3D = %Hand
 @onready var action_label := %ActionLabel
@@ -182,6 +183,7 @@ func interact():
 		return
 	if collider is Draggable:
 		var t = collider.trigger
+		take_audio.play()
 		if t is ChangePlayer:
 			state = t.new_state
 			collider.queue_free()
