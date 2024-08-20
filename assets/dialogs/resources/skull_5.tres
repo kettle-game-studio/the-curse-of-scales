@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=3 format=3 uid="uid://sn03g4f5u15c"]
+
+[ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="1_7sert"]
+[ext_resource type="Script" path="res://assets/dialogs/dialog.gd" id="2_pycmq"]
+
+[resource]
+script = ExtResource("2_pycmq")
+lines = Array[ExtResource("1_7sert")]([])
