@@ -195,3 +195,14 @@
 Заходим в каюту Карлоса: 
 
 > Ivan the Skull: Carlos was our steersman and fisher. Great feat for a guy with hooks for hands.
+
+#### На четвёртой палубе
+
+> Ivan the Skull: The ship is almost complete! Hmm, but how do we get inside the room.
+
+В пушке
+> Ivan the Skull: YARR Ahoy
+
+> Ivan the Skull: The skeleton key is so close! I can feel it.
+
+> Ivan the Skull: Finally! The treasure lies in our hands!
