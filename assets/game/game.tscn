@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=29 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cfmao6x2oota4" path="res://assets/menu/main/main_menu.tscn" id="3_vj133"]
 [ext_resource type="AudioStream" uid="uid://cjnjvkssq5f8q" path="res://assets/soundtrack/placeholder.mp3" id="5_qgk2g"]
 [ext_resource type="PackedScene" uid="uid://col11m3s73iqx" path="res://assets/flying_dutchman/flying_dutchman.tscn" id="6_5h4fs"]
+[ext_resource type="AudioStream" uid="uid://b6xionvhpis7s" path="res://assets/sound/thunder.mp3" id="6_eddj6"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="7_3ovya"]
+[ext_resource type="AudioStream" uid="uid://c4wtsq881h80i" path="res://assets/sound/sea.mp3" id="7_jluqk"]
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 [ext_resource type="Material" uid="uid://b6hapbsjjnon" path="res://assets/flying_dutchman/sea_material.tres" id="11_lo82i"]
 [ext_resource type="PackedScene" uid="uid://7pq0gedjd1os" path="res://assets/stuff/water.glb" id="11_ttfla"]
@@ -73,6 +75,16 @@ advance_mode = 2
 states/Begin/node = SubResource("AnimationNodeAnimation_h0pg8")
 states/Begin/position = Vector2(379.333, 100.444)
 transitions = ["Start", "Begin", SubResource("AnimationNodeStateMachineTransition_ku08u")]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kh4bn"]
+shuffle = true
+fade_time = 0.0
+stream_count = 5
+stream_0 = ExtResource("6_eddj6")
+stream_1 = ExtResource("7_jluqk")
+stream_2 = ExtResource("7_jluqk")
+stream_3 = ExtResource("7_jluqk")
+stream_4 = ExtResource("7_jluqk")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
@@ -167,6 +179,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17041, 6.34876, -14.025)
 [node name="Storyteller" type="AudioStreamPlayer" parent="Level"]
 script = ExtResource("7_3ovya")
 author = &"Storyteller"
+
+[node name="Env" type="AudioStreamPlayer3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.75093, 0)
+stream = SubResource("AudioStreamPlaylist_kh4bn")
+attenuation_model = 3
+autoplay = true
+panning_strength = 0.04
 
 [node name="MainMenu" parent="." instance=ExtResource("3_vj133")]
 process_mode = 3
