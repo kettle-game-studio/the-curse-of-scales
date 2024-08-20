@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://cfmao6x2oota4"]
 
 [ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="1_2toee"]
-[ext_resource type="Texture2D" uid="uid://bk17gh7ks7tjp" path="res://assets/menu/main/background_placeholder.jpg" id="1_kaov0"]
+[ext_resource type="Texture2D" uid="uid://dyi7sowv0jxr4" path="res://assets/menu/main/map.png" id="2_ph4if"]
 [ext_resource type="PackedScene" uid="uid://c7xicaqgc3r4h" path="res://assets/menu/settings_slider.tscn" id="3_ayba1"]
 [ext_resource type="Script" path="res://assets/menu/main/main_menu.gd" id="3_s2uwn"]
 [ext_resource type="Script" path="res://assets/menu/menu_section.gd" id="4_bctu8"]
 [ext_resource type="FontFile" uid="uid://capb6cd7tdxu8" path="res://assets/fonts/trade-winds.regular.ttf" id="5_wyusd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t17vm"]
-texture = ExtResource("1_kaov0")
+texture = ExtResource("2_ph4if")
 modulate_color = Color(0.545098, 0.545098, 0.545098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nludy"]
