@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=86 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -53,6 +53,8 @@
 [ext_resource type="PackedScene" uid="uid://p4mqfm2emj42" path="res://assets/stuff/stuff_prefab/stool.tscn" id="38_jvgeu"]
 [ext_resource type="LightmapGIData" uid="uid://7mupjvc4b7ew" path="res://assets/ship/ship.lmbake" id="40_p5dxc"]
 [ext_resource type="ArrayMesh" uid="uid://cgci2in3hmhhy" path="res://assets/ship/parts/ship_mars_collider.res" id="42_yclhq"]
+[ext_resource type="PackedScene" uid="uid://iof6v8780ksx" path="res://assets/skeleton/dead/ingvar.tscn" id="47_n1xkl"]
+[ext_resource type="PackedScene" uid="uid://ckn0y4p04jfn3" path="res://assets/stuff/stuff_prefab/lamp.tscn" id="48_b4yew"]
 [ext_resource type="PackedScene" uid="uid://311c06jamvw1" path="res://assets/skeleton/dead/carlos.tscn" id="54_41mbx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
@@ -499,7 +501,7 @@ curve = SubResource("Curve3D_w2m83")
 transform = Transform3D(-0.999304, -0.00199295, 0.0369763, -5.83595e-05, 0.998618, 0.0522465, -0.0370301, 0.0522084, -0.997935, -0.794502, -0.450527, 22.1117)
 
 [node name="Bottle" parent="ship/Level3/Gameplay" instance=ExtResource("6_50vet")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81303, 6.66811, 1.70117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.30643, 8.32754, -10.564)
 trigger = ExtResource("7_elavf")
 
 [node name="Ladder3" type="Area3D" parent="ship/Level3/Gameplay" node_paths=PackedStringArray("entrance", "exit")]
@@ -522,11 +524,48 @@ gizmo_extents = 1.33
 [node name="Door2" parent="ship/Level3/Gameplay" instance=ExtResource("30_h57bp")]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 4.23573, 6.67893, -8.15759)
 
-[node name="Door3" parent="ship/Level3/Gameplay" instance=ExtResource("30_h57bp")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -4.18669, 6.67893, -8.15759)
-
 [node name="Carlos" parent="ship/Level3/Gameplay" instance=ExtResource("54_41mbx")]
 transform = Transform3D(-0.992067, 0, -0.125714, 0, 1, 0, 0.125714, 0, -0.992067, 0.0647538, 8.92777, 17.4391)
+
+[node name="StuffBarrel" parent="ship/Level3/Gameplay" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(2, 0, 0, 0, 0.0917372, -1.9979, 0, 1.9979, 0.0917372, -4.21848, 7.41901, -9.18703)
+skeleton = NodePath("../../../..")
+
+[node name="StuffBarrel2" parent="ship/Level3/Gameplay" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7974, 6.67176, -7.4243)
+skeleton = NodePath("../../../..")
+
+[node name="StuffBarrel3" parent="ship/Level3/Gameplay" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.92526, 6.62666, -7.22983)
+skeleton = NodePath("../../../..")
+
+[node name="Stuff2Plank-10" parent="ship/Level3/Gameplay" instance=ExtResource("27_3iaro")]
+transform = Transform3D(-5.7624e-08, -8, -3.49691e-07, 1.25616, -3.54401e-07, 7.90076, -7.90076, 2.00066e-09, 1.25616, -0.179556, 8.58642, -15.4541)
+skeleton = NodePath("../../../..")
+
+[node name="StuffBarrel4" parent="ship/Level3/Gameplay" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.663231, 9.28681, -24.7054)
+skeleton = NodePath("../../../..")
+
+[node name="StuffBarrel5" parent="ship/Level3/Gameplay" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.711465, 9.30851, -23.728)
+skeleton = NodePath("../../../..")
+
+[node name="StuffBarrel6" parent="ship/Level3/Gameplay" instance=ExtResource("18_xe0eo")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.687341, 6.67137, -6.55936)
+skeleton = NodePath("../../../..")
+
+[node name="Crate2" parent="ship/Level3/Gameplay" instance=ExtResource("33_rf4hv")]
+transform = Transform3D(0.0569368, 0, -0.998378, 0, 1, 0, 0.998378, 0, 0.0569368, 1.27757, 9.13651, -22.8671)
+
+[node name="Crate3" parent="ship/Level3/Gameplay" instance=ExtResource("33_rf4hv")]
+transform = Transform3D(-0.0199485, 0, -1.49987, 0, 1.5, 0, 1.49987, 0, -0.0199485, 1.86658, 9.74423, -24.0502)
+
+[node name="Ingvar" parent="ship/Level3/Gameplay" instance=ExtResource("47_n1xkl")]
+transform = Transform3D(-0.513826, 0, 0.857895, 0, 1, 0, -0.857895, 0, -0.513826, 2.75919, 8.86447, -24.7406)
+
+[node name="Lamp" parent="ship/Level3/Gameplay" instance=ExtResource("48_b4yew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.75282, 8.14011, -9.94991)
 
 [node name="StuffBarrel" parent="ship/Level3" instance=ExtResource("18_xe0eo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24673, 8.82341, 19.872)
