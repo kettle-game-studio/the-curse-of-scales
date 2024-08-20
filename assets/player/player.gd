@@ -171,10 +171,10 @@ func check_interaction():
 			action_label.text = "[E] - Drag %s" % collider.trigger.name
 	elif action_label.text != "":
 		action_label.text = ""
-	if action_label.text:
-		action_label.text = "[center]%s[/center]" % action_label.text
 	if !can_interact(interactive_area):
 		action_label.text = "[color=red]%s[/color]" % action_label.text
+	if action_label.text:
+		action_label.text = "[center]%s[/center]" % action_label.text
 
 func can_interact(interactive_area):
 	var triggerable_when_small = false
