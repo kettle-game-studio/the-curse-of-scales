@@ -6,6 +6,7 @@ class_name Speecher
 var dying := false
 
 signal finished
+signal started
 
 func _ready() -> void:
 	var s = self
@@ -29,6 +30,7 @@ func _ready() -> void:
 	)
 
 func speech(line: SpeechLine):
+	started.emit()
 	audioPlayer.stream = line.sound
 	audioPlayer.play()
 	audioPlayer.finished.connect(func(): finished.emit(), Object.ConnectFlags.CONNECT_ONE_SHOT)

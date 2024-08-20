@@ -168,7 +168,7 @@ func check_interaction():
 		elif !collider.activated && collider.trigger:
 			action_label.text = "%s is needed" % collider.trigger.name
 	elif collider is Draggable:
-			action_label.text = "[E] - Drag %s" % collider.trigger.name
+			action_label.text = "[E] - Take %s" % collider.trigger.name
 	elif action_label.text != "":
 		action_label.text = ""
 	if !can_interact(interactive_area):
