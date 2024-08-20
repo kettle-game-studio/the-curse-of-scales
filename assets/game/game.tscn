@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b6tgxpl2npofy"]
+[gd_scene load_steps=26 format=3 uid="uid://b6tgxpl2npofy"]
 
 [ext_resource type="Script" path="res://assets/game/game.gd" id="1_dld7d"]
 [ext_resource type="PackedScene" uid="uid://dudaruvg7dj6t" path="res://assets/player/player.tscn" id="2_7ojib"]
@@ -77,22 +77,6 @@ transitions = ["Start", "Begin", SubResource("AnimationNodeStateMachineTransitio
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_roke2"]
 stream_count = 1
 stream_0 = ExtResource("5_qgk2g")
-
-[sub_resource type="Environment" id="Environment_qu8ju"]
-background_mode = 1
-background_color = Color(0.0156863, 0.0901961, 0.121569, 1)
-background_energy_multiplier = 0.59
-ambient_light_source = 2
-ambient_light_color = Color(0.275037, 0.482292, 0.575521, 1)
-ambient_light_energy = 0.24
-glow_intensity = 8.0
-glow_hdr_threshold = 0.33
-fog_light_color = Color(0.2196, 0.607839, 0.68781, 1)
-fog_light_energy = 0.1
-fog_density = 0.0416
-adjustment_brightness = 1.28
-adjustment_contrast = 1.2
-adjustment_saturation = 1.35
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_miw7b"]
 flip_faces = true
@@ -195,9 +179,6 @@ bus = &"Music"
 
 [node name="FlyingDutchman" parent="." instance=ExtResource("6_5h4fs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.176, -1.02945, 1.19075)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_qu8ju")
 
 [node name="Vortex" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.970468, 0, 0.241228, 0, 1, 0, -0.241228, 0, 0.970468, -15.6826, 58.9896, 0)

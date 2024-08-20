@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckn0y4p04jfn3"]
+
+[ext_resource type="ArrayMesh" uid="uid://bt8s1kldcgg1c" path="res://assets/stuff/stuff_mesh/stuff_lamp.res" id="1_0voyc"]
+
+[node name="Lamp" type="MeshInstance3D"]
+transform = Transform3D(0.998755, -0.0451585, -0.0211898, 0.0421392, 0.991128, -0.126058, 0.0266944, 0.125008, 0.991797, -0.859264, -3.18582, -14.9534)
+gi_mode = 0
+mesh = ExtResource("1_0voyc")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
+light_color = Color(0.658854, 0.583842, 0.377343, 1)
+light_energy = 3.808
+light_bake_mode = 1
+shadow_enabled = true
+omni_range = 11.2439

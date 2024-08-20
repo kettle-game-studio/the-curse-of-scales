@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://o6wcnula0gvo"]
+[gd_scene load_steps=12 format=3 uid="uid://o6wcnula0gvo"]
 
 [ext_resource type="ArrayMesh" uid="uid://b1ob8hxarvv4j" path="res://assets/ship/parts/ship_Cube_009.res" id="2_q4y01"]
 [ext_resource type="ArrayMesh" uid="uid://bg8axojagixup" path="res://assets/ship/parts/ship_Cylinder_002.res" id="3_3xvve"]
 [ext_resource type="ArrayMesh" uid="uid://jvo33f5j4xe4" path="res://assets/ship/parts/ship_Cylinder_015.res" id="5_nhyrf"]
 [ext_resource type="ArrayMesh" uid="uid://cxkeuxct6y26i" path="res://assets/ship/parts/ship_Cube_022.res" id="6_oc7xi"]
 [ext_resource type="ArrayMesh" uid="uid://gank4cdenqhs" path="res://assets/ship/parts/ship_stairs_3_collider.res" id="6_xd8ut"]
+[ext_resource type="PackedScene" uid="uid://ckn0y4p04jfn3" path="res://assets/stuff/stuff_prefab/lamp.tscn" id="7_asglq"]
 [ext_resource type="ArrayMesh" uid="uid://c3ofs6pl4mgqg" path="res://assets/ship/parts/ship_Cube_027.res" id="7_l8xer"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m63c0"]
@@ -67,3 +68,30 @@ shape = SubResource("ConcavePolygonShape3D_e4cor")
 visible = false
 mesh = ExtResource("6_xd8ut")
 skeleton = NodePath("")
+
+[node name="Illumination" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.6737, 0)
+
+[node name="Lamp" parent="Illumination" instance=ExtResource("7_asglq")]
+transform = Transform3D(0.998755, -0.0451585, -0.0211898, 0.041034, 0.985313, -0.165759, 0.028364, 0.164683, 0.985939, -0.453889, -3.35175, -18.1157)
+skeleton = NodePath("../..")
+
+[node name="Lamp2" parent="Illumination" instance=ExtResource("7_asglq")]
+transform = Transform3D(0.999593, -0.00179249, -0.0284574, -0.00291911, 0.986345, -0.164667, 0.028364, 0.164683, 0.985939, 2.67155, -4.47164, -6.36482)
+skeleton = NodePath("../..")
+
+[node name="Lamp3" parent="Illumination" instance=ExtResource("7_asglq")]
+transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850022, 0.99281, 0.0842864, 0.00743162, -0.085222, 0.996334, 2.67155, -4.05164, 8.59751)
+skeleton = NodePath("../..")
+
+[node name="Lamp6" parent="Illumination" instance=ExtResource("7_asglq")]
+transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850022, 0.99281, 0.0842864, 0.00743162, -0.085222, 0.996334, -0.85839, -4.05164, 17.5441)
+skeleton = NodePath("../..")
+
+[node name="Lamp4" parent="Illumination" instance=ExtResource("7_asglq")]
+transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850022, 0.99281, 0.0842864, 0.00743162, -0.085222, 0.996334, -1.93246, -4.05164, 8.59751)
+skeleton = NodePath("../..")
+
+[node name="Lamp5" parent="Illumination" instance=ExtResource("7_asglq")]
+transform = Transform3D(0.996353, -0.0840642, -0.0146222, 0.0850022, 0.99281, 0.0842864, 0.00743162, -0.085222, 0.996334, -3.3703, -3.75543, -10.1161)
+skeleton = NodePath("../..")
