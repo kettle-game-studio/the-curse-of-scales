@@ -3,8 +3,10 @@ class_name Cannon
 
 @export var cannonball: PathFollow3D
 @export var move_per_second: float = 2.0;
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $"../AudioStreamPlayer3D"
 
 func shoot(player: Player) -> void:
+	audio_stream_player_3d.play()
 	await fly(player)
 	
 func fly(player: Player):

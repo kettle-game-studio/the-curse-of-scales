@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dudaruvg7dj6t"]
+[gd_scene load_steps=10 format=3 uid="uid://dudaruvg7dj6t"]
 
 [ext_resource type="Script" path="res://assets/player/player.gd" id="1_qjx7e"]
 [ext_resource type="Resource" uid="uid://e3mnsghbyxh0" path="res://assets/settings/settings.tres" id="2_xtnvb"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bvjnqcn3s2xrw" path="res://assets/player/scale.mp3" id="4_051vn"]
 [ext_resource type="Theme" uid="uid://bqyy6crqqhoi7" path="res://assets/menu/main_theme.tres" id="5_8yep5"]
 [ext_resource type="Texture2D" uid="uid://c06liubh1uku" path="res://assets/player/cross.png" id="5_dsxfo"]
+[ext_resource type="AudioStream" uid="uid://ncv6di473rwv" path="res://assets/player/take.mp3" id="5_wa6ry"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wgk0d"]
 
@@ -56,6 +57,10 @@ bus = &"Sounds"
 [node name="ScaleAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_051vn")
 volume_db = -22.554
+bus = &"Sounds"
+
+[node name="TakeAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wa6ry")
 bus = &"Sounds"
 
 [node name="ActionLabel" type="RichTextLabel" parent="."]
