@@ -14,7 +14,7 @@
 [ext_resource type="Resource" uid="uid://c1sp7as7yo0yc" path="res://assets/gamedesign/triggers/bottle/bottle2.tres" id="7_elavf"]
 [ext_resource type="PackedScene" uid="uid://cpn8ko8363h1h" path="res://assets/gamedesign/triggers/keys/skeleton_key.tscn" id="9_rojmg"]
 [ext_resource type="AudioStream" uid="uid://ijtwwcm1do3e" path="res://assets/sound/skull_16.mp3" id="10_214lb"]
-[ext_resource type="PackedScene" uid="uid://dus1ik886hfge" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
+[ext_resource type="PackedScene" uid="uid://vxnln255cwxd" path="res://assets/gamedesign/chest/skeleton_chest.tscn" id="10_aucgn"]
 [ext_resource type="PackedScene" uid="uid://dwki5pnguubja" path="res://assets/stuff/stuff_prefab/table_prefab.tscn" id="11_lxvjh"]
 [ext_resource type="Script" path="res://assets/dialogs/dialog_trigger.gd" id="12_3cakc"]
 [ext_resource type="ArrayMesh" uid="uid://dqw4kxj4h3yy5" path="res://assets/skeleton/meshes/skeleton_skull.res" id="14_0v0y4"]
@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="17_wx2i5"]
 [ext_resource type="PackedScene" uid="uid://wdcfd0iv37k1" path="res://assets/dialogs/dialog_trigger.tscn" id="18_4h5oj"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="18_fjegs"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/barrel_prefab.tscn" id="18_xe0eo"]
+[ext_resource type="PackedScene" uid="uid://ct14vftjs7b14" path="res://assets/stuff/stuff_prefab/barrel_prefab.tscn" id="18_xe0eo"]
 [ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="19_o1uo1"]
 [ext_resource type="Resource" uid="uid://ckwg31mfp1ltk" path="res://assets/dialogs/resources/skull_1.tres" id="20_tpsa1"]
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="20_tywap"]
@@ -34,11 +34,11 @@
 [ext_resource type="Script" path="res://assets/dialogs/dialog.gd" id="22_d1em6"]
 [ext_resource type="AudioStream" uid="uid://bqudrpbqr5jik" path="res://assets/sound/skull_4.mp3" id="24_e1o85"]
 [ext_resource type="PackedScene" uid="uid://cgtdl00mxbbx5" path="res://assets/gamedesign/cannon/cannon.tscn" id="26_6e2a2"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/chair.tscn" id="26_6wvxa"]
+[ext_resource type="PackedScene" uid="uid://ibaxkd8f0llm" path="res://assets/stuff/stuff_prefab/chair.tscn" id="26_6wvxa"]
 [ext_resource type="AudioStream" uid="uid://dyhmeksogjj7h" path="res://assets/sound/skull_7.mp3" id="26_e136v"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/stuff_2_plank_10.tscn" id="27_3iaro"]
+[ext_resource type="PackedScene" uid="uid://0uhl138cen52" path="res://assets/stuff/stuff_prefab/stuff_2_plank_10.tscn" id="27_3iaro"]
 [ext_resource type="PackedScene" uid="uid://dvgitsuyd6ayt" path="res://assets/skeleton/dead/ivan.tscn" id="29_dgnxb"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="30_35x0o"]
+[ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="30_35x0o"]
 [ext_resource type="AudioStream" uid="uid://ds7r4rdy5nbic" path="res://assets/sound/skull_9.mp3" id="30_c5uag"]
 [ext_resource type="PackedScene" uid="uid://cqcivmapg633v" path="res://assets/gamedesign/door/door.tscn" id="30_h57bp"]
 [ext_resource type="AudioStream" uid="uid://b0pdc0uy78et4" path="res://assets/sound/skull_11.mp3" id="31_hqvy8"]
@@ -46,17 +46,17 @@
 [ext_resource type="AudioStream" uid="uid://x4us3i3qadv4" path="res://assets/sound/skull_10.mp3" id="32_lvkah"]
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="33_7cfsp"]
 [ext_resource type="AudioStream" uid="uid://dcf3mivuw08sg" path="res://assets/sound/skull_8.mp3" id="33_cssyc"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/crate.tscn" id="33_rf4hv"]
+[ext_resource type="PackedScene" uid="uid://cluwd1uwqnk0r" path="res://assets/stuff/stuff_prefab/crate.tscn" id="33_rf4hv"]
 [ext_resource type="AudioStream" uid="uid://4urmbpybdrsm" path="res://assets/sound/skull_12.mp3" id="34_452y2"]
 [ext_resource type="PackedScene" uid="uid://cd5v7p05segba" path="res://assets/gamedesign/chest/common_chest.tscn" id="35_oxa1d"]
 [ext_resource type="PackedScene" uid="uid://cnvx03s84i1rl" path="res://assets/gamedesign/triggers/keys/golden_key.tscn" id="36_aynbg"]
 [ext_resource type="AudioStream" uid="uid://c7w7nwsggmjaj" path="res://assets/sound/skull_6.mp3" id="37_613hh"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/stool.tscn" id="38_jvgeu"]
-[ext_resource type="LightmapGIData" path="res://assets/ship/ship.lmbake" id="40_p5dxc"]
+[ext_resource type="PackedScene" uid="uid://p4mqfm2emj42" path="res://assets/stuff/stuff_prefab/stool.tscn" id="38_jvgeu"]
+[ext_resource type="LightmapGIData" uid="uid://7mupjvc4b7ew" path="res://assets/ship/ship.lmbake" id="40_p5dxc"]
 [ext_resource type="ArrayMesh" uid="uid://cgci2in3hmhhy" path="res://assets/ship/parts/ship_mars_collider.res" id="42_yclhq"]
 [ext_resource type="AudioStream" uid="uid://dsc1mxeo451bv" path="res://assets/sound/skull_14.mp3" id="43_agg1c"]
 [ext_resource type="PackedScene" uid="uid://iof6v8780ksx" path="res://assets/skeleton/dead/ingvar.tscn" id="47_n1xkl"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/lamp.tscn" id="48_b4yew"]
+[ext_resource type="PackedScene" uid="uid://ckn0y4p04jfn3" path="res://assets/stuff/stuff_prefab/lamp.tscn" id="48_b4yew"]
 [ext_resource type="AudioStream" uid="uid://cccs7obaiedjs" path="res://assets/sound/skull_13.mp3" id="48_nasfc"]
 [ext_resource type="PackedScene" uid="uid://311c06jamvw1" path="res://assets/skeleton/dead/carlos.tscn" id="54_41mbx"]
 [ext_resource type="AudioStream" uid="uid://bv13j8dv8fi8a" path="res://assets/sound/skull_15.mp3" id="55_gumj7"]
@@ -602,14 +602,14 @@ bones/17/parent = 16
 bones/17/rest = Transform3D(1, -7.23652e-08, 1.12475e-08, 7.23652e-08, 0.952825, -0.303522, 1.12475e-08, 0.303522, 0.952824, -3.18284e-17, 0.197538, 0)
 bones/17/enabled = true
 bones/17/position = Vector3(-3.18284e-17, 0.197538, 0)
-bones/17/rotation = Quaternion(0.135939, -6.52934e-10, 3.66112e-08, 0.990717)
+bones/17/rotation = Quaternion(0.0961544, -2.11858e-09, 3.65557e-08, 0.995367)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "Jaw"
 bones/18/parent = 17
 bones/18/rest = Transform3D(0.999855, 0.0165857, -0.00381009, 0.00216385, -0.34598, -0.938239, -0.0168796, 0.938095, -0.345965, -0.00290174, -0.0048863, 0.0446187)
 bones/18/enabled = true
 bones/18/position = Vector3(-0.00290174, -0.0048863, 0.0446187)
-bones/18/rotation = Quaternion(0.82325, 0.00574617, -0.00627594, 0.567616)
+bones/18/rotation = Quaternion(0.826209, 0.00577895, -0.00624578, 0.563299)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "ArmPole.L"
 bones/19/parent = 1
