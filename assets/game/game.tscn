@@ -12,7 +12,7 @@
 [ext_resource type="Material" uid="uid://d4e361pjonbxd" path="res://assets/flying_dutchman/vortex_material.tres" id="7_p2fpc"]
 [ext_resource type="AudioStream" uid="uid://b3kibncj27gqi" path="res://assets/soundtrack/Uuuuuuu Ooooooo Aaaaaaa Mmm-mm-mm.mp3" id="9_ksoct"]
 [ext_resource type="AudioStream" uid="uid://bty1ergnnb7g6" path="res://assets/soundtrack/TCOS Outro.mp3" id="10_t4fwa"]
-[ext_resource type="AudioStream" uid="uid://ctkff0f4jt74j" path="res://assets/soundtrack/3-черн.mp3" id="11_f7yp4"]
+[ext_resource type="AudioStream" uid="uid://k6shde1os6i2" path="res://assets/soundtrack/Pirates Are Quite Intensively Struggling With Scales.mp3" id="11_4liec"]
 [ext_resource type="Material" uid="uid://b6hapbsjjnon" path="res://assets/flying_dutchman/sea_material.tres" id="11_lo82i"]
 [ext_resource type="PackedScene" uid="uid://7pq0gedjd1os" path="res://assets/stuff/water.glb" id="11_ttfla"]
 
@@ -157,7 +157,7 @@ stream_4 = ExtResource("7_jluqk")
 stream_count = 4
 stream_0 = ExtResource("9_ksoct")
 stream_1 = ExtResource("10_t4fwa")
-stream_2 = ExtResource("11_f7yp4")
+stream_2 = ExtResource("11_4liec")
 stream_3 = ExtResource("5_qgk2g")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_miw7b"]
