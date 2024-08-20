@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bqk4vvc80kfd6"]
+[gd_scene load_steps=56 format=3 uid="uid://bqk4vvc80kfd6"]
 
 [ext_resource type="ArrayMesh" uid="uid://c4htttahjuhj5" path="res://assets/ship/parts/ship_Cube_001.res" id="1_1j6ig"]
 [ext_resource type="Script" path="res://assets/ship/ship.gd" id="1_7opui"]
@@ -21,24 +21,25 @@
 [ext_resource type="ArrayMesh" uid="uid://cxq1bbua6kl1h" path="res://assets/skeleton/meshes/skeleton_hat.res" id="15_wi4qm"]
 [ext_resource type="ArrayMesh" uid="uid://bb8mfol5m6i2i" path="res://assets/skeleton/meshes/skeleton_beard.res" id="16_b844b"]
 [ext_resource type="Script" path="res://assets/dialogs/speecher.gd" id="17_wx2i5"]
-[ext_resource type="PackedScene" uid="uid://wdcfd0iv37k1" path="res://assets/dialogs/dialog_trigger.tscn" id="18_4h5oj"]
+[ext_resource type="PackedScene" path="res://assets/dialogs/dialog_trigger.tscn" id="18_4h5oj"]
 [ext_resource type="Resource" uid="uid://3sq46nuf2xrh" path="res://assets/gamedesign/triggers/test/test_key1.tres" id="18_fjegs"]
 [ext_resource type="PackedScene" uid="uid://ct14vftjs7b14" path="res://assets/stuff/stuff_prefab/barrel_prefab.tscn" id="18_xe0eo"]
 [ext_resource type="Script" path="res://assets/dialogs/speech_line.gd" id="19_o1uo1"]
-[ext_resource type="Resource" uid="uid://ckwg31mfp1ltk" path="res://assets/dialogs/resources/skull_1.tres" id="20_tpsa1"]
+[ext_resource type="Resource" path="res://assets/dialogs/resources/skull_1.tres" id="20_tpsa1"]
 [ext_resource type="Script" path="res://assets/gamedesign/draggable.gd" id="20_tywap"]
-[ext_resource type="Resource" uid="uid://dtidvpe41ev40" path="res://assets/dialogs/resources/skull_2.tres" id="21_w5aug"]
+[ext_resource type="Resource" path="res://assets/dialogs/resources/skull_2.tres" id="21_w5aug"]
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/change_player.gd" id="21_xfjlu"]
-[ext_resource type="Resource" uid="uid://di7agemiphlj3" path="res://assets/dialogs/resources/skull_3.tres" id="22_4yh6t"]
+[ext_resource type="Resource" path="res://assets/dialogs/resources/skull_3.tres" id="22_4yh6t"]
 [ext_resource type="Script" path="res://assets/dialogs/dialog.gd" id="22_d1em6"]
 [ext_resource type="AudioStream" uid="uid://bqudrpbqr5jik" path="res://assets/sound/skull_4.mp3" id="24_e1o85"]
 [ext_resource type="PackedScene" uid="uid://cgtdl00mxbbx5" path="res://assets/gamedesign/cannon/cannon.tscn" id="26_6e2a2"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/chair.tscn" id="26_6wvxa"]
+[ext_resource type="PackedScene" uid="uid://ibaxkd8f0llm" path="res://assets/stuff/stuff_prefab/chair.tscn" id="26_6wvxa"]
 [ext_resource type="PackedScene" uid="uid://0uhl138cen52" path="res://assets/stuff/stuff_prefab/stuff_2_plank_10.tscn" id="27_3iaro"]
 [ext_resource type="PackedScene" uid="uid://d4eok7mcoh8u6" path="res://assets/stuff/stuff_prefab/barrel_prop.tscn" id="30_35x0o"]
+[ext_resource type="PackedScene" uid="uid://cqcivmapg633v" path="res://assets/gamedesign/door/door.tscn" id="30_h57bp"]
 [ext_resource type="PackedScene" uid="uid://cluwd1uwqnk0r" path="res://assets/stuff/stuff_prefab/crate.tscn" id="33_rf4hv"]
 [ext_resource type="AudioStream" uid="uid://c7w7nwsggmjaj" path="res://assets/sound/skull_6.mp3" id="37_613hh"]
-[ext_resource type="LightmapGIData" uid="uid://7mupjvc4b7ew" path="res://assets/ship/ship.lmbake" id="40_p5dxc"]
+[ext_resource type="LightmapGIData" path="res://assets/ship/ship.lmbake" id="40_p5dxc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmvyp"]
 
@@ -291,22 +292,39 @@ gizmo_extents = 1.33
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81303, 0.935166, 1.70117)
 trigger = ExtResource("7_elavf")
 
-[node name="LadderMars2" type="Area3D" parent="ship/Level2" node_paths=PackedStringArray("entrance", "exit")]
+[node name="Gameplay" type="Node3D" parent="ship/Level2"]
+
+[node name="LadderMars2" type="Area3D" parent="ship/Level2/Gameplay" node_paths=PackedStringArray("entrance", "exit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59627, -0.779909)
 script = ExtResource("4_skj3d")
 entrance = NodePath("Marwaker3D")
 exit = NodePath("Marker3D2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level2/LadderMars2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ship/Level2/Gameplay/LadderMars2"]
 shape = SubResource("BoxShape3D_xmvyp")
 
-[node name="Marwaker3D" type="Marker3D" parent="ship/Level2/LadderMars2"]
+[node name="Marwaker3D" type="Marker3D" parent="ship/Level2/Gameplay/LadderMars2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0472474, 0.131231)
 gizmo_extents = 1.33
 
-[node name="Marker3D2" type="Marker3D" parent="ship/Level2/LadderMars2"]
+[node name="Marker3D2" type="Marker3D" parent="ship/Level2/Gameplay/LadderMars2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.389723, -0.149236)
 gizmo_extents = 1.33
+
+[node name="Door" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(-4.37114e-08, 0, -1, -0.175367, 0.984503, 7.66552e-09, 0.984503, 0.175367, -4.3034e-08, -5.62244, 2.41633, -14.5053)
+
+[node name="Door2" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(-4.37114e-08, 0, -1, -0.170209, 0.985408, 7.44009e-09, 0.985408, 0.170209, -4.30735e-08, -3.19353, 3.68269, -19.7245)
+
+[node name="Door3" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.365646, 4.17262, -22.2644)
+
+[node name="Door4" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(-4.26031e-08, 1.38763e-08, 1, 0.158727, 0.987323, -6.93817e-09, -0.987323, 0.158727, -4.42655e-08, 4.24918, 3.66872, -19.4695)
+
+[node name="Door5" parent="ship/Level2/Gameplay" instance=ExtResource("30_h57bp")]
+transform = Transform3D(1.29608e-07, -1.62645e-08, 1, 0.186044, 0.982541, -8.13224e-09, -0.982541, 0.186044, 1.30371e-07, 6.35984, 2.37124, -14.2165)
 
 [node name="Level3" parent="ship" instance=ExtResource("4_nmvmb")]
 
@@ -349,7 +367,7 @@ skeleton = NodePath("../../../../Level1")
 curve = SubResource("Curve3D_w2m83")
 
 [node name="Cannonball" parent="ship/Level3/Gameplay/Cannon/Path3D" index="0"]
-transform = Transform3D(-0.999305, -0.00199295, 0.0369763, -5.83595e-05, 0.998619, 0.0522466, -0.0370301, 0.0522085, -0.997936, -0.794502, -0.450527, 22.1117)
+transform = Transform3D(-0.999305, -0.00199297, 0.0369763, -5.83586e-05, 0.998619, 0.052247, -0.0370301, 0.052209, -0.997936, -0.794503, -0.450535, 22.1117)
 
 [node name="Bottle" parent="ship/Level3/Gameplay" instance=ExtResource("6_50vet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81303, 6.66811, 1.70117)
@@ -421,6 +439,9 @@ light_data = ExtResource("40_p5dxc")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cbfio")
+
+[node name="Door" parent="." instance=ExtResource("30_h57bp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.40318, -4.68611, -0.148296)
 
 [connection signal="taken" from="ship/Level1/Gameplay/Bottle" to="ship/Level1/Gameplay/Bottle/TakeDialog" method="play"]
 [connection signal="triggered" from="ship/Mars" to="." method="recive_bottle"]
