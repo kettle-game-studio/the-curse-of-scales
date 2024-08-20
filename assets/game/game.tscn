@@ -246,7 +246,7 @@ anim_player = NodePath("../AnimationPlayer")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.742, 0.026)
 
 [node name="Player" parent="Level" instance=ExtResource("2_7ojib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17041, 6.34876, -14.025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17041, 8.66017, -14.025)
 
 [node name="Storyteller" type="AudioStreamPlayer" parent="Level"]
 script = ExtResource("7_3ovya")

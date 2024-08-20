@@ -7,17 +7,16 @@ height = 0.56104
 radius = 0.1579
 
 [node name="Lamp" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 gi_mode = 0
 mesh = ExtResource("1_0voyc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
 light_color = Color(0.658854, 0.583842, 0.377343, 1)
-light_energy = 3.808
+light_energy = 4.818
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 11.2439
+omni_range = 13.3194
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

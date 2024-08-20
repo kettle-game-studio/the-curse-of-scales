@@ -11,7 +11,7 @@ mesh = ExtResource("1_nwk2u")
 [node name="OmniLight3D" type="OmniLight3D" parent="LanternCylinder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26, 0)
 light_color = Color(0.658854, 0.59213, 0.345606, 1)
-light_energy = 1.052
+light_energy = 3.17
 light_bake_mode = 1
 shadow_enabled = true
-omni_range = 24.3478
+omni_range = 39.3536

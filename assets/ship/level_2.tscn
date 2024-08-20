@@ -16,7 +16,7 @@
 [ext_resource type="ArrayMesh" uid="uid://vxn8fv8ehdmd" path="res://assets/stuff/stuff_mesh/stuff2_log-05.res" id="11_hduhx"]
 [ext_resource type="PackedScene" uid="uid://ckn0y4p04jfn3" path="res://assets/stuff/stuff_prefab/lamp.tscn" id="12_lbxpq"]
 [ext_resource type="ArrayMesh" uid="uid://beehfm4vp0bqy" path="res://assets/stuff/stuff_mesh/stuff2_log-10.res" id="12_mjeiw"]
-[ext_resource type="Texture2D" uid="uid://bjdiasmuiv388" path="res://assets/menu/main/map2.png" id="13_o6ocx"]
+[ext_resource type="Texture2D" uid="uid://bqt2kb8q4ktap" path="res://assets/menu/main/map2.png" id="13_o6ocx"]
 [ext_resource type="ArrayMesh" uid="uid://b6ym3n54sld4t" path="res://assets/stuff/stuff_mesh/stuff2_log-20.res" id="13_t5qi2"]
 [ext_resource type="ArrayMesh" uid="uid://dqqlkjy5gwbtv" path="res://assets/stuff/stuff_mesh/stuff2_plank-05.res" id="14_js27r"]
 [ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="15_jwxs0"]
@@ -1228,7 +1228,7 @@ transform = Transform3D(0.998755, -0.0451585, -0.0211898, 0.0446817, 0.998749, -
 skeleton = NodePath("../..")
 
 [node name="Lamp8" parent="Illumination" instance=ExtResource("12_lbxpq")]
-transform = Transform3D(0.256091, -0.966112, 0.0323364, -0.0825728, -0.0551929, -0.995055, 0.963119, 0.252155, -0.0939091, -1.8134, -2.14079, -24.6821)
+transform = Transform3D(0.256091, -0.966112, 0.0323364, -0.0825728, -0.0551929, -0.995055, 0.963119, 0.252155, -0.0939091, -0.244981, -2.14079, -24.6821)
 skeleton = NodePath("../..")
 
 [node name="Lamp9" parent="Illumination" instance=ExtResource("12_lbxpq")]
