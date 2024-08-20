@@ -1,11 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpsxip8j60g2h"]
+[gd_scene load_steps=22 format=3 uid="uid://q0e41lhqetv6"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_ff6ry"]
 [ext_resource type="ArrayMesh" uid="uid://dubxwu1sq4jny" path="res://assets/stuff/stuff_mesh/stuff_chest_cap.res" id="2_j1381"]
 [ext_resource type="Resource" uid="uid://drgmpfperrssr" path="res://assets/gamedesign/triggers/keys/golden_key.tres" id="2_xeqm6"]
 [ext_resource type="ArrayMesh" uid="uid://bbfdnms4ifatr" path="res://assets/stuff/stuff_mesh/stuff_chest.res" id="3_82rcl"]
 [ext_resource type="ArrayMesh" uid="uid://dfpt0om0unm04" path="res://assets/stuff/stuff_mesh/stuff_gold_lock.res" id="4_0nimr"]
+[ext_resource type="AudioStream" uid="uid://cou1a4bn7jlan" path="res://assets/gamedesign/chest/unlock.mp3" id="5_gylhh"]
 [ext_resource type="ArrayMesh" uid="uid://bkiv8jgavvtk0" path="res://assets/stuff/stuff_mesh/stuff_shackle.res" id="5_xo2xa"]
+[ext_resource type="AudioStream" uid="uid://dsi2h01tta3ph" path="res://assets/gamedesign/chest/shh.mp3" id="6_ed6pb"]
+[ext_resource type="AudioStream" uid="uid://brg46maset8uw" path="res://assets/gamedesign/chest/skrippp.mp3" id="7_pkhdk"]
+[ext_resource type="AudioStream" uid="uid://c3ppv7a78p5vn" path="res://assets/gamedesign/chest/pum.mp3" id="7_y1qs5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25ows"]
 size = Vector3(1.87988, 0.155762, 0.784912)
@@ -47,7 +51,7 @@ tracks/2/path = NodePath("Lock/StuffGoldLock:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(2.08537e-05, -0.00150743, -0.00693297), Vector3(2.08564e-05, -0.0664308, -0.00693297)]
@@ -59,7 +63,7 @@ tracks/3/path = NodePath("Lock:position")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"times": PackedFloat32Array(0, 0.5, 0.833333, 1.06667, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(7.45058e-09, 0.358669, 0.410922), Vector3(5.96858e-09, 0.358669, 0.410922), Vector3(0.020673, 0.358669, 0.410922), Vector3(0.0413459, 0.358669, 0.410922), Vector3(0.0413459, 0.0862824, 0.410922)]
@@ -71,11 +75,38 @@ tracks/4/path = NodePath("Lock:rotation")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.4, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -4.09617e-08), Vector3(0, 0, -0.792938), Vector3(0, 0, -1.58588), Vector3(0, 0, -1.58588)]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer3D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_gylhh")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_ed6pb")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_y1qs5")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_pkhdk")
+}],
+"times": PackedFloat32Array(0.0333333, 0.5, 1.73333, 2)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_to5cn"]
 length = 0.001
@@ -225,3 +256,8 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, -8.74228e-08, -3.55271e-15, 1, 0, 8.74228e-08, 0, -1, -0.000205689, -0.000265807, -0.0111269)
 mesh = ExtResource("5_xo2xa")
 skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.440292, 0)
+max_distance = 10.0
+bus = &"Sounds"

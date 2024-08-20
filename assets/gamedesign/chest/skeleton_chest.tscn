@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://vxnln255cwxd"]
+[gd_scene load_steps=5 format=3 uid="uid://dus1ik886hfge"]
 
-[ext_resource type="PackedScene" uid="uid://bpsxip8j60g2h" path="res://assets/gamedesign/chest/golden_chest.tscn" id="1_hft85"]
+[ext_resource type="PackedScene" uid="uid://q0e41lhqetv6" path="res://assets/gamedesign/chest/golden_chest.tscn" id="1_hft85"]
 [ext_resource type="Resource" uid="uid://d0mrqx4hbctc0" path="res://assets/gamedesign/triggers/keys/skeleton_key.tres" id="2_a65aw"]
 [ext_resource type="ArrayMesh" uid="uid://jeej83246s7t" path="res://assets/stuff/stuff_mesh/stuff_skelet_lock.res" id="2_x77hf"]
 [ext_resource type="ArrayMesh" uid="uid://bkiv8jgavvtk0" path="res://assets/stuff/stuff_mesh/stuff_shackle.res" id="3_fllbn"]
