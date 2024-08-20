@@ -13,6 +13,6 @@ noise = SubResource("FastNoiseLite_u77d1")
 render_priority = 0
 shader = ExtResource("1_aate7")
 shader_parameter/Color = Color(0.249267, 0.329001, 0.0781281, 1)
-shader_parameter/albedo = Color(0.878673, 0.618085, 0.171482, 1)
+shader_parameter/albedo = Color(0.309804, 0.160784, 0.027451, 1)
 shader_parameter/progress = null
 shader_parameter/noise = SubResource("NoiseTexture3D_aj7vo")

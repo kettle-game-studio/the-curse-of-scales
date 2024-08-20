@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqcivmapg633v"]
+[gd_scene load_steps=17 format=3 uid="uid://cqcivmapg633v"]
 
 [ext_resource type="Script" path="res://assets/gamedesign/triggers/triggable.gd" id="1_12j2c"]
 [ext_resource type="ArrayMesh" uid="uid://edccvnjgkn0q" path="res://assets/stuff/stuff_mesh/door_door.res" id="2_5otj4"]
 [ext_resource type="ArrayMesh" uid="uid://beehfm4vp0bqy" path="res://assets/stuff/stuff_mesh/stuff2_log-10.res" id="3_5nuxm"]
+[ext_resource type="AudioStream" uid="uid://brg46maset8uw" path="res://assets/gamedesign/chest/skrippp.mp3" id="3_vp1xi"]
 [ext_resource type="ArrayMesh" uid="uid://bua6mcpj6obqm" path="res://assets/stuff/stuff_mesh/stuff2_plank-10.res" id="4_0y17r"]
 [ext_resource type="ArrayMesh" uid="uid://dqqlkjy5gwbtv" path="res://assets/stuff/stuff_mesh/stuff2_plank-05.res" id="5_k7xaf"]
 
@@ -23,6 +24,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, -1.99039, 0)]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_vp1xi")
+}],
+"times": PackedFloat32Array(0.0666667)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_xg167"]
 length = 0.001
@@ -127,3 +143,6 @@ skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")
 transform = Transform3D(0.292557, 0.362359, 1.77636e-15, -0.131732, 0.804745, -8.88178e-16, 1.77636e-15, 0, 0.614184, 0.587133, 2.9037, -0.0119599)
 mesh = ExtResource("5_k7xaf")
 skeleton = NodePath("../Hinge/CharacterBody3D/DoorDoor")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.843635, 1.40037, 0)
