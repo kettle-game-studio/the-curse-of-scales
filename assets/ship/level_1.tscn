@@ -11,7 +11,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bttsqm1a6cebl" path="res://assets/ship/parts/ship_Cylinder_016.res" id="9_n64ri"]
 [ext_resource type="ArrayMesh" uid="uid://dlhhje0r7gb8u" path="res://assets/ship/parts/ship_Cylinder_017.res" id="10_t1ors"]
 [ext_resource type="PackedScene" uid="uid://l1jervngx5sm" path="res://assets/stuff/stuff_prefab/lantern.tscn" id="11_gj1kb"]
-[ext_resource type="PackedScene" path="res://assets/stuff/stuff_prefab/door_prop.tscn" id="11_h1451"]
+[ext_resource type="PackedScene" uid="uid://c1kpc0iequwyn" path="res://assets/stuff/stuff_prefab/door_prop.tscn" id="11_h1451"]
 [ext_resource type="ArrayMesh" uid="uid://edccvnjgkn0q" path="res://assets/stuff/stuff_mesh/door_door.res" id="11_y0qeb"]
 [ext_resource type="PackedScene" uid="uid://brw32huyga7vo" path="res://assets/stuff/stuff_prefab/barrel_storage.tscn" id="12_jlae4"]
 [ext_resource type="ArrayMesh" uid="uid://bo6tip00o4res" path="res://assets/stuff/stuff_mesh/stuff2_cannon.res" id="13_7f5a1"]
@@ -616,7 +616,7 @@ transform = Transform3D(1.47976, -1.02125, -0.0857934, 0.98194, 1.45597, -0.3948
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0711498)
 
 [node name="Stuff2Strickleiter" type="MeshInstance3D" parent="Strickleiter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -4.67209, -0.634893)
+transform = Transform3D(1, 0, 0, 0, 0.931545, -0.363625, 0, 0.363625, 0.931545, -0.0614984, -4.61938, -0.830726)
 mesh = ExtResource("26_qgite")
 skeleton = NodePath("../../Wall/StaticBody3D")
 
@@ -1022,6 +1022,419 @@ skeleton = NodePath("../../Wall/StaticBody3D")
 
 [node name="Stuff2Strickleiter64" type="MeshInstance3D" parent="Strickleiter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 26.9352, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Strickleiter2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.0856)
+
+[node name="Stuff2Strickleiter" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 0.931545, -0.363625, 0, 0.363625, 0.931545, -0.0614984, -4.61938, -0.830726)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter2" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -4.16662, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter3" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -3.65173, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter4" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -3.14625, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter5" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -2.66129, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter6" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -2.15581, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter7" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -1.64093, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter8" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -1.13545, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter9" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -0.656366, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter10" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, -0.150893, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter11" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 0.363994, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter12" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 0.869467, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter13" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 1.35444, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter14" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 1.85991, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter15" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 2.3748, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter16" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 2.88027, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter17" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 3.32347, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter18" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 3.82894, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter19" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 4.34383, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter65" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 27.3899, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter66" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 27.9047, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter67" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 28.4102, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter68" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 28.8534, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter69" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 29.3589, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter70" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 29.8738, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter71" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 30.3362, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter72" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 30.851, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter73" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 31.3565, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter74" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 31.7997, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter75" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 32.3052, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter76" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 32.8201, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter77" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 33.3157, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter78" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 33.8306, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter79" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 34.3361, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter80" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 34.7793, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter81" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 35.2847, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter82" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 35.7996, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter20" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 4.8493, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter21" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 5.33427, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter22" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 5.83974, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter23" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 6.35463, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter24" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 6.8601, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter25" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 7.33919, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter26" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 7.84466, -0.634893)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter27" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 4.13442, 0.376806)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter28" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 4.63989, 0.376806)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter29" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 5.12486, 0.376806)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter30" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 5.63033, 0.376806)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter31" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 6.14527, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter32" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 6.65067, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter33" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 7.16207, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter34" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 7.66757, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter35" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 8.18247, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter36" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 8.68797, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter37" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 9.17287, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter38" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 9.67837, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter39" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 10.1933, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter40" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 10.6988, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter41" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 11.1779, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter42" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 11.6833, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter43" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 12.1982, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter44" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 12.7037, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter45" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 13.1887, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter46" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 13.6941, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter47" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 14.209, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter48" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 14.7145, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter49" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 15.1577, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter50" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 15.6632, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter51" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 16.1781, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter52" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 16.6835, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter53" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 17.1685, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter54" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 17.674, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter55" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 18.1889, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter56" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 18.6943, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter57" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 19.1734, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter58" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 19.6789, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter59" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 20.1938, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter60" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 20.6993, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter61" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 21.1842, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter62" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 21.6897, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter63" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 22.2046, 0.369362)
+mesh = ExtResource("26_qgite")
+skeleton = NodePath("../../Wall/StaticBody3D")
+
+[node name="Stuff2Strickleiter64" type="MeshInstance3D" parent="Strickleiter2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0614984, 22.7101, 0.369362)
 mesh = ExtResource("26_qgite")
 skeleton = NodePath("../../Wall/StaticBody3D")
 
